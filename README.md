@@ -1,100 +1,239 @@
-# Next.js & Tailwind CSS Starter Template
+# Next.js Tailwind Template
 
-A production-ready starter template for building modern web applications with a curated, best-practices stack.
+A modern, production-ready Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.
 
----
+![Next.js](https://img.shields.io/badge/Next.js-15.3.4-black)
+![React](https://img.shields.io/badge/React-19.1.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.0-38bdf8)
 
-### **Quick Start & Cheatsheet**
+## ✨ Features
 
-| Task                               | Command / Location                                           |
-| ---------------------------------- | ------------------------------------------------------------ |
-| **Run Dev Server**                 | `npm run dev`                                                |
-| **Run Tests**                      | `npm run test`                                               |
-| **Add a UI Component**             | `npx shadcn@latest add [component-name]`                     |
-| **Create a New Page**              | Add a new folder in `src/app/` (e.g., `src/app/about/page.tsx`) |
-| **Create an API Route**            | Add a new folder in `src/app/api/` (e.g., `src/app/api/users/route.ts`) |
-| **Define CSS Variables**           | `styles/tokens.css`                                          |
-| **Use the Data Fetcher**           | `import fetcher from 'lib/fetcher';`                         |
-| **See the Form Example**           | `src/components/ContactForm.tsx`                             |
+- **⚡ Next.js 15** - Latest Next.js with App Router and Server Components
+- **⚛️ React 19** - Latest React with modern hooks and features
+- **🎨 Tailwind CSS 4** - Utility-first CSS framework with modern features
+- **🧩 shadcn/ui** - Beautiful and accessible UI components built on Radix UI
+- **📝 TypeScript** - Full type safety with strict configuration
+- **🔧 ESLint & Prettier** - Code quality and formatting
+- **🧪 Jest & Testing Library** - Complete testing setup
+- **📱 Responsive Design** - Mobile-first approach with modern design patterns
+- **🌙 Dark Mode Ready** - Built-in dark mode support
+- **🚀 Performance Optimized** - Built with performance best practices
 
----
+## 🏗️ Tech Stack
 
-This template is designed to be a solid foundation for your next project, with a focus on developer experience, performance, and scalability.
+### Core
 
-## Tech Stack
+- [Next.js 15](https://nextjs.org/) - React framework for production
+- [React 19](https://react.dev/) - JavaScript library for user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
 
-This template comes pre-configured with the following technologies:
+### Styling
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) built on top of [Radix UI](https://www.radix-ui.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Data Fetching**: [SWR](https://swr.vercel.app/) with a custom fetcher utility.
-- **Form Management**: [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
-- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)
-- **Future Additions**: The project is set up to easily integrate Motion.dev (animations), Embla Carousel, and Lenis (smooth scrolling).
+- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Re-usable components built using Radix UI
+- [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components
+- [Lucide React](https://lucide.dev/) - Beautiful & consistent icons
 
-## Getting Started
+### Forms & Validation
 
-### Use this Template
-
-The easiest way to get started is to use this repository as a GitHub template.
-
-1.  Click the "**Use this template**" button at the top of the repository page.
-2.  Choose "**Create a new repository**".
-3.  Give your new repository a name, and you're ready to code!
-
-### Scaffolding UI Components
-
-This template uses `shadcn/ui` for its UI components. You can easily add new components from the command line:
-
-```bash
-npx shadcn@latest add [component]
-```
-
-For example, to add an accordion component, you would run: `npx shadcn@latest add accordion`.
-
-## Key Features & Examples
-
-This template isn't just an empty shell; it includes practical examples to get you started.
+- [React Hook Form](https://react-hook-form.com/) - Performant forms with easy validation
+- [Zod](https://zod.dev/) - TypeScript-first schema validation
 
 ### Data Fetching
 
-A reusable data fetching utility is located at `lib/fetcher.ts`. It's a simple wrapper around `fetch` that handles JSON parsing and basic error handling, designed to be used with SWR.
+- [SWR](https://swr.vercel.app/) - Data fetching with caching, revalidation, and more
 
-### Contact Form & API
+### Development
 
-A complete contact form example is included to demonstrate how to handle form submissions.
+- [ESLint](https://eslint.org/) - JavaScript linter
+- [Jest](https://jestjs.io/) - JavaScript testing framework
+- [Testing Library](https://testing-library.com/) - Testing utilities
 
--   **Contact Form Component**: `src/components/ContactForm.tsx`
--   **API Route**: `src/app/api/contact/route.ts`
+## 🚀 Quick Start
 
-This provides a real-world example of using `React Hook Form` for state management, `Zod` for schema validation, and a Next.js API route for the backend logic.
+### Prerequisites
 
-### Testing
+- Node.js 18.18.0 or later
+- npm, yarn, pnpm, or bun
 
-The project is configured for component testing with Jest and React Testing Library.
+### Installation
 
--   **Configuration**: `jest.config.js` and `jest.setup.js`
--   **Example Test**: `__tests__/example.test.tsx`
+1. **Clone the repository**
 
-To run the test suite, use the following command:
+   ```bash
+   git clone <repository-url>
+   cd next-tailwind-template
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   Visit [http://localhost:3000](http://localhost:3000) to see your application.
+
+## 📁 Project Structure
+
+```
+next-tailwind-template/
+├── src/
+│   ├── app/                 # Next.js App Router
+│   │   ├── api/            # API routes
+│   │   ├── globals.css     # Global styles
+│   │   ├── layout.tsx      # Root layout
+│   │   └── page.tsx        # Home page
+│   ├── components/         # React components
+│   │   ├── ui/            # shadcn/ui components
+│   │   └── ContactForm.tsx # Example form component
+│   └── lib/               # Utility functions
+├── styles/                # Design tokens and styles
+├── __tests__/            # Test files
+├── public/               # Static assets
+├── next.config.ts        # Next.js configuration
+├── tailwind.config.ts    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+└── package.json          # Dependencies and scripts
+```
+
+## 🧪 Testing
+
+Run the test suite:
 
 ```bash
 npm run test
+# or
+yarn test
+# or
+pnpm test
 ```
 
-## Learn More
+## 🏗️ Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+Create a production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Start the production server:
 
-## Deploy on Vercel
+```bash
+npm run start
+# or
+yarn start
+# or
+pnpm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Available Components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This template includes several pre-built components from shadcn/ui:
+
+- **Button** - Various button styles and sizes
+- **Card** - Content containers with headers and descriptions
+- **Form** - Form components with validation
+- **Input** - Text input fields
+- **Label** - Form labels
+- **Tabs** - Tabbed interfaces
+- **Dialog** - Modal dialogs
+- **Textarea** - Multi-line text input
+- **Tooltip** - Hover tooltips
+
+### Adding New Components
+
+To add new shadcn/ui components:
+
+```bash
+npx shadcn@latest add [component-name]
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env.local` file for environment variables:
+
+```env
+# Add your environment variables here
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+### Tailwind CSS
+
+Customize Tailwind in `tailwind.config.ts`:
+
+```typescript
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  // Your custom configuration
+};
+```
+
+### Next.js
+
+Configure Next.js in `next.config.ts`:
+
+```typescript
+import type { NextConfig } from "next";
+
+const config: NextConfig = {
+  // Your custom configuration
+};
+```
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) team for the amazing framework
+- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework
+- [shadcn](https://twitter.com/shadcn) for the beautiful UI components
+- [Vercel](https://vercel.com/) for hosting and deployment platform
+
+---
+
+**Happy coding!** 🚀
