@@ -2,10 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ContactForm } from "@/components/ContactForm";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      {/* Header with Theme Toggle */}
+      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4">
+          <div className="flex items-center space-x-2">
+            <h2 className="text-lg font-bold">Next.js Template</h2>
+          </div>
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+      
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -13,8 +26,7 @@ export default function Home() {
             Next.js Tailwind Template
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            A modern, fully-featured Next.js template with Tailwind CSS, shadcn/ui components, 
-            TypeScript, and best practices built-in.
+            A modern, fully-featured Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.
           </p>
           <div className="flex gap-4 justify-center">
             <Button size="lg">Get Started</Button>
@@ -97,7 +109,7 @@ export default function Home() {
           </Card>
         </div>
 
-        {/* Demo Tabs */}
+        {/* Component Examples */}
         <Card className="mb-16">
           <CardHeader>
             <CardTitle>Component Examples</CardTitle>
@@ -110,7 +122,7 @@ export default function Home() {
                 <TabsTrigger value="buttons">Buttons</TabsTrigger>
                 <TabsTrigger value="cards">Cards</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="form" className="space-y-4">
                 <h3 className="text-lg font-semibold">Contact Form with Validation</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
@@ -118,7 +130,7 @@ export default function Home() {
                 </p>
                 <ContactForm />
               </TabsContent>
-              
+
               <TabsContent value="buttons" className="space-y-4">
                 <h3 className="text-lg font-semibold">Button Variants</h3>
                 <div className="flex flex-wrap gap-4">
@@ -135,7 +147,7 @@ export default function Home() {
                   <Button size="lg">Large</Button>
                 </div>
               </TabsContent>
-              
+
               <TabsContent value="cards" className="space-y-4">
                 <h3 className="text-lg font-semibold">Card Components</h3>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -145,9 +157,12 @@ export default function Home() {
                       <CardDescription>This is a sample card component</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm">Cards can contain any content and are fully customizable.</p>
+                      <p className="text-sm">
+                        Cards can contain any content and are fully customizable.
+                      </p>
                     </CardContent>
                   </Card>
+
                   <Card>
                     <CardHeader>
                       <CardTitle>Another Card</CardTitle>
@@ -166,7 +181,9 @@ export default function Home() {
         {/* Footer */}
         <div className="text-center text-gray-500 dark:text-gray-400">
           <p>Built with ❤️ using Next.js, Tailwind CSS, and shadcn/ui</p>
-          <p className="text-sm mt-2">Ready for production • TypeScript • Modern tooling</p>
+          <p className="text-sm mt-2">
+            Ready for production • TypeScript • Modern tooling • Dark Mode Support
+          </p>
         </div>
       </div>
     </main>
