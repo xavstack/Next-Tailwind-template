@@ -1,0 +1,14 @@
+:root {
+  /* brand colors */
+  --color-primary: #1B1B1B;   /* dark charcoal */
+  --color-secondary: #E51764; /* accent pink */
+  --color-background: #FFFFFF;
+  --color-surface: #F4F4F4;
+
+  /* spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+} 
