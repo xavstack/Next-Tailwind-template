@@ -2,19 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ContactForm } from "@/components/ContactForm";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Header with Theme Toggle */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <main className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4">
           <div className="flex items-center space-x-2">
             <h2 className="text-lg font-bold">Next.js Template</h2>
-          </div>
-          <div className="flex items-center space-x-2">
-            <ThemeToggle />
           </div>
         </div>
       </header>
@@ -22,10 +18,10 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Next.js Tailwind Template
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             A modern, fully-featured Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.
           </p>
           <div className="flex gap-4 justify-center">
@@ -42,7 +38,7 @@ export default function Home() {
               <CardDescription>Built with the latest Next.js features</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-muted-foreground">
                 App Router, Server Components, and modern React 19 support.
               </p>
             </CardContent>
@@ -54,7 +50,7 @@ export default function Home() {
               <CardDescription>Utility-first CSS framework</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-muted-foreground">
                 Rapid UI development with modern design system tokens.
               </p>
             </CardContent>
@@ -66,7 +62,7 @@ export default function Home() {
               <CardDescription>Beautiful and accessible components</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-muted-foreground">
                 Production-ready components built with Radix UI primitives.
               </p>
             </CardContent>
@@ -78,7 +74,7 @@ export default function Home() {
               <CardDescription>Type-safe development</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-muted-foreground">
                 Full TypeScript support with strict configuration.
               </p>
             </CardContent>
@@ -90,7 +86,7 @@ export default function Home() {
               <CardDescription>Jest and Testing Library</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-muted-foreground">
                 Complete testing setup with modern testing tools.
               </p>
             </CardContent>
@@ -102,7 +98,7 @@ export default function Home() {
               <CardDescription>ESLint, Prettier, and more</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <p className="text-sm text-muted-foreground">
                 Configured with best practices for modern development.
               </p>
             </CardContent>
@@ -125,7 +121,7 @@ export default function Home() {
 
               <TabsContent value="form" className="space-y-4">
                 <h3 className="text-lg font-semibold">Contact Form with Validation</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-sm text-muted-foreground mb-4">
                   Built with react-hook-form, Zod validation, and includes API route handling.
                 </p>
                 <ContactForm />
@@ -179,10 +175,10 @@ export default function Home() {
         </Card>
 
         {/* Footer */}
-        <div className="text-center text-gray-500 dark:text-gray-400">
+        <div className="text-center text-muted-foreground">
           <p>Built with ❤️ using Next.js, Tailwind CSS, and shadcn/ui</p>
           <p className="text-sm mt-2">
-            Ready for production • TypeScript • Modern tooling • Dark Mode Support
+            Ready for production • TypeScript • Modern tooling • Theme Ready
           </p>
         </div>
       </div>
