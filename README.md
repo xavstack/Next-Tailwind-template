@@ -1,6 +1,25 @@
 # Next.js & Tailwind CSS Starter Template
 
-This is a starter template for building modern web applications with a curated stack of powerful and efficient tools. It's designed to be a solid foundation for your next project, with a focus on developer experience, performance, and scalability.
+A production-ready starter template for building modern web applications with a curated, best-practices stack.
+
+---
+
+### **Quick Start & Cheatsheet**
+
+| Task                               | Command / Location                                           |
+| ---------------------------------- | ------------------------------------------------------------ |
+| **Run Dev Server**                 | `npm run dev`                                                |
+| **Run Tests**                      | `npm run test`                                               |
+| **Add a UI Component**             | `npx shadcn@latest add [component-name]`                     |
+| **Create a New Page**              | Add a new folder in `src/app/` (e.g., `src/app/about/page.tsx`) |
+| **Create an API Route**            | Add a new folder in `src/app/api/` (e.g., `src/app/api/users/route.ts`) |
+| **Define CSS Variables**           | `styles/tokens.css`                                          |
+| **Use the Data Fetcher**           | `import fetcher from 'lib/fetcher';`                         |
+| **See the Form Example**           | `src/components/ContactForm.tsx`                             |
+
+---
+
+This template is designed to be a solid foundation for your next project, with a focus on developer experience, performance, and scalability.
 
 ## Tech Stack
 
