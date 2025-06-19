@@ -28,11 +28,21 @@ export function ThemeProvider({
   storageKey = "next-tailwind-template-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState<Theme>(
-    () => (localStorage?.getItem(storageKey) as Theme) || defaultTheme
-  )
+  const [theme, setTheme] = React.useState<Theme>(defaultTheme)
+  const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {
+    setMounted(true)
+    // Only access localStorage after component mounts (client-side)
+    const stored = localStorage?.getItem(storageKey) as Theme
+    if (stored) {
+      setTheme(stored)
+    }
+  }, [storageKey])
+
+  React.useEffect(() => {
+    if (!mounted) return
+
     const root = window.document.documentElement
 
     root.classList.remove("light", "dark")
@@ -48,14 +58,21 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme)
-  }, [theme])
+  }, [theme, mounted])
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage?.setItem(storageKey, theme)
+      if (typeof window !== "undefined") {
+        localStorage?.setItem(storageKey, theme)
+      }
       setTheme(theme)
     },
+  }
+
+  // Don't render theme-dependent content until mounted
+  if (!mounted) {
+    return <>{children}</>
   }
 
   return (
