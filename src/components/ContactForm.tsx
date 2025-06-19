@@ -59,7 +59,7 @@ export function ContactForm() {
         setStatus("error");
         setMessage("Failed to send message. Please try again later.");
       }
-    } catch (error) {
+    } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
       setStatus("error");
       setMessage("An unexpected error occurred. Please try again later.");
     }

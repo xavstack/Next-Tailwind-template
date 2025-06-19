@@ -1,24 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js & Tailwind CSS Starter Template
+
+This is a starter template for building modern web applications with a curated stack of powerful and efficient tools. It's designed to be a solid foundation for your next project, with a focus on developer experience, performance, and scalability.
+
+## Tech Stack
+
+This template comes pre-configured with the following technologies:
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) built on top of [Radix UI](https://www.radix-ui.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Data Fetching**: [SWR](https://swr.vercel.app/) with a custom fetcher utility.
+- **Form Management**: [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)
+- **Future Additions**: The project is set up to easily integrate Motion.dev (animations), Embla Carousel, and Lenis (smooth scrolling).
 
 ## Getting Started
 
-First, run the development server:
+### Use this Template
+
+The easiest way to get started is to use this repository as a GitHub template.
+
+1.  Click the "**Use this template**" button at the top of the repository page.
+2.  Choose "**Create a new repository**".
+3.  Give your new repository a name, and you're ready to code!
+
+### Scaffolding UI Components
+
+This template uses `shadcn/ui` for its UI components. You can easily add new components from the command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx shadcn@latest add [component]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For example, to add an accordion component, you would run: `npx shadcn@latest add accordion`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Features & Examples
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This template isn't just an empty shell; it includes practical examples to get you started.
+
+### Data Fetching
+
+A reusable data fetching utility is located at `lib/fetcher.ts`. It's a simple wrapper around `fetch` that handles JSON parsing and basic error handling, designed to be used with SWR.
+
+### Contact Form & API
+
+A complete contact form example is included to demonstrate how to handle form submissions.
+
+-   **Contact Form Component**: `src/components/ContactForm.tsx`
+-   **API Route**: `src/app/api/contact/route.ts`
+
+This provides a real-world example of using `React Hook Form` for state management, `Zod` for schema validation, and a Next.js API route for the backend logic.
+
+### Testing
+
+The project is configured for component testing with Jest and React Testing Library.
+
+-   **Configuration**: `jest.config.js` and `jest.setup.js`
+-   **Example Test**: `__tests__/example.test.tsx`
+
+To run the test suite, use the following command:
+
+```bash
+npm run test
+```
 
 ## Learn More
 
