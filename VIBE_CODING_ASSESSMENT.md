@@ -240,20 +240,31 @@ A template that enables **"vibe coding"** - where AI agents can:
 ### Essential Cursor Configuration
 
 - ✅ **Pro Plan**: Active (required for best performance)
-- ✅ **.cursorrules**: Included and enabled in settings
+- ✅ **.cursorrules File**: Included and enabled in settings (project-specific rules)
 - ⚠️ **Generate Memories**: Consider enabling for project learning
-- ⚠️ **User Rules**: Add project-specific preferences
+- ⚠️ **User Rules**: Your personal coding preferences (global across all projects)
 
-### Recommended User Rules to Add:
+### Understanding the Difference:
+
+- **.cursorrules file**: Project-specific rules that travel with the codebase (what we have)
+- **User Rules in Settings**: Your personal preferences that apply to ALL projects
+
+### Recommended User Rules (Global Preferences):
 
 ```
 • Prefer React + Tailwind over other CSS frameworks
 • Use TypeScript strict mode always
-• Follow shadcn/ui patterns for components
-• Use conventional commits (feat:, fix:, chore:)
+• Follow conventional commits (feat:, fix:, chore:)
 • Test changes with npm run lint && npm run build
 • Format code with Prettier before committing
+• Keep answers concise and actionable
 ```
+
+### .cursorrules File Management:
+
+- **Current**: Comprehensive project rules already configured
+- **Evolution**: Update .cursorrules as project needs change
+- **Version Control**: File is tracked in git for team consistency
 
 ### MCP (Model Context Protocol) Setup:
 
