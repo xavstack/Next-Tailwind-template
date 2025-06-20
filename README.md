@@ -1,3 +1,4 @@
+
 # Next.js Tailwind Template
 
 A modern, production-ready Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.
@@ -235,5 +236,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Vercel](https://vercel.com/) for hosting and deployment platform
 
 ---
-
 **Happy coding!** 🚀
