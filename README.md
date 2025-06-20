@@ -207,29 +207,93 @@ This template is optimized for AI-assisted development:
 
 [No blind coding][memory:6026545233071241453]] - Research thoroughly before implementing changes to avoid speculative or incomplete solutions.
 
+## 📋 Development Best Practices
+
+### Code Quality Standards
+
+- **TypeScript Strict Mode** - All code must be type-safe
+- **ESLint + Prettier** - Automated linting and formatting
+- **Component Testing** - Jest + React Testing Library for all components
+- **Conventional Commits** - Structured commit messages for clear history
+- **Single Responsibility** - Keep components focused and composable
+
+### Development Workflow
+
+1. **Create Feature Branch** - `git checkout -b feat/your-feature`
+2. **Install Dependencies** - Use `npx shadcn@latest add [component]` for UI components
+3. **Write Tests First** - TDD approach for new functionality
+4. **Format & Lint** - `npm run format && npm run lint` before commits
+5. **Test Build** - `npm run build` to ensure production readiness
+6. **Commit Changes** - Use conventional commit format
+7. **Merge to Main** - Clean merge with tested code
+
+### Key Commands Reference
+
+```bash
+# Development
+npm run dev              # Start dev server (http://localhost:3000)
+npm run build            # Production build
+npm run start            # Start production server
+
+# Code Quality
+npm run lint             # Check code quality
+npm run lint:fix         # Auto-fix linting issues
+npm run format           # Format code with Prettier
+npm run format:check     # Check if code is formatted
+
+# Testing
+npm run test             # Run all tests
+```
+
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure & File Reference
+
+### Core Configuration Files
+
+| File                            | Purpose              | Description                                           |
+| ------------------------------- | -------------------- | ----------------------------------------------------- |
+| **`.cursorrules`**              | AI Agent Rules       | Comprehensive guidelines for AI-assisted development  |
+| **`.env.example`**              | Environment Template | Documented environment variables with examples        |
+| **`.gitignore`**                | Git Exclusions       | Files and directories to exclude from version control |
+| **`.prettierrc`**               | Code Formatting      | Prettier configuration for consistent code style      |
+| **`README.md`**                 | Documentation        | This comprehensive guide and reference                |
+| **`VIBE_CODING_ASSESSMENT.md`** | Development Log      | Detailed implementation history and status            |
+
+### Build & Configuration Files
+
+| File                     | Purpose                | Description                                         |
+| ------------------------ | ---------------------- | --------------------------------------------------- |
+| **`components.json`**    | shadcn/ui Config       | Configuration for shadcn/ui component management    |
+| **`eslint.config.mjs`**  | Code Linting           | ESLint rules and configuration                      |
+| **`jest.config.js`**     | Testing Config         | Jest testing framework configuration                |
+| **`next.config.ts`**     | Next.js Config         | Next.js framework configuration                     |
+| **`package.json`**       | Dependencies & Scripts | Project dependencies and npm scripts                |
+| **`package-lock.json`**  | Dependency Lock        | Exact dependency versions for reproducible installs |
+| **`postcss.config.mjs`** | CSS Processing         | PostCSS configuration for Tailwind CSS              |
+| **`tailwind.config.ts`** | Tailwind Config        | Tailwind CSS configuration and theme setup          |
+| **`tsconfig.json`**      | TypeScript Config      | TypeScript compiler configuration                   |
+
+### Directory Structure
 
 ```
 Next-Tailwind-Template/
 ├── src/
 │   ├── app/
-│   │   ├── api/contact/          # API routes
+│   │   ├── api/contact/          # API routes with Next.js Route Handlers
 │   │   ├── globals.css           # Global styles with CSS variables
-│   │   ├── layout.tsx            # Root layout
+│   │   ├── layout.tsx            # Root layout with providers
 │   │   └── page.tsx              # Homepage with comprehensive demos
 │   ├── components/
-│   │   ├── ui/                   # shadcn/ui components
+│   │   ├── ui/                   # shadcn/ui components (add via CLI)
 │   │   ├── examples/             # Enhanced capability examples
-│   │   └── ContactForm.tsx       # Form with validation
+│   │   └── ContactForm.tsx       # Form with React Hook Form + Zod
 │   └── lib/
-│       ├── utils.ts              # Utility functions
-│       └── fetcher.ts            # SWR data fetching
-├── __tests__/                    # Test files
-├── .cursorrules                  # AI agent guidelines
-├── .env.example                  # Environment variables template
-└── README.md                     # This file
+│       ├── utils.ts              # Utility functions and cn() helper
+│       └── fetcher.ts            # SWR data fetching utility
+├── __tests__/                    # Jest + React Testing Library tests
+├── public/                       # Static assets (images, icons, etc.)
+└── lib/                          # Additional utility functions
 ```
 
 ---
