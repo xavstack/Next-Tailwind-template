@@ -10,11 +10,15 @@ export async function POST(request: Request) {
     }
 
     // Here you would typically send an email or save to a database
-    console.log({ name, email, message });
+    // For development: console.log({ name, email, message });
+    // TODO: Implement actual email sending or database storage
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(error);
+    // Log error in development, use proper logging service in production
+    if (process.env.NODE_ENV === "development") {
+      console.error("Contact form error:", error);
+    }
     return NextResponse.json({ error: "Something went wrong." }, { status: 500 });
   }
 }

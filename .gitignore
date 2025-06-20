@@ -38,6 +38,7 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 .env*.local
+!.env.example
 
 # vercel
 .vercel
@@ -49,6 +50,32 @@ next-env.d.ts
 # Turbo
 .turbo
 
-# Cursor
+# Cursor (keep .cursorrules for AI agent guidance)
 .cursor*
-.cursorrules
+!.cursorrules
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock

@@ -1,0 +1,159 @@
+# Next Tailwind Template Project Rules
+
+This file provides rules and context for AI agents working on the Next Tailwind Template project.
+
+## 🎯 AI Agent Optimization (Q2 2025)
+
+### Code Generation Principles
+
+- **Consistency First**: Use Prettier formatting (npm run format) before committing
+- **Type Safety**: Always use TypeScript with strict mode enabled
+- **Component Patterns**: Follow shadcn/ui patterns for UI components
+- **Performance**: Prioritize Core Web Vitals and Next.js best practices
+- **Accessibility**: Include ARIA attributes and semantic HTML
+
+### AI Agent Workflow
+
+1. **Understand Context**: Read existing code patterns before generating new code
+2. **Follow Conventions**: Use established naming and structure patterns
+3. **Test Early**: Run `npm run lint` and `npm run build` after changes
+4. **Document Changes**: Update README.md if adding new features
+5. **Commit Properly**: Use conventional commit messages
+
+## 🛠️ Technology Stack & Constraints
+
+- **Framework**: Next.js 15 (App Router only. No Pages Router.)
+- **Styling**: Tailwind CSS. All styling must be done via utility classes. No global CSS outside of `globals.css`.
+- **UI Components**: Primarily use `shadcn/ui` components from `/components/ui`. Add new components via `npx shadcn@latest add [component]`. Do not manually create primitive components.
+- **State Management**: Use React Hooks. For complex form state, use `react-hook-form`.
+- **Data Fetching**: Use `SWR` with the provided `lib/fetcher.ts` utility. Do not install or use `axios`.
+- **Validation**: Use `Zod` for all schema validation, especially with `react-hook-form`.
+- **Testing**: Use `Jest` and `@testing-library/react`. All new components or utilities should have corresponding tests in the `__tests__` directory.
+- **Formatting**: Code must be formatted with Prettier. Run `npm run format` before committing.
+
+## 🚫 Banned Dependencies
+
+- `bootstrap*`
+- `jquery*`
+- `axios`
+- `styled-components` or other CSS-in-JS libraries
+- `@shadcn/ui` package (components should be copied, not installed)
+
+## 📁 Folder Structure
+
+- **API Routes**: `src/app/api/`
+- **UI Components**: `src/components/ui/` (from shadcn)
+- **Custom Components**: `src/components/` (e.g., `ContactForm.tsx`)
+- **Utility Functions**: `lib/`
+- **Global Styles**: `src/app/globals.css`
+- **Static Assets**: `public/`
+- **Tests**: `__tests__/`
+
+## 🔄 Git Workflow & Commit Conventions
+
+### Branch Naming
+
+- **Features**: `feat/description-of-feature`
+- **Bug Fixes**: `fix/description-of-fix`
+- **Chores**: `chore/description-of-task`
+- **Documentation**: `docs/description-of-update`
+
+### Commit Message Format
+
+Follow Conventional Commits specification:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+#### Types:
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, no logic changes)
+- `refactor`: Code refactoring
+- `perf`: Performance improvements
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+
+#### Examples:
+
+```
+feat: add dark mode toggle component
+fix: resolve hydration mismatch in theme provider
+docs: update README with installation instructions
+chore: update dependencies to latest versions
+```
+
+### Development Workflow
+
+1. Create feature branch from `main`
+2. Make changes with frequent, small commits
+3. Run tests: `npm run test`
+4. Run linting: `npm run lint`
+5. Run formatting: `npm run format`
+6. Build check: `npm run build`
+7. Merge to `main` when ready
+
+## 🧪 Testing Requirements
+
+- All new components must have corresponding tests
+- Tests should cover happy path and edge cases
+- Use `@testing-library/react` for component testing
+- Mock external dependencies in tests
+- Aim for meaningful test coverage, not just high percentages
+
+## 🎨 Design System Guidelines
+
+### Colors
+
+- Use CSS variables defined in `globals.css`
+- Semantic color names: `background`, `foreground`, `muted-foreground`, etc.
+- Dark mode ready via CSS variables
+
+### Components
+
+- Keep components small and focused (single responsibility)
+- Use composition over inheritance
+- Props should be typed with TypeScript interfaces
+- Include JSDoc comments for complex components
+
+### Responsive Design
+
+- Mobile-first approach
+- Use Tailwind responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+- Test on multiple screen sizes
+
+## 🔧 Performance Guidelines
+
+- Use Next.js Image component for images
+- Implement proper loading states
+- Use React.memo() for expensive components
+- Lazy load components when appropriate
+- Monitor bundle size with `npm run build`
+
+## 📋 Code Quality Checklist
+
+Before committing, ensure:
+
+- [ ] Code is formatted with Prettier
+- [ ] ESLint passes without warnings
+- [ ] TypeScript compiles without errors
+- [ ] Tests pass
+- [ ] Build succeeds
+- [ ] No console.log statements in production code
+- [ ] Proper error handling implemented
+- [ ] Accessibility considerations addressed
+
+## 🚀 Deployment Considerations
+
+- Environment variables documented in `.env.example`
+- No secrets committed to repository
+- Build optimizations enabled
+- SEO metadata properly configured
+- Error boundaries implemented for production

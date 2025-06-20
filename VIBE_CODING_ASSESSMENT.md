@@ -234,3 +234,35 @@ A template that enables **"vibe coding"** - where AI agents can:
 - Maintain professional code quality standards
 
 **Timeline**: 3 focused sessions, testing after each phase.
+
+## 🎯 Cursor AI Setup Checklist
+
+### Essential Cursor Configuration
+
+- ✅ **Pro Plan**: Active (required for best performance)
+- ✅ **.cursorrules**: Included and enabled in settings
+- ⚠️ **Generate Memories**: Consider enabling for project learning
+- ⚠️ **User Rules**: Add project-specific preferences
+
+### Recommended User Rules to Add:
+
+```
+• Prefer React + Tailwind over other CSS frameworks
+• Use TypeScript strict mode always
+• Follow shadcn/ui patterns for components
+• Use conventional commits (feat:, fix:, chore:)
+• Test changes with npm run lint && npm run build
+• Format code with Prettier before committing
+```
+
+### MCP (Model Context Protocol) Setup:
+
+- **Not Required**: This template is self-contained
+- **Future**: Consider MCP for external API integrations in Phase 2+
+
+### Cursor Performance Tips:
+
+1. **File Indexing**: Let Cursor index the full project (wait for completion)
+2. **Context Windows**: Keep conversations focused on single features
+3. **Branch Strategy**: Use feature branches for AI-assisted development
+4. **Testing Loop**: Always test AI suggestions with our npm scripts
