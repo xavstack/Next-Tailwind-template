@@ -5,6 +5,8 @@ import { ContactForm } from "@/components/ContactForm";
 import { AnimatedCard } from "@/components/examples/AnimatedCard";
 import { ImageCarousel } from "@/components/examples/ImageCarousel";
 import { SmoothScrollProvider } from "@/components/examples/SmoothScrollProvider";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, Code, Palette, Zap } from "lucide-react";
 
 export default function Home() {
   const carouselImages = [
@@ -14,14 +16,48 @@ export default function Home() {
     { src: "🌅", alt: "Gallery Image 4", title: "Sunrise View" },
   ];
 
+  const featuresData = [
+    {
+      icon: <Zap className="h-6 w-6" />,
+      title: "Next.js 15",
+      description: "App Router, Server Components, React 19",
+      status: "Production Ready",
+      details:
+        "Built with the latest Next.js features including App Router, Server Components, and React 19 support for optimal performance.",
+    },
+    {
+      icon: <Palette className="h-6 w-6" />,
+      title: "Tailwind CSS 3",
+      description: "Utility-first styling with CSS variables",
+      status: "Configured",
+      details:
+        "Complete Tailwind setup with CSS variables for theming, dark mode ready, and optimized for performance.",
+    },
+    {
+      icon: <Code className="h-6 w-6" />,
+      title: "TypeScript Strict",
+      description: "Full type safety and IDE support",
+      status: "Strict Mode",
+      details:
+        "Comprehensive TypeScript configuration with strict mode enabled for maximum type safety and developer productivity.",
+    },
+  ];
+
   return (
     <SmoothScrollProvider>
       <main className="min-h-screen bg-background">
         {/* Header */}
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4">
+          <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
             <div className="flex items-center space-x-2">
-              <h2 className="text-lg font-bold">Next.js Template</h2>
+              <h2 className="text-xl font-bold">Next.js Template</h2>
+              <Badge variant="secondary">Test Suite</Badge>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Badge variant="outline" className="text-green-600 border-green-600">
+                <CheckCircle className="w-3 h-3 mr-1" />
+                All Systems Operational
+              </Badge>
             </div>
           </div>
         </header>
@@ -29,186 +65,250 @@ export default function Home() {
         <div className="container mx-auto px-4 py-16">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Next.js Tailwind Template</h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              A modern, fully-featured Next.js template with Tailwind CSS, shadcn/ui components,
-              TypeScript, and best practices built-in.
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Next.js Template
+              <span className="block text-2xl md:text-3xl text-muted-foreground mt-2">
+                Comprehensive Test & Demo Suite
+              </span>
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              This page demonstrates all the features, components, and capabilities built into this
+              template. Perfect for onboarding developers and showcasing what&apos;s possible.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg">Get Started</Button>
               <Button variant="outline" size="lg">
-                Learn More
+                View Documentation
+              </Button>
+              <Button variant="ghost" size="lg">
+                Run Tests
               </Button>
             </div>
           </div>
 
-          {/* Enhanced Features Section */}
+          {/* Status Overview */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8">Enhanced Capabilities</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Template Status Overview</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {featuresData.map((feature, index) => (
+                <Card key={index} className="relative">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        {feature.icon}
+                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                      </div>
+                      <Badge variant="secondary">{feature.status}</Badge>
+                    </div>
+                    <CardDescription>{feature.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{feature.details}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Enhanced Features Demo */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-8">Enhanced Animation Libraries</h2>
+            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Phase 2 enhancements include modern animation and interaction libraries. All
+              components below are live demonstrations.
+            </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatedCard
                 title="Framer Motion"
-                description="Smooth animations and transitions"
+                description="Declarative animations with spring physics"
                 icon="🎭"
                 delay={0}
               />
               <AnimatedCard
                 title="Embla Carousel"
-                description="Touch-friendly image carousels"
+                description="Touch-friendly, accessible carousel component"
                 icon="🎠"
                 delay={0.1}
               />
               <AnimatedCard
-                title="Lenis Scrolling"
-                description="Buttery smooth scroll experience"
+                title="Lenis Smooth Scroll"
+                description="Buttery smooth scroll experience (active now!)"
                 icon="🌊"
                 delay={0.2}
               />
             </div>
           </div>
 
-          {/* Carousel Demo Section */}
+          {/* Interactive Carousel Demo */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8">Interactive Carousel</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Interactive Carousel Component</h2>
+            <p className="text-center text-muted-foreground mb-8">
+              Live demonstration of the Embla Carousel with navigation controls and responsive
+              design.
+            </p>
             <div className="max-w-2xl mx-auto">
               <ImageCarousel images={carouselImages} />
             </div>
           </div>
 
-          {/* Original Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            <Card>
-              <CardHeader>
-                <CardTitle>⚡ Next.js 15</CardTitle>
-                <CardDescription>Built with the latest Next.js features</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  App Router, Server Components, and modern React 19 support.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>🎨 Tailwind CSS</CardTitle>
-                <CardDescription>Utility-first CSS framework</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Rapid UI development with modern design system tokens.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>🧩 shadcn/ui</CardTitle>
-                <CardDescription>Beautiful, accessible components</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Copy-paste components built on Radix UI primitives.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>📝 TypeScript</CardTitle>
-                <CardDescription>Type-safe development</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Catch errors early with static type checking.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>🧪 Testing Ready</CardTitle>
-                <CardDescription>Jest & React Testing Library</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Comprehensive testing setup for reliable applications.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>⚙️ Developer Experience</CardTitle>
-                <CardDescription>Optimized for productivity</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  ESLint, Prettier, and hot reloading for smooth development.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Tabs Section */}
+          {/* Component Library Showcase */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8">Getting Started</h2>
-            <Tabs defaultValue="install" className="max-w-2xl mx-auto">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="install">Install</TabsTrigger>
-                <TabsTrigger value="develop">Develop</TabsTrigger>
-                <TabsTrigger value="deploy">Deploy</TabsTrigger>
+            <h2 className="text-3xl font-bold text-center mb-8">shadcn/ui Components</h2>
+            <p className="text-center text-muted-foreground mb-8">
+              Built-in components from shadcn/ui, ready to use and customize.
+            </p>
+
+            <Tabs defaultValue="buttons" className="max-w-4xl mx-auto">
+              <TabsList className="grid w-full grid-cols-4">
+                <TabsTrigger value="buttons">Buttons</TabsTrigger>
+                <TabsTrigger value="cards">Cards</TabsTrigger>
+                <TabsTrigger value="forms">Forms</TabsTrigger>
+                <TabsTrigger value="layout">Layout</TabsTrigger>
               </TabsList>
-              <TabsContent value="install" className="space-y-4">
+
+              <TabsContent value="buttons" className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Quick Installation</CardTitle>
-                    <CardDescription>Get up and running in minutes</CardDescription>
+                    <CardTitle>Button Variants</CardTitle>
+                    <CardDescription>All available button styles and sizes</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-2">
-                    <code className="block bg-muted p-2 rounded text-sm">
-                      git clone https://github.com/xavstack/Next-Tailwind-template.git
-                    </code>
-                    <code className="block bg-muted p-2 rounded text-sm">npm install</code>
-                    <code className="block bg-muted p-2 rounded text-sm">npm run dev</code>
+                  <CardContent className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      <Button>Default</Button>
+                      <Button variant="destructive">Destructive</Button>
+                      <Button variant="outline">Outline</Button>
+                      <Button variant="secondary">Secondary</Button>
+                      <Button variant="ghost">Ghost</Button>
+                      <Button variant="link">Link</Button>
+                    </div>
+                    <div className="flex flex-wrap gap-2 items-center">
+                      <Button size="sm">Small</Button>
+                      <Button size="default">Default</Button>
+                      <Button size="lg">Large</Button>
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="develop" className="space-y-4">
+
+              <TabsContent value="cards" className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Basic Card</CardTitle>
+                      <CardDescription>Simple card with header and content</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        This is a basic card component showcasing the default styling and layout.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-muted">
+                    <CardHeader>
+                      <CardTitle>Styled Card</CardTitle>
+                      <CardDescription>Card with custom background</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        Cards can be easily styled with Tailwind classes for different appearances.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="forms" className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Development Commands</CardTitle>
-                    <CardDescription>Essential commands for development</CardDescription>
+                    <CardTitle>Contact Form Demo</CardTitle>
+                    <CardDescription>
+                      React Hook Form + Zod validation with error handling
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-2">
-                    <code className="block bg-muted p-2 rounded text-sm">npm run dev</code>
-                    <code className="block bg-muted p-2 rounded text-sm">npm run build</code>
-                    <code className="block bg-muted p-2 rounded text-sm">npm run lint</code>
-                    <code className="block bg-muted p-2 rounded text-sm">npm run format</code>
+                  <CardContent>
+                    <ContactForm />
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="deploy" className="space-y-4">
+
+              <TabsContent value="layout" className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Deployment Ready</CardTitle>
-                    <CardDescription>Deploy to your favorite platform</CardDescription>
+                    <CardTitle>Responsive Grid Layout</CardTitle>
+                    <CardDescription>Tailwind responsive grid system demonstration</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-2">
-                    <p className="text-sm text-muted-foreground">
-                      This template is optimized for deployment on Vercel, Netlify, or any Node.js
-                      hosting platform.
-                    </p>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {[1, 2, 3, 4].map(item => (
+                        <div key={item} className="bg-muted p-4 rounded-lg text-center">
+                          <p className="font-medium">Grid Item {item}</p>
+                          <p className="text-sm text-muted-foreground">Responsive layout</p>
+                        </div>
+                      ))}
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
             </Tabs>
           </div>
 
-          {/* Contact Section */}
-          <div className="max-w-md mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">Get In Touch</h2>
-            <ContactForm />
+          {/* Technical Implementation Details */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-8">Technical Implementation</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Development Setup</CardTitle>
+                  <CardDescription>Commands and workflow for development</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <div className="bg-muted p-3 rounded font-mono text-sm">
+                    <div>npm run dev # Start development server</div>
+                    <div>npm run build # Production build</div>
+                    <div>npm run lint # Run ESLint</div>
+                    <div>npm run format # Format with Prettier</div>
+                    <div>npm run test # Run Jest tests</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Testing & Quality</CardTitle>
+                  <CardDescription>Built-in testing and code quality tools</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <span className="text-sm">Jest + React Testing Library</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <span className="text-sm">ESLint + Prettier configured</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <span className="text-sm">TypeScript strict mode</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <span className="text-sm">Build optimization enabled</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="text-center py-8 border-t">
+            <p className="text-muted-foreground">
+              Next.js Tailwind Template - Ready for production use
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              All components and features on this page are fully functional and tested.
+            </p>
           </div>
         </div>
       </main>

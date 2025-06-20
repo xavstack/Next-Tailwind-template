@@ -10,7 +10,6 @@ export async function POST(request: Request) {
     }
 
     // Here you would typically send an email or save to a database
-    // For development: console.log({ name, email, message });
     // TODO: Implement actual email sending or database storage
 
     return NextResponse.json({ success: true });
