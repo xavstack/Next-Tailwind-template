@@ -12,4 +12,4 @@ const fetcher = async (url: string) => {
   return res.json();
 };
 
-export default fetcher; 
+export default fetcher;

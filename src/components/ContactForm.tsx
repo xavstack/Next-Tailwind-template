@@ -59,7 +59,7 @@ export function ContactForm() {
         setStatus("error");
         setMessage("Failed to send message. Please try again later.");
       }
-    } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
+    } catch {
       setStatus("error");
       setMessage("An unexpected error occurred. Please try again later.");
     }
@@ -109,15 +109,11 @@ export function ContactForm() {
         />
         <Button type="submit">Submit</Button>
         {status && (
-          <p
-            className={`${
-              status === "success" ? "text-green-500" : "text-red-500"
-            } mt-4`}
-          >
+          <p className={`${status === "success" ? "text-green-500" : "text-red-500"} mt-4`}>
             {message}
           </p>
         )}
       </form>
     </Form>
   );
-} 
+}

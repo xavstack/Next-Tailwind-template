@@ -14,19 +14,20 @@ export default function Home() {
           </div>
         </div>
       </header>
-      
+
       <div className="container mx-auto px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Next.js Tailwind Template
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Next.js Tailwind Template</h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            A modern, fully-featured Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.
+            A modern, fully-featured Next.js template with Tailwind CSS, shadcn/ui components,
+            TypeScript, and best practices built-in.
           </p>
           <div className="flex gap-4 justify-center">
             <Button size="lg">Get Started</Button>
-            <Button variant="outline" size="lg">Learn More</Button>
+            <Button variant="outline" size="lg">
+              Learn More
+            </Button>
           </div>
         </div>
 
