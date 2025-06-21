@@ -218,13 +218,17 @@ Optimize [page] for SEO using:
 
 ### Styling & UI
 
-| Technology             | Version | Purpose           | Cheat Sheet                                    |
-| ---------------------- | ------- | ----------------- | ---------------------------------------------- |
-| **Tailwind CSS**       | 3.4     | Utility-First CSS | `className="bg-primary text-white p-4"`        |
-| **@tailwindcss/forms** | Latest  | Form Styling      | Auto-styled inputs, selects, checkboxes        |
-| **shadcn/ui**          | Latest  | Component Library | `npx shadcn@latest add button`                 |
-| **Lucide React**       | Latest  | Icons             | `import { Mail } from "lucide-react"`          |
-| **next-themes**        | 0.4     | Theme System      | `useTheme()` hook, system preference detection |
+| Technology                   | Version | Purpose               | Cheat Sheet                                    |
+| ---------------------------- | ------- | --------------------- | ---------------------------------------------- |
+| **Tailwind CSS**             | 3.4     | Utility-First CSS     | `className="bg-primary text-white p-4"`        |
+| **@tailwindcss/forms**       | 0.5     | Form Styling          | Auto-styled inputs, selects, checkboxes        |
+| **shadcn/ui**                | Latest  | Component Library     | `npx shadcn@latest add button`                 |
+| **Radix UI Primitives**      | Latest  | Accessible Components | Dialog, Dropdown, Label, Slot, Tabs, Tooltip   |
+| **Lucide React**             | 0.518   | Icons                 | `import { Mail } from "lucide-react"`          |
+| **next-themes**              | 0.4     | Theme System          | `useTheme()` hook, system preference detection |
+| **class-variance-authority** | 0.7     | Component Variants    | `cva()` for consistent component APIs          |
+| **clsx**                     | 2.1     | Conditional Classes   | `clsx({ 'active': isActive })`                 |
+| **tailwind-merge**           | 3.3     | Class Merging         | `twMerge()` prevents Tailwind class conflicts  |
 
 ### Animation & Interaction
 
@@ -236,11 +240,12 @@ Optimize [page] for SEO using:
 
 ### Data & State Management
 
-| Technology          | Version | Purpose         | Cheat Sheet                                  |
-| ------------------- | ------- | --------------- | -------------------------------------------- |
-| **SWR**             | 2.3     | Data Fetching   | `useSWR('/api/data', fetcher)`               |
-| **React Hook Form** | Latest  | Form Management | `useForm({ resolver: zodResolver(schema) })` |
-| **Zod**             | Latest  | Validation      | `z.string().min(1, "Required")`              |
+| Technology              | Version | Purpose          | Cheat Sheet                                      |
+| ----------------------- | ------- | ---------------- | ------------------------------------------------ |
+| **SWR**                 | 2.3     | Data Fetching    | `useSWR('/api/data', fetcher)`                   |
+| **React Hook Form**     | 7.58    | Form Management  | `useForm({ resolver: zodResolver(schema) })`     |
+| **Zod**                 | 3.25    | Validation       | `z.string().min(1, "Required")`                  |
+| **@hookform/resolvers** | 5.1     | Form Integration | `zodResolver(schema)` for validation integration |
 
 ### SEO & Performance
 
@@ -251,14 +256,20 @@ Optimize [page] for SEO using:
 
 ### Quality & Development
 
-| Technology                | Version | Purpose             | Cheat Sheet                   |
-| ------------------------- | ------- | ------------------- | ----------------------------- |
-| **ESLint**                | Latest  | Code Linting        | `npm run lint`                |
-| **Prettier**              | Latest  | Code Formatting     | `npm run format`              |
-| **Husky**                 | Latest  | Git Hooks           | Pre-commit quality checks     |
-| **lint-staged**           | Latest  | Staged File Linting | Runs with git commits         |
-| **Jest**                  | Latest  | Testing Framework   | `npm test`                    |
-| **React Testing Library** | Latest  | Component Testing   | `render()`, `screen.getBy*()` |
+| Technology                    | Version | Purpose               | Cheat Sheet                                 |
+| ----------------------------- | ------- | --------------------- | ------------------------------------------- |
+| **TypeScript**                | 5.x     | Type Safety           | Strict mode, interfaces, type checking      |
+| **ESLint**                    | 9.x     | Code Linting          | `npm run lint`, Next.js rules included      |
+| **Prettier**                  | 3.5     | Code Formatting       | `npm run format`, auto-formatting           |
+| **Husky**                     | 9.1     | Git Hooks             | Pre-commit quality checks automation        |
+| **lint-staged**               | 16.1    | Staged File Linting   | Runs linters on git staged files            |
+| **Jest**                      | 30.x    | Testing Framework     | `npm test`, with SWC transformer            |
+| **React Testing Library**     | 16.3    | Component Testing     | `render()`, `screen.getBy*()`               |
+| **@testing-library/jest-dom** | 6.6     | Jest DOM Matchers     | `.toBeInTheDocument()` assertions           |
+| **ts-morph**                  | 26.x    | TypeScript AST        | Code analysis for quality scripts           |
+| **PostCSS**                   | 8.4     | CSS Processing        | Autoprefixer, Tailwind processing           |
+| **Autoprefixer**              | 10.4    | CSS Vendor Prefixes   | Automatic browser compatibility             |
+| **@swc/jest**                 | 0.2     | Fast Jest Transformer | Speedy TypeScript/JSX compilation for tests |
 
 ---
 

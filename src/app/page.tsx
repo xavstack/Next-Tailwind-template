@@ -283,7 +283,7 @@ export default function Home() {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
             <Card className="text-center">
               <CardContent className="pt-6">
                 <div className="text-2xl font-bold text-primary">219kB</div>
@@ -300,6 +300,12 @@ export default function Home() {
               <CardContent className="pt-6">
                 <div className="text-2xl font-bold text-blue-600">3.0s</div>
                 <p className="text-sm text-muted-foreground">Build Time</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="text-2xl font-bold text-orange-600">34+</div>
+                <p className="text-sm text-muted-foreground">Installed Libraries</p>
               </CardContent>
             </Card>
             <Card className="text-center">

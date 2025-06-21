@@ -23,9 +23,11 @@ This file provides rules and context for AI agents working on the Next Tailwind 
 
 #### Animation/Motion Decision Tree:
 
-- **Framer Motion**: Page transitions, component animations, layout animations
-- **React Three Fiber**: 3D scenes, WebGL content, complex 3D interactions
-- **Lottie React**: Vector animations, micro-interactions, exported After Effects
+- **Framer Motion**: Page transitions, component animations, layout animations (INSTALLED)
+- **Embla Carousel**: Touch-friendly carousels, image galleries (INSTALLED)
+- **Lenis**: Smooth scrolling, scroll-based animations (INSTALLED)
+- **React Three Fiber**: 3D scenes, WebGL content (install if needed: `npm i @react-three/fiber three`)
+- **Lottie React**: Vector animations, micro-interactions (install if needed: `npm i lottie-react`)
 
 #### Styling Decision Tree:
 

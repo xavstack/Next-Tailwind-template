@@ -86,11 +86,11 @@ Need to add motion/animation?
 
 **Priority Order:**
 
-1. **Framer Motion** - First choice for component animations
-2. **Embla Carousel** - Carousels and sliding content
-3. **Lenis** - Smooth scrolling (already implemented)
-4. **React Three Fiber** - 3D content (install if needed)
-5. **Lottie React** - Vector animations (install if needed)
+1. **Framer Motion** - First choice for component animations (✅ INSTALLED)
+2. **Embla Carousel** - Carousels and sliding content (✅ INSTALLED)
+3. **Lenis** - Smooth scrolling (✅ INSTALLED)
+4. **React Three Fiber** - 3D content (❌ NOT INSTALLED - `npm i @react-three/fiber three`)
+5. **Lottie React** - Vector animations (❌ NOT INSTALLED - `npm i lottie-react`)
 
 ## 📊 Data Fetching Decision Tree
 
