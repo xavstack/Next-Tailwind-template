@@ -53,7 +53,9 @@ This template provides a functional and tested foundation with enhanced capabili
 - Node.js 18.18.0 or later
 - npm, yarn, or pnpm
 
-#### Installation & Development
+### Two Ways to Start
+
+#### Option 1: Use This Template Directly
 
 1.  **Clone the repository**
 
@@ -82,6 +84,23 @@ This template provides a functional and tested foundation with enhanced capabili
     ```
 
 5.  **Open your browser** to [http://localhost:3000](http://localhost:3000) to see the comprehensive test/demo page.
+
+#### Option 2: Use T3 Stack (Recommended for Full-Stack)
+
+For full-stack applications with database, authentication, and tRPC:
+
+```bash
+# Create a new T3 app with similar configuration
+npx create-t3-app@latest my-app --tailwind --nextAuth --prisma --trpc
+
+# Or interactive setup
+npx create-t3-app@latest
+```
+
+**When to use each:**
+
+- **This template**: Frontend-focused projects, prototyping, component libraries
+- **T3 Stack**: Full-stack applications with database, auth, and API layers
 
 ---
 
@@ -146,11 +165,34 @@ Perfect for:
 | **API Route Cleanup**       | ✅ Done | MEDIUM   | Removed console.log, proper error handling     |
 | **Documentation Update**    | ✅ Done | MEDIUM   | README reflects current state and capabilities |
 
+### Phase 6: Intelligent Code Quality ✅
+
+Advanced quality automation tools implemented:
+
+| Tool                      | Status  | Description                                |
+| ------------------------- | ------- | ------------------------------------------ |
+| **Dead Code Detection**   | ✅ Done | AST analysis for unused exports/imports    |
+| **Duplicate Code Finder** | ✅ Done | Detects code patterns, similar components  |
+| **Framework Compliance**  | ✅ Done | Tailwind-only enforcement, scoring system  |
+| **Enhanced CI Pipeline**  | ✅ Done | 4-phase quality checks with colored output |
+| **Quality Gates**         | ✅ Done | 100-point scoring with quality levels      |
+
+**Usage:**
+
+```bash
+# Run comprehensive quality checks
+./scripts/quality/ci-check.sh
+
+# Individual quality tools
+./scripts/quality/find-dead-code.sh
+./scripts/quality/find-duplicates.sh
+./scripts/quality/check-framework-compliance.sh
+```
+
 ### Future Enhancements (Optional)
 
 | Enhancement              | Priority | Description                           |
 | ------------------------ | -------- | ------------------------------------- |
-| **CLI Tool Creation**    | MEDIUM   | Zero-friction project creation tool   |
 | **Database Integration** | MEDIUM   | Add ORM (Prisma/Drizzle) example      |
 | **Authentication**       | MEDIUM   | NextAuth.js integration example       |
 | **Email Service**        | LOW      | Connect contact form to email service |

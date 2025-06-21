@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+
+# CLI package
+
+
+# Package lock files
+package-lock.json
+npm-shrinkwrap.json
+yarn.lock
+
+# Generated types
+next-env.d.ts
+*.d.ts 
