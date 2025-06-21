@@ -33,13 +33,16 @@ This template provides a functional and tested foundation with enhanced capabili
 | **Linting**       | `ESLint` & `Prettier`            | Strict rules pre-configured. `npm run lint` and `npm run format`.                                 |
 | **API Routes**    | `Next.js Route Handlers`         | `src/app/api/` - Example contact API route included.                                              |
 
-### Enhanced Capabilities (Phase 2 ✅)
+### Enhanced Capabilities (Phase 2-4 ✅)
 
-| Feature           | Library            | Usage & Location                                                                             |
-| :---------------- | :----------------- | :------------------------------------------------------------------------------------------- |
-| **Animations**    | `Framer Motion 12` | `src/components/examples/AnimatedCard.tsx` - Declarative animations with spring physics.     |
-| **Carousels**     | `Embla Carousel 8` | `src/components/examples/ImageCarousel.tsx` - Touch-friendly, accessible carousel component. |
-| **Smooth Scroll** | `Lenis 1.3`        | `src/components/examples/SmoothScrollProvider.tsx` - Buttery smooth scroll experience.       |
+| Feature           | Library              | Usage & Location                                                                                |
+| :---------------- | :------------------- | :---------------------------------------------------------------------------------------------- |
+| **Animations**    | `Framer Motion 12`   | `src/components/examples/AnimatedCard.tsx` - Declarative animations with spring physics.        |
+| **Carousels**     | `Embla Carousel 8`   | `src/components/examples/ImageCarousel.tsx` - Touch-friendly, accessible carousel component.    |
+| **Smooth Scroll** | `Lenis 1.3`          | `src/components/examples/SmoothScrollProvider.tsx` - Buttery smooth scroll experience.          |
+| **Data Fetching** | `SWR 2.3`            | `src/components/examples/SWRExample.tsx` - Complete data fetching patterns with error handling. |
+| **Dark Mode**     | `next-themes 0.4`    | `src/components/ui/theme-toggle.tsx` - Theme switching with system preference detection.        |
+| **Form Styling**  | `@tailwindcss/forms` | Automatic - Enhanced input styling for better form UX.                                          |
 
 ---
 
@@ -95,6 +98,10 @@ npm run lint:fix     # Fix ESLint issues
 npm run format       # Format code with Prettier
 npm run format:check # Check formatting
 npm run test         # Run Jest tests
+
+# Quality Scripts
+./scripts/quality/ci-check.sh          # Comprehensive CI/CD quality check
+./scripts/quality/check-bundle-size.sh # Bundle size validation
 ```
 
 ### Built-in Quality Tools
@@ -153,16 +160,16 @@ Perfect for:
 
 ## 💡 Next Steps
 
-### **Quick Dark Mode Setup (2-Minute Guide)**
+### **Dark Mode Already Implemented ✅**
 
-The architecture is prepared for theming:
+Dark mode is now fully functional (Phase 4A):
 
-1.  **Install `next-themes`**: `npm install next-themes`
-2.  **Create a Theme Provider**: Client component using `ThemeProvider` from `next-themes`
-3.  **Wrap the Root Layout**: Add provider to `src/app/layout.tsx`
-4.  **Create a Theme Toggle**: Button with `setTheme('dark')` / `setTheme('light')`
+- ✅ **next-themes** integrated with ThemeProvider
+- ✅ **Theme Toggle** component in header
+- ✅ **System preference** detection
+- ✅ **CSS variables** for seamless switching
 
-The CSS variables in `globals.css` handle the rest automatically.
+**Usage**: Click the theme toggle in the header or use the `useTheme()` hook in components.
 
 ### **Adding New Components**
 
@@ -193,11 +200,31 @@ const MyComponent = () => (
 
 ---
 
+## 📚 Documentation & Architecture
+
+### For AI Agents & Developers
+
+- **[Architecture Guide](docs/architecture/folder-structure.md)** - Complete project structure and design decisions
+- **[Decision Trees](docs/ai-agents/decision-trees.md)** - Technology choice guidance for AI agents
+- **[Context Files](docs/ai-agents/context-files.md)** - Implementation patterns and conventions
+- **[Official References](docs/references/official-links.md)** - All official documentation links
+
+### Human-Readable Quick Reference
+
+- **[Core Philosophy](#-core-philosophy)** - Project principles and approach
+- **[Tech Stack](#-tech-stack--features)** - What's included and how to use it
+- **[Quality Tools](#-testing--quality)** - Testing, linting, and quality assurance
+
+> **Note**: The `/docs` directory contains comprehensive AI-agent optimized documentation. This README serves as a human-friendly entry point and quick reference.
+
+---
+
 ## 🤖 AI Agent Optimization
 
 This template is optimized for AI-assisted development:
 
-- **`.cursorrules`** - Comprehensive AI agent guidelines
+- **`.cursorrules`** - Project-specific AI agent guidelines
+- **`docs/ai-agents/`** - Decision trees and context files for consistent AI behavior
 - **Consistent Patterns** - Predictable code structure
 - **Type Safety** - TypeScript for better AI understanding
 - **Documentation** - Inline comments and comprehensive README
