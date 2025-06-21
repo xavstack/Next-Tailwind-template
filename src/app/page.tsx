@@ -5,8 +5,10 @@ import { ContactForm } from "@/components/ContactForm";
 import { AnimatedCard } from "@/components/examples/AnimatedCard";
 import { ImageCarousel } from "@/components/examples/ImageCarousel";
 import { SmoothScrollProvider } from "@/components/examples/SmoothScrollProvider";
+import { SWRExample } from "@/components/examples/SWRExample";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Code, Palette, Zap } from "lucide-react";
+import { CheckCircle, Code, Palette, Zap, Database } from "lucide-react";
 
 export default function Home() {
   const carouselImages = [
@@ -41,6 +43,14 @@ export default function Home() {
       details:
         "Comprehensive TypeScript configuration with strict mode enabled for maximum type safety and developer productivity.",
     },
+    {
+      icon: <Database className="h-6 w-6" />,
+      title: "SWR Data Fetching",
+      description: "Smart data fetching with caching",
+      status: "Phase 4A ✨",
+      details:
+        "Configured SWR with custom fetcher, error handling, and revalidation patterns for optimal data management.",
+    },
   ];
 
   return (
@@ -51,9 +61,10 @@ export default function Home() {
           <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
             <div className="flex items-center space-x-2">
               <h2 className="text-xl font-bold">Next.js Template</h2>
-              <Badge variant="secondary">Test Suite</Badge>
+              <Badge variant="secondary">Phase 4A</Badge>
             </div>
             <div className="flex items-center space-x-2">
+              <ThemeToggle />
               <Badge variant="outline" className="text-green-600 border-green-600">
                 <CheckCircle className="w-3 h-3 mr-1" />
                 All Systems Operational
@@ -62,47 +73,45 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto max-w-screen-2xl px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Next.js Template
-              <span className="block text-2xl md:text-3xl text-muted-foreground mt-2">
-                Comprehensive Test & Demo Suite
-              </span>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
+              Next.js Tailwind
+              <span className="text-primary"> Template</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              This page demonstrates all the features, components, and capabilities built into this
-              template. Perfect for onboarding developers and showcasing what&apos;s possible.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+              Production-ready template with modern stack, enhanced with Phase 4A capabilities: dark
+              mode, forms styling, SWR data fetching, and comprehensive environment setup.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex justify-center gap-4">
               <Button size="lg">Get Started</Button>
               <Button variant="outline" size="lg">
-                View Documentation
-              </Button>
-              <Button variant="ghost" size="lg">
-                Run Tests
+                View on GitHub
               </Button>
             </div>
           </div>
 
-          {/* Status Overview */}
+          {/* Features Grid */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8">Template Status Overview</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Core Features</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {featuresData.map((feature, index) => (
-                <Card key={index} className="relative">
+                <Card key={index} className="text-center">
                   <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        {feature.icon}
-                        <CardTitle className="text-lg">{feature.title}</CardTitle>
-                      </div>
-                      <Badge variant="secondary">{feature.status}</Badge>
+                    <div className="mx-auto mb-2 p-3 bg-primary/10 rounded-full w-fit">
+                      {feature.icon}
                     </div>
+                    <CardTitle className="text-lg">{feature.title}</CardTitle>
                     <CardDescription>{feature.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
+                    <Badge
+                      variant={feature.status.includes("Phase 4A") ? "default" : "secondary"}
+                      className="mb-3"
+                    >
+                      {feature.status}
+                    </Badge>
                     <p className="text-sm text-muted-foreground">{feature.details}</p>
                   </CardContent>
                 </Card>
@@ -110,7 +119,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Enhanced Features Demo */}
+          {/* Phase 4A: SWR Data Fetching Demo */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-8">
+              Phase 4A: SWR Data Fetching
+              <Badge variant="default" className="ml-2">
+                New
+              </Badge>
+            </h2>
+            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Comprehensive SWR implementation with the configured fetcher utility, demonstrating
+              loading states, error handling, and revalidation patterns.
+            </p>
+            <SWRExample />
+          </div>
+
+          {/* Enhanced Animation Libraries */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-8">Enhanced Animation Libraries</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -155,7 +179,8 @@ export default function Home() {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-8">shadcn/ui Components</h2>
             <p className="text-center text-muted-foreground mb-8">
-              Built-in components from shadcn/ui, ready to use and customize.
+              Built-in components from shadcn/ui, ready to use and customize. Now with enhanced form
+              styling via @tailwindcss/forms.
             </p>
 
             <Tabs defaultValue="buttons" className="max-w-4xl mx-auto">
@@ -222,7 +247,8 @@ export default function Home() {
                   <CardHeader>
                     <CardTitle>Contact Form Demo</CardTitle>
                     <CardDescription>
-                      React Hook Form + Zod validation with error handling
+                      React Hook Form + Zod validation with error handling. Enhanced with
+                      @tailwindcss/forms styling.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -234,81 +260,55 @@ export default function Home() {
               <TabsContent value="layout" className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Responsive Grid Layout</CardTitle>
-                    <CardDescription>Tailwind responsive grid system demonstration</CardDescription>
+                    <CardTitle>Phase 4A Enhancements</CardTitle>
+                    <CardDescription>
+                      New capabilities added in Phase 4A documentation & best practices
+                      implementation
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {[1, 2, 3, 4].map(item => (
-                        <div key={item} className="bg-muted p-4 rounded-lg text-center">
-                          <p className="font-medium">Grid Item {item}</p>
-                          <p className="text-sm text-muted-foreground">Responsive layout</p>
+                  <CardContent className="space-y-4">
+                    <div className="grid gap-4">
+                      <div className="flex items-center gap-3 p-3 border rounded-lg">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                          <p className="font-medium">Dark Mode Support</p>
+                          <p className="text-sm text-muted-foreground">
+                            next-themes integration with system preference detection
+                          </p>
                         </div>
-                      ))}
+                      </div>
+                      <div className="flex items-center gap-3 p-3 border rounded-lg">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                          <p className="font-medium">Enhanced Form Styling</p>
+                          <p className="text-sm text-muted-foreground">
+                            @tailwindcss/forms plugin for consistent input styling
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 border rounded-lg">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                          <p className="font-medium">Git Quality Gates</p>
+                          <p className="text-sm text-muted-foreground">
+                            Husky + lint-staged for automated code quality
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 p-3 border rounded-lg">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <div>
+                          <p className="font-medium">Environment Setup</p>
+                          <p className="text-sm text-muted-foreground">
+                            Comprehensive .env.example with Java backend patterns
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </TabsContent>
             </Tabs>
-          </div>
-
-          {/* Technical Implementation Details */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-8">Technical Implementation</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Development Setup</CardTitle>
-                  <CardDescription>Commands and workflow for development</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="bg-muted p-3 rounded font-mono text-sm">
-                    <div>npm run dev # Start development server</div>
-                    <div>npm run build # Production build</div>
-                    <div>npm run lint # Run ESLint</div>
-                    <div>npm run format # Format with Prettier</div>
-                    <div>npm run test # Run Jest tests</div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Testing & Quality</CardTitle>
-                  <CardDescription>Built-in testing and code quality tools</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Jest + React Testing Library</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">ESLint + Prettier configured</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">TypeScript strict mode</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
-                      <span className="text-sm">Build optimization enabled</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center py-8 border-t">
-            <p className="text-muted-foreground">
-              Next.js Tailwind Template - Ready for production use
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              All components and features on this page are fully functional and tested.
-            </p>
           </div>
         </div>
       </main>

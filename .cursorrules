@@ -12,13 +12,33 @@ This file provides rules and context for AI agents working on the Next Tailwind 
 - **Performance**: Prioritize Core Web Vitals and Next.js best practices
 - **Accessibility**: Include ARIA attributes and semantic HTML
 
-### AI Agent Workflow
+### AI Agent Workflow & Decision Trees
 
 1. **Understand Context**: Read existing code patterns before generating new code
 2. **Follow Conventions**: Use established naming and structure patterns
-3. **Test Early**: Run `npm run lint` and `npm run build` after changes
-4. **Document Changes**: Update README.md if adding new features
-5. **Commit Properly**: Use conventional commit messages
+3. **Choose Correct Technology**: See decision trees below
+4. **Test Early**: Run `npm run lint` and `npm run build` after changes
+5. **Document Changes**: Update README.md if adding new features
+6. **Commit Properly**: Use conventional commit messages
+
+#### Animation/Motion Decision Tree:
+
+- **Framer Motion**: Page transitions, component animations, layout animations
+- **React Three Fiber**: 3D scenes, WebGL content, complex 3D interactions
+- **Lottie React**: Vector animations, micro-interactions, exported After Effects
+
+#### Styling Decision Tree:
+
+- **Tailwind Utilities**: 99% of all styling (preferred)
+- **@tailwindcss/forms**: Form styling only
+- **CSS Variables**: Theme colors in globals.css only
+- **Custom CSS**: Use globals.css and tiny component-scoped CSS Modules for edge cases only
+
+#### Data Fetching Decision Tree:
+
+- **SWR**: Client-side data fetching (preferred)
+- **Native fetch**: Server-side (API routes, server components)
+- **lib/fetcher.ts**: Use with SWR for consistent error handling
 
 ## 🛠️ Technology Stack & Constraints
 
@@ -29,13 +49,13 @@ This file provides rules and context for AI agents working on the Next Tailwind 
 - **Data Fetching**: Use `SWR` with the provided `lib/fetcher.ts` utility. Do not install or use `axios`.
 - **Validation**: Use `Zod` for all schema validation, especially with `react-hook-form`.
 - **Testing**: Use `Jest` and `@testing-library/react`. All new components or utilities should have corresponding tests in the `__tests__` directory.
-- **Formatting**: Code must be formatted with Prettier. Run `npm run format` before committing.
+- **Formatting**: Code must be formatted with Prettier. Husky pre-commit hook runs `npm run lint && npm run test && npm run format` automatically.
 
 ## 🚫 Banned Dependencies
 
 - `bootstrap*`
 - `jquery*`
-- `axios`
+- `axios` (use SWR + lib/fetcher.ts instead - prevents duplicate HTTP clients)
 - `styled-components` or other CSS-in-JS libraries
 - `@shadcn/ui` package (components should be copied, not installed)
 
@@ -43,11 +63,16 @@ This file provides rules and context for AI agents working on the Next Tailwind 
 
 - **API Routes**: `src/app/api/`
 - **UI Components**: `src/components/ui/` (from shadcn)
+- **Animation Utils**: `src/components/ui/anim/` (reusable motion patterns)
 - **Custom Components**: `src/components/` (e.g., `ContactForm.tsx`)
 - **Utility Functions**: `lib/`
+- **Documentation**: `/docs/` (architecture, references)
+- **Quality Scripts**: `/scripts/` (CI, quality checks)
 - **Global Styles**: `src/app/globals.css`
 - **Static Assets**: `public/`
 - **Tests**: `__tests__/`
+
+**Import Aliases**: Prefer `@/components/...` via tsconfig.paths for cleaner imports
 
 ## 🔄 Git Workflow & Commit Conventions
 
@@ -153,6 +178,7 @@ Before committing, ensure:
 ## 🚀 Deployment Considerations
 
 - Environment variables documented in `.env.example`
+- **Environment Variable Naming**: `NEXT_PUBLIC_*` for client-side, others server-side only
 - No secrets committed to repository
 - Build optimizations enabled
 - SEO metadata properly configured
