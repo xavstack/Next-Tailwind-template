@@ -1,0 +1,58 @@
+{
+  "name": "create-next-tailwind-pro",
+  "version": "1.0.0",
+  "description": "Create Next.js projects with Tailwind CSS, TypeScript, and modern best practices",
+  "keywords": [
+    "nextjs",
+    "tailwindcss",
+    "typescript",
+    "create-next-app",
+    "template",
+    "cli"
+  ],
+  "homepage": "https://github.com/xavstack/Next-Tailwind-Template#readme",
+  "bugs": {
+    "url": "https://github.com/xavstack/Next-Tailwind-Template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavstack/Next-Tailwind-Template.git"
+  },
+  "license": "MIT",
+  "author": "xavstack",
+  "main": "dist/index.js",
+  "bin": {
+    "create-next-tailwind-pro": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "template/**/*"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "validate-npm-package-name": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^8.2.10",
+    "@types/node": "^20.11.5",
+    "@types/validate-npm-package-name": "^4.0.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.18.0",
+    "npm": ">=9.0.0"
+  }
+}
