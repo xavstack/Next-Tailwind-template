@@ -53,7 +53,7 @@ This template provides a functional and tested foundation with enhanced capabili
 - Node.js 18.18.0 or later
 - npm, yarn, or pnpm
 
-### Installation & Development
+#### Installation & Development
 
 1.  **Clone the repository**
 
@@ -148,13 +148,13 @@ Perfect for:
 
 ### Future Enhancements (Optional)
 
-| Enhancement                  | Priority | Description                               |
-| ---------------------------- | -------- | ----------------------------------------- |
-| **Dark Mode Implementation** | MEDIUM   | Next-themes integration (2-minute setup)  |
-| **Database Integration**     | LOW      | Add ORM (Prisma/Drizzle) example          |
-| **Authentication**           | LOW      | NextAuth.js integration example           |
-| **Email Service**            | LOW      | Connect contact form to email service     |
-| **CI/CD Pipeline**           | LOW      | GitHub Actions for testing and deployment |
+| Enhancement              | Priority | Description                           |
+| ------------------------ | -------- | ------------------------------------- |
+| **CLI Tool Creation**    | MEDIUM   | Zero-friction project creation tool   |
+| **Database Integration** | MEDIUM   | Add ORM (Prisma/Drizzle) example      |
+| **Authentication**       | MEDIUM   | NextAuth.js integration example       |
+| **Email Service**        | LOW      | Connect contact form to email service |
+| **Advanced CI/CD**       | LOW      | Extended deployment automation        |
 
 ---
 
