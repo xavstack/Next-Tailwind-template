@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { ContactForm } from "@/components/ContactForm";
 import { AnimatedCard } from "@/components/examples/AnimatedCard";
 import { ImageCarousel } from "@/components/examples/ImageCarousel";
@@ -24,6 +32,7 @@ import {
   Shield,
   Gauge,
   Globe,
+  Component,
 } from "lucide-react";
 
 export default function Home() {
@@ -37,67 +46,118 @@ export default function Home() {
   const capabilitiesData = [
     {
       icon: <Zap className="h-6 w-6" />,
-      title: "Next.js 15 App Router",
-      description: "Server Components, React 19, Turbopack",
-      status: "Production Ready",
-      details: "Latest framework features with optimal SSR/CSR performance.",
-      cheatSheet: "app/layout.tsx for global layout, app/page.tsx for routes",
+      title: "Next.js 15 + React 19",
+      description: "App Router, Server Components, Turbopack",
+      status: "Core Framework",
+      details:
+        "Latest framework features with optimal SSR/CSR performance, server actions, and React 19 features like useOptimistic.",
+      cheatSheet: "app/layout.tsx, app/page.tsx, server actions, async components",
+      techStack: ["next@^15.3.4", "react@^19.1.0", "react-dom@^19.1.0", "typescript@^5"],
     },
     {
       icon: <Palette className="h-6 w-6" />,
-      title: "Tailwind CSS + Forms",
+      title: "Tailwind CSS Ecosystem",
       description: "Utility-first + enhanced form styling",
-      status: "Configured",
-      details: "@tailwindcss/forms provides consistent input styling across browsers.",
-      cheatSheet: "className='bg-primary text-white p-4 rounded-lg'",
+      status: "Styling System",
+      details:
+        "Complete styling ecosystem with Tailwind CSS 3.4, forms plugin, CSS variables for theming, and utility libraries.",
+      cheatSheet: "className='bg-primary text-white p-4 rounded-lg dark:bg-gray-800'",
+      techStack: [
+        "tailwindcss@^3.4.17",
+        "@tailwindcss/forms@^0.5.10",
+        "postcss@^8.4.49",
+        "autoprefixer@^10.4.20",
+      ],
     },
     {
-      icon: <Wand2 className="h-6 w-6" />,
-      title: "Theme System",
-      description: "next-themes with dark/light/system",
-      status: "Phase 4 ✨",
-      details: "Robust theme switching with CSS variables and system preference detection.",
-      cheatSheet: "useTheme() hook, ThemeToggle component, CSS variables",
-    },
-    {
-      icon: <Search className="h-6 w-6" />,
-      title: "SEO Automation",
-      description: "next-seo + structured data helpers",
-      status: "Phase 4 ✨",
-      details: "Comprehensive SEO utilities for pages, blog posts, and products.",
-      cheatSheet: "createPageSEO(), createBlogPostSEO(), JSON-LD schemas",
+      icon: <Component className="h-6 w-6" />,
+      title: "Radix UI + shadcn/ui",
+      description: "Accessible primitives + pre-built components",
+      status: "UI Components",
+      details:
+        "Complete UI system with Radix UI primitives (Dialog, DropdownMenu, Tooltip, Tabs, Label, Slot) and shadcn/ui components.",
+      cheatSheet: "<Dialog>, <DropdownMenu>, <Tooltip>, Button, Card, Badge, Input",
+      techStack: [
+        "@radix-ui/react-dialog@^1.1.14",
+        "@radix-ui/react-dropdown-menu@^2.1.15",
+        "@radix-ui/react-tooltip@^1.2.7",
+        "@radix-ui/react-tabs@^1.1.12",
+        "@radix-ui/react-label@^2.1.7",
+        "@radix-ui/react-slot@^1.2.3",
+        "lucide-react@^0.518.0",
+      ],
     },
     {
       icon: <Sparkles className="h-6 w-6" />,
-      title: "Framer Motion",
-      description: "Declarative animations with physics",
-      status: "Phase 2",
-      details: "Professional animations with spring physics and gesture support.",
-      cheatSheet: "<motion.div animate={{ x: 100 }} transition={{ type: 'spring' }}>",
+      title: "Animation Trinity",
+      description: "Framer Motion + Embla + Lenis",
+      status: "Motion System",
+      details:
+        "Complete animation ecosystem: Framer Motion for component animations, Embla Carousel for touch-friendly carousels, Lenis for smooth scrolling.",
+      cheatSheet: "<motion.div>, useEmblaCarousel(), <ReactLenis>, scroll animations",
+      techStack: ["framer-motion@^12.18.1", "embla-carousel-react@^8.6.0", "lenis@^1.3.4"],
     },
     {
       icon: <Database className="h-6 w-6" />,
-      title: "SWR Data Fetching",
-      description: "Smart caching with revalidation",
-      status: "Phase 4 ✨",
-      details: "Configured SWR with custom fetcher, error handling, and caching patterns.",
-      cheatSheet: "useSWR('/api/data', fetcher) with loading states",
+      title: "Data & Forms Stack",
+      description: "SWR + React Hook Form + Zod",
+      status: "Data Management",
+      details:
+        "Type-safe data fetching with SWR, performant forms with React Hook Form, and schema validation with Zod.",
+      cheatSheet: "useSWR(), useForm(), zodResolver, custom fetcher utility",
+      techStack: [
+        "swr@^2.3.3",
+        "react-hook-form@^7.58.1",
+        "zod@^3.25.67",
+        "@hookform/resolvers@^5.1.1",
+      ],
     },
     {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Quality Gates",
-      description: "Husky + lint-staged automation",
-      status: "Phase 4 ✨",
-      details: "Pre-commit hooks ensure code quality with automated formatting and testing.",
-      cheatSheet: "Runs automatically on git commit - lint, format, test",
+      icon: <Wand2 className="h-6 w-6" />,
+      title: "Utility & Styling Tools",
+      description: "CVA + clsx + tailwind-merge + next-themes",
+      status: "Developer Tools",
+      details:
+        "Powerful utility library: Class Variance Authority for component variants, clsx for conditional classes, tailwind-merge for class optimization, next-themes for theming.",
+      cheatSheet: "cn(), cva(), useTheme(), ThemeToggle, CSS variables",
+      techStack: [
+        "class-variance-authority@^0.7.1",
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.3.1",
+        "next-themes@^0.4.6",
+      ],
     },
     {
       icon: <TestTube className="h-6 w-6" />,
-      title: "Testing Suite",
-      description: "Jest + React Testing Library",
-      status: "Configured",
-      details: "Comprehensive testing setup with component and integration test patterns.",
-      cheatSheet: "render(<Component />), screen.getByText(), expect().toBeInTheDocument()",
+      title: "Testing & Quality Suite",
+      description: "Jest + Testing Library + Quality Tools",
+      status: "Quality Assurance",
+      details:
+        "Comprehensive testing with Jest and Testing Library, plus custom quality tools for dead code detection, duplicate analysis, and framework compliance.",
+      cheatSheet: "render(), screen.getByText(), npm run test, quality scripts",
+      techStack: [
+        "jest@^30.0.2",
+        "@testing-library/react@^16.3.0",
+        "@testing-library/jest-dom@^6.6.3",
+        "ts-morph@^26.0.0",
+      ],
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Development & Build Tools",
+      description: "ESLint + Prettier + Husky + TypeScript",
+      status: "DevX & Quality",
+      details:
+        "Complete development toolchain: ESLint 9 with Next.js config, Prettier formatting, Husky git hooks, lint-staged, and TypeScript 5 with strict mode.",
+      cheatSheet: "npm run lint, npm run format, pre-commit hooks, strict TypeScript",
+      techStack: [
+        "eslint@^9",
+        "prettier@^3.5.3",
+        "husky@^9.1.7",
+        "lint-staged@^16.1.2",
+        "@types/node@^24.0.3",
+        "@types/react@^19.1.8",
+      ],
     },
   ];
 
@@ -262,13 +322,13 @@ export default function Home() {
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
-              Template Onboarding
+              Xav&apos;s Full Stack Template
               <span className="text-primary"> & Quick Start</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Comprehensive guide to all template capabilities: SEO automation, theme system,
-              animations, data fetching, quality gates, and more. Everything you need to build
-              production-ready websites.
+              Complete full-stack template with Next.js 15, Radix UI, Framer Motion, SWR, and 34+
+              integrated libraries. Everything you need for production-ready applications with rich
+              animations, type safety, and quality tooling.
             </p>
             <div className="flex justify-center gap-4">
               <Button size="lg">
@@ -282,70 +342,129 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-16">
+          {/* Tech Stack Overview */}
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-16">
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-primary">219kB</div>
-                <p className="text-sm text-muted-foreground">Total Bundle Size</p>
+                <div className="text-2xl font-bold text-blue-600">Next.js 15</div>
+                <p className="text-sm text-muted-foreground">App Router + React 19</p>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-green-600">100/100</div>
-                <p className="text-sm text-muted-foreground">Quality Score</p>
+                <div className="text-2xl font-bold text-cyan-600">6</div>
+                <p className="text-sm text-muted-foreground">Radix UI Primitives</p>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-blue-600">3.0s</div>
-                <p className="text-sm text-muted-foreground">Build Time</p>
+                <div className="text-2xl font-bold text-pink-600">3</div>
+                <p className="text-sm text-muted-foreground">Animation Libraries</p>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-orange-600">34+</div>
-                <p className="text-sm text-muted-foreground">Installed Libraries</p>
+                <div className="text-2xl font-bold text-green-600">34+</div>
+                <p className="text-sm text-muted-foreground">Total Dependencies</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="text-2xl font-bold text-orange-600">100%</div>
+                <p className="text-sm text-muted-foreground">TypeScript Coverage</p>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardContent className="pt-6">
                 <div className="text-2xl font-bold text-purple-600">8</div>
-                <p className="text-sm text-muted-foreground">Core Features</p>
+                <p className="text-sm text-muted-foreground">Tech Categories</p>
               </CardContent>
             </Card>
           </div>
 
-          {/* Template Capabilities */}
+          {/* Complete Tech Stack */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Complete Template Capabilities</h2>
+            <h2 className="text-3xl font-bold text-center mb-2">Complete Tech Stack</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Everything included in this production-ready template. Click any card to see
-              implementation details and cheat sheets.
+              Comprehensive overview of all 34+ libraries, frameworks, and tools included. Click any
+              card to see the complete dependency list and usage examples.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {capabilitiesData.map((capability, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="mx-auto mb-2 p-3 bg-primary/10 rounded-full w-fit">
-                      {capability.icon}
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <Card className="text-center hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02]">
+                      <CardHeader>
+                        <div className="mx-auto mb-2 p-3 bg-primary/10 rounded-full w-fit">
+                          {capability.icon}
+                        </div>
+                        <CardTitle className="text-lg">{capability.title}</CardTitle>
+                        <CardDescription>{capability.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <Badge variant="secondary" className="mb-3">
+                          {capability.status}
+                        </Badge>
+                        <p className="text-sm text-muted-foreground mb-3">{capability.details}</p>
+                        <Button variant="outline" size="sm" className="w-full">
+                          View Details & Tech Stack
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="flex items-center gap-2">
+                        {capability.icon}
+                        {capability.title}
+                      </DialogTitle>
+                      <DialogDescription>
+                        Complete technical details and dependency information
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">Overview</h4>
+                        <p className="text-sm text-muted-foreground">{capability.details}</p>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold mb-2">Dependencies & Versions</h4>
+                        <div className="space-y-2">
+                          {capability.techStack.map((tech, techIndex) => (
+                            <div
+                              key={techIndex}
+                              className="flex items-center justify-between p-2 bg-muted rounded"
+                            >
+                              <code className="text-sm font-mono">{tech}</code>
+                              <Badge variant="outline" className="text-xs">
+                                Installed
+                              </Badge>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-semibold mb-2">Quick Start Example</h4>
+                        <div className="p-3 bg-muted rounded font-mono text-sm">
+                          {capability.cheatSheet}
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline" className="flex-1">
+                          <Copy className="w-4 h-4 mr-2" />
+                          Copy Example
+                        </Button>
+                        <Button size="sm" variant="outline" className="flex-1">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          View Docs
+                        </Button>
+                      </div>
                     </div>
-                    <CardTitle className="text-lg">{capability.title}</CardTitle>
-                    <CardDescription>{capability.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <Badge
-                      variant={capability.status.includes("Phase") ? "default" : "secondary"}
-                      className="mb-3"
-                    >
-                      {capability.status}
-                    </Badge>
-                    <p className="text-sm text-muted-foreground mb-3">{capability.details}</p>
-                    <div className="p-2 bg-muted rounded text-xs font-mono">
-                      {capability.cheatSheet}
-                    </div>
-                  </CardContent>
-                </Card>
+                  </DialogContent>
+                </Dialog>
               ))}
             </div>
           </div>
@@ -406,40 +525,75 @@ export default function Home() {
 
           {/* AI Prompt Examples */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">AI Prompt Examples</h2>
+            <h2 className="text-3xl font-bold text-center mb-2">AI Prompting Guide</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Use these prompts with AI coding assistants to build features correctly within
-              template constraints.
+              Effective prompts for AI assistants to build features correctly within template
+              constraints. Click to expand detailed examples and explanations.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               {aiPromptExamples.map((example, index) => (
-                <Card key={index} className="relative">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-lg">{example.category}</CardTitle>
-                      <Badge variant="outline">{example.category.split(" ")[0]}</Badge>
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <Card className="relative cursor-pointer hover:shadow-lg transition-all hover:scale-[1.02]">
+                      <CardHeader>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-lg">{example.category}</CardTitle>
+                          <Badge variant="outline">{example.category.split(" ")[0]}</Badge>
+                        </div>
+                        <CardDescription className="line-clamp-2">
+                          {example.prompt.substring(0, 100)}...
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <Button variant="outline" size="sm" className="w-full">
+                          View Full Prompt & Explanation
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="flex items-center gap-2">
+                        <Code className="h-5 w-5" />
+                        {example.category}
+                      </DialogTitle>
+                      <DialogDescription>
+                        Complete prompt example with explanation and best practices
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">Complete AI Prompt:</h4>
+                        <div className="bg-muted p-4 rounded-lg border">
+                          <p className="text-sm font-mono whitespace-pre-wrap">
+                            &ldquo;{example.prompt}&rdquo;
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                        <h4 className="font-semibold mb-2 text-green-800 dark:text-green-200">
+                          Why This Prompt Works:
+                        </h4>
+                        <p className="text-sm text-green-700 dark:text-green-300">
+                          {example.explanation}
+                        </p>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline" className="flex-1">
+                          <Copy className="w-4 h-4 mr-2" />
+                          Copy Prompt
+                        </Button>
+                        <Button size="sm" variant="outline" className="flex-1">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          More Examples
+                        </Button>
+                      </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="bg-muted p-4 rounded-lg">
-                      <p className="text-sm font-medium mb-2">Example Prompt:</p>
-                      <p className="text-sm italic">&ldquo;{example.prompt}&rdquo;</p>
-                    </div>
-                    <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
-                      <p className="text-sm font-medium mb-2 text-green-800 dark:text-green-200">
-                        Why this works:
-                      </p>
-                      <p className="text-sm text-green-700 dark:text-green-300">
-                        {example.explanation}
-                      </p>
-                    </div>
-                    <Button variant="ghost" size="sm" className="w-full">
-                      <Copy className="w-4 h-4 mr-2" />
-                      Copy Prompt
-                    </Button>
-                  </CardContent>
-                </Card>
+                  </DialogContent>
+                </Dialog>
               ))}
             </div>
           </div>
