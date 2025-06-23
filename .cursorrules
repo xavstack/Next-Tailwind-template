@@ -185,3 +185,63 @@ Before committing, ensure:
 - Build optimizations enabled
 - SEO metadata properly configured
 - Error boundaries implemented for production
+
+## 🧠 Contextual AI Guidance System
+
+### When user is working on different file types, provide helpful suggestions:
+
+#### **Page/Layout Files** (`src/app/**/page.tsx`, `layout.tsx`):
+- Suggest using `createPageSEO()` from `lib/seo.ts` for metadata
+- Remind about error.tsx/loading.tsx for better UX
+- Mention available SEO utilities and structured data helpers
+
+#### **Components** (`src/components/**/*.tsx`):
+- Suggest animation patterns from `components/examples/`
+- Remind about creating tests in `__tests__/`
+- Mention accessibility improvements with Radix primitives
+- Point to existing shadcn/ui components before creating custom ones
+
+#### **API Routes** (`src/app/api/**/*.ts`):
+- Recommend Zod validation (see `contact/route.ts` example)
+- Suggest rate limiting for public endpoints  
+- Remind about error sanitization and proper HTTP status codes
+- Mention API testing with MSW patterns
+
+#### **Styling Work** (`tailwind.config.ts`, CSS files):
+- Encourage CSS variables from `globals.css`
+- Remind about dark mode testing
+- Suggest responsive design patterns (mobile-first)
+- Discourage custom CSS outside globals.css
+
+### **Milestone-Based Suggestions**:
+
+#### After completing components:
+- "Consider adding Framer Motion animations (see examples/)"
+- "Don't forget to create a test file in __tests__/"
+- "Check if this component could benefit from Storybook documentation"
+
+#### After API implementation:
+- "Remember to add Zod validation for request/response schemas"
+- "Consider rate limiting if this is a public endpoint"
+- "Add API tests with MSW for error scenarios"
+
+#### Before deployment:
+- "Run quality checks: npm run lint && npm test && npm run build"
+- "Verify environment variables are properly configured"
+- "Consider enabling monitoring/analytics for production"
+
+### **Feature Discovery Prompts**:
+
+When user mentions or works with:
+- **Forms**: Mention React Hook Form + Zod patterns, accessibility testing
+- **Images**: Suggest Next.js Image optimization, carousel components
+- **Data fetching**: Point to SWR examples and error handling patterns
+- **Authentication**: Mention middleware patterns and protected routes
+- **Performance**: Suggest bundle analysis and Lighthouse CI integration
+
+### **Timing Guidelines**:
+- ✅ Suggest after completing files/components
+- ✅ Remind when switching between related areas
+- ✅ Prompt before major milestones (commits, deployment)
+- ❌ Never interrupt active coding flow
+- ❌ Avoid overwhelming with too many suggestions at once
