@@ -82,3 +82,6 @@ pids
 
 # CLI package build artifacts
 
+# Performance testing reports
+lighthouse-reports/
+.next/analyze/
