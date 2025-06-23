@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -16,6 +17,7 @@ import { SmoothScrollProvider } from "@/components/examples/SmoothScrollProvider
 import { SWRExample } from "@/components/examples/SWRExample";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Badge } from "@/components/ui/badge";
+import { createPageMetadata } from "@/lib/seo";
 import {
   CheckCircle,
   Code,
@@ -34,6 +36,35 @@ import {
   Globe,
   Component,
 } from "lucide-react";
+
+// Demonstrate SEO utilities integration
+export const metadata: Metadata = createPageMetadata({
+  title: "Live Demonstrations & Template Showcase",
+  description:
+    "Interactive showcase of Next.js template capabilities including animations, forms, security testing, and modern development tools. See real-time examples of Framer Motion, SWR data fetching, and comprehensive security features.",
+  keywords: [
+    "Next.js template",
+    "React showcase",
+    "Tailwind CSS examples",
+    "TypeScript template",
+    "shadcn/ui components",
+    "Framer Motion animations",
+    "SWR data fetching",
+    "Security testing",
+    "Developer tools",
+  ],
+  openGraph: {
+    title: "Next.js Template - Live Demonstrations",
+    description:
+      "Interactive showcase of modern web development tools and capabilities. Explore animations, security features, and best practices in action.",
+    type: "website",
+  },
+  twitter: {
+    title: "Next.js Template - Live Demonstrations",
+    description:
+      "Interactive showcase with real-time examples of modern web development capabilities.",
+  },
+});
 
 export default function Home() {
   const carouselImages = [

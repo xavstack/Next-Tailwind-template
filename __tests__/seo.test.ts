@@ -1,15 +1,14 @@
-import { createPageSEO, generateOrganizationSchema, generateWebsiteSchema } from "@/lib/seo";
+import { createPageMetadata, generateOrganizationSchema, generateWebsiteSchema } from "@/lib/seo";
 
 describe("SEO utilities", () => {
-  describe("createPageSEO", () => {
+  describe("createPageMetadata", () => {
     it("should create basic page metadata", () => {
-      const result = createPageSEO({
+      const result = createPageMetadata({
         title: "Test Page",
         description: "This is a test page description",
       });
 
       expect(result.title).toBe("Test Page");
-      expect(result.titleTemplate).toBe("%s | Next.js Tailwind Template");
       expect(result.description).toBe("This is a test page description");
       expect(result.openGraph?.title).toBe("Next.js Tailwind Template");
       expect(result.openGraph?.description).toBe(
@@ -18,18 +17,20 @@ describe("SEO utilities", () => {
     });
 
     it("should handle custom canonical URL", () => {
-      const result = createPageSEO({
+      const result = createPageMetadata({
         title: "Test Page",
         description: "Test description",
-        canonical: "https://example.com/custom-url",
+        alternates: {
+          canonical: "/custom-url",
+        },
       });
 
-      expect(result.canonical).toBe("https://example.com/custom-url");
-      expect(result.openGraph?.url).toBe("http://localhost:3000");
+      expect(result.alternates?.canonical).toBe("/custom-url");
+      expect(result.openGraph?.url).toBe("/");
     });
 
     it("should handle custom OpenGraph images", () => {
-      const result = createPageSEO({
+      const result = createPageMetadata({
         title: "Test Page",
         description: "Test description",
         openGraph: {
@@ -53,15 +54,14 @@ describe("SEO utilities", () => {
     });
 
     it("should merge with default configuration", () => {
-      const result = createPageSEO({
+      const result = createPageMetadata({
         title: "Test Page",
         description: "Test description",
       });
 
-      expect(result.titleTemplate).toContain("Next.js Tailwind Template");
       expect(result.openGraph?.type).toBe("website");
       expect(result.openGraph?.locale).toBe("en_US");
-      expect(result.twitter?.cardType).toBe("summary_large_image");
+      expect(result.twitter?.card).toBe("summary_large_image");
     });
   });
 
