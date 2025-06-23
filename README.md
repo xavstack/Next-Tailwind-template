@@ -123,10 +123,24 @@ npm run lint
 npm run format
 ```
 
+## 🧠 Smart AI Guidance
+
+This template includes **contextual AI assistance** that transforms your development experience:
+
+- **📍 File-based suggestions** - Smart reminders based on what you're currently editing
+- **🎯 Milestone prompts** - Contextual guidance after completing features
+- **✨ Feature discovery** - Learn about template capabilities at the right moments
+- **🎨 Best practice reminders** - Non-intrusive tips for optimal code quality
+
+**Quick Start**: Simply ask _"What template features should I consider for this component?"_ or work naturally - the AI provides contextual guidance automatically.
+
+**Full Guide**: [`docs/ai-agents/smart-guidance-implementation.md`](docs/ai-agents/smart-guidance-implementation.md)
+
 ## 📖 Documentation & Resources
 
 - **[🎯 Template Cheat Sheet](./docs/CHEATSHEET.md)** - Quick reference for all technologies and code examples
 - **[🤖 AI Prompting Examples](./docs/AI_PROMPTING_EXAMPLES.md)** - Effective prompts for AI-assisted development
+- **[🧠 Smart AI Guidance](./docs/ai-agents/smart-guidance-implementation.md)** - Contextual development assistance
 - **[🏗️ Architecture Guide](./docs/architecture/folder-structure.md)** - Project structure and organization
 - **[📋 Template Capabilities](./docs/CAPABILITIES.md)** - Comprehensive feature overview
 - **[🎯 AI Agent Guidelines](./docs/ai-agents/)** - Context files for AI development

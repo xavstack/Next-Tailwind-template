@@ -144,6 +144,21 @@ export default function Home() {
     },
     {
       icon: <Shield className="h-6 w-6" />,
+      title: "Security & Protection",
+      description: "CSP + Rate Limiting + Input Validation + Headers",
+      status: "Security System",
+      details:
+        "Comprehensive security implementation: Content Security Policy, API rate limiting, Zod input validation, security headers (HSTS, X-Frame-Options), and CSRF protection.",
+      cheatSheet: "Security middleware, rate limiting, input validation, CSP headers",
+      techStack: [
+        "next/server (middleware)",
+        "zod@^3.25.67",
+        "Content-Security-Policy",
+        "Rate limiting (in-memory)",
+      ],
+    },
+    {
+      icon: <Gauge className="h-6 w-6" />,
       title: "Development & Build Tools",
       description: "ESLint + Prettier + Husky + TypeScript",
       status: "DevX & Quality",
@@ -607,11 +622,12 @@ export default function Home() {
             </p>
 
             <Tabs defaultValue="swr" className="max-w-6xl mx-auto">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-5">
                 <TabsTrigger value="swr">SWR Data</TabsTrigger>
                 <TabsTrigger value="animations">Animations</TabsTrigger>
                 <TabsTrigger value="carousel">Carousel</TabsTrigger>
                 <TabsTrigger value="forms">Forms</TabsTrigger>
+                <TabsTrigger value="security">Security</TabsTrigger>
               </TabsList>
 
               <TabsContent value="swr" className="space-y-6">
@@ -703,6 +719,37 @@ export default function Home() {
                   </CardHeader>
                   <CardContent>
                     <ContactForm />
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="security" className="space-y-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Shield className="h-5 w-5" />
+                      Security Testing Dashboard
+                    </CardTitle>
+                    <CardDescription>
+                      Test rate limiting, CSP policies, input validation, and other security
+                      features. Comprehensive security testing suite for development and auditing.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-center py-8">
+                      <Shield className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+                      <h3 className="text-lg font-semibold mb-2">Security Testing Suite</h3>
+                      <p className="text-muted-foreground mb-4">
+                        Test your application&apos;s security features including rate limiting, CSP
+                        bypass attempts, input validation edge cases, and more.
+                      </p>
+                      <Button asChild>
+                        <a href="/security-test">
+                          <Shield className="w-4 h-4 mr-2" />
+                          Open Security Dashboard
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
