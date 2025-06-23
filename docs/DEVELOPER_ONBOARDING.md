@@ -23,13 +23,13 @@ open http://localhost:3000
 
 ### **2. Activate AI Development Partner**
 
-The template includes contextual AI guidance that adapts to your workflow:
-
 ```bash
-# In Cursor, ask AI about any file you're working on:
-"What template features should I consider for this component?"
-"Show me the best practices for what I'm currently building"
-"What optimization opportunities are available here?"
+# Setup AI guidance system
+npm run setup-ai
+
+# Start getting contextual suggestions:
+"What template features work for this component?"
+"Show me testing patterns for this API"
 ```
 
 ### **3. Explore the Live Demo**
@@ -165,61 +165,14 @@ npm run format  # Prettier formatting
 npm test        # Jest tests
 ```
 
+**For detailed AI prompting strategies** → See [`AI_PROMPTING_EXAMPLES.md`](AI_PROMPTING_EXAMPLES.md)
+
 ---
 
-## 🧠 **AI Guidance System - How It Works**
-
-The template includes smart AI assistance that learns your development patterns:
-
-### **Contextual Suggestions**
-
-**When you're working on different file types:**
-
-| File Type                       | AI Automatically Suggests                       |
-| ------------------------------- | ----------------------------------------------- |
-| `src/components/*.tsx`          | Testing patterns, animations, accessibility     |
-| `src/app/api/*.ts`              | Input validation, rate limiting, error handling |
-| `src/app/**/page.tsx`           | SEO metadata, loading states, error boundaries  |
-| `*.css` or `tailwind.config.ts` | Dark mode, responsive design, CSS variables     |
-
-### **Milestone-Based Prompts**
-
-**AI notices your progress and suggests next steps:**
-
-```bash
-# After completing a component:
-💡 "Consider adding Framer Motion animations (see examples/)"
-💡 "Don't forget to create a test file in __tests__/"
-💡 "Check if this component needs accessibility testing"
-
-# After implementing API routes:
-💡 "Add Zod validation for request/response schemas"
-💡 "Consider rate limiting if this is a public endpoint"
-💡 "Remember to add API tests with error scenarios"
-
-# Before deployment:
-💡 "Run quality checks: npm run lint && npm test && npm run build"
-💡 "Verify environment variables are properly configured"
-💡 "Consider enabling performance monitoring"
-```
-
-### **Feature Discovery**
-
-**AI suggests relevant template features when you need them:**
-
-```bash
-# When working with forms:
-💡 "Use React Hook Form + Zod patterns (see ContactForm.tsx)"
-💡 "Consider @tailwindcss/forms for styling"
-
-# When adding images:
-💡 "Use Next.js Image component for optimization"
-💡 "Consider ImageCarousel for multiple images"
-
-# When implementing animations:
 💡 "Framer Motion examples available in components/examples/"
 💡 "Use Lenis for smooth scrolling effects"
-```
+
+````
 
 ---
 
@@ -269,7 +222,7 @@ export default function DashboardPage() {
     </div>
   );
 }
-```
+````
 
 ### **2. API Routes with Validation**
 

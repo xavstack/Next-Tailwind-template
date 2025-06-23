@@ -1,138 +1,29 @@
-# Next.js + Tailwind CSS Template
+# Next.js + Tailwind Template
 
-A comprehensive, production-ready template built on the **T3 Stack principles** with modern React development tools and best practices.
+**AI-powered development experience** with modern React stack, comprehensive tooling, and intelligent contextual guidance.
 
-## 🚀 T3 Stack Foundation
-
-This template embraces the [T3 Stack philosophy](https://create.t3.gg/) of type safety, simplicity, and modularity while extending it with additional tools for animation, styling, and quality assurance. For new T3 Stack projects with tRPC, Prisma, and NextAuth.js, use `create-t3-app`. This template focuses on frontend excellence with a different but complementary approach.
-
-## 🛠️ Complete Technology Stack
-
-### Core Framework
-
-- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
-- **[React 19](https://react.dev/)** - UI library with latest features
-- **[TypeScript 5](https://www.typescriptlang.org/)** - Type safety and developer experience
-
-### Styling & Design System
-
-- **[Tailwind CSS 3.4](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)** - Form styling plugin
-- **[CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)** - Semantic color system with dark mode
-- **[next-themes](https://github.com/pacocoursey/next-themes)** - Theme switching system
-
-### UI Components & Primitives
-
-- **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible UI primitives:
-  - `@radix-ui/react-dialog` - Modals and overlays
-  - `@radix-ui/react-dropdown-menu` - Context menus
-  - `@radix-ui/react-tooltip` - Hover information
-  - `@radix-ui/react-tabs` - Tabbed interfaces
-  - `@radix-ui/react-label` - Accessible form labels
-  - `@radix-ui/react-slot` - Component composition
-- **[shadcn/ui](https://ui.shadcn.com/)** - Pre-built component library
-- **[Lucide React](https://lucide.dev/)** - Modern icon library
-- **[Class Variance Authority](https://cva.style/)** - Component variant management
-
-### Animation & Motion
-
-- **[Framer Motion 12](https://www.framer.com/motion/)** - Production-ready motion library
-- **[Embla Carousel](https://www.embla-carousel.com/)** - Touch-friendly carousel library
-- **[Lenis](https://lenis.studiofreight.com/)** - Smooth scrolling library
-
-### Data Management & Forms
-
-- **[SWR](https://swr.vercel.app/)** - Data fetching with caching and revalidation
-- **[React Hook Form](https://react-hook-form.com/)** - Performant forms with validation
-- **[Zod](https://zod.dev/)** - TypeScript-first schema validation
-- **[@hookform/resolvers](https://github.com/react-hook-form/resolvers)** - Form validation integration
-
-### Utility Libraries
-
-- **[clsx](https://github.com/lukeed/clsx)** - Conditional className utility
-- **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Tailwind class merging
-- **Custom utilities** - Type-safe helper functions in `lib/`
-
-### Development & Quality Tools
-
-- **[ESLint 9](https://eslint.org/)** - Linting with Next.js config
-- **[Prettier](https://prettier.io/)** - Code formatting
-- **[Jest](https://jestjs.io/)** - Testing framework
-- **[Testing Library](https://testing-library.com/)** - Component testing utilities
-- **[Husky](https://typicode.github.io/husky/)** - Git hooks for quality gates
-- **[lint-staged](https://github.com/okonet/lint-staged)** - Pre-commit file processing
-- **[ts-morph](https://ts-morph.com/)** - TypeScript AST manipulation
-
-### Build & Deployment
-
-- **Node.js 18+** - Runtime environment
-- **npm 9+** - Package manager
-- **[PostCSS](https://postcss.org/)** - CSS processing
-- **[Autoprefixer](https://github.com/postcss/autoprefixer)** - CSS vendor prefixing
-
-## ✨ Key Features
-
-- 🎨 **Modern Design System** - Semantic color system with dark mode support
-- 🎬 **Rich Animations** - Framer Motion, carousels, and smooth scrolling
-- 📱 **Responsive Design** - Mobile-first approach with Tailwind breakpoints
-- 🔍 **Type Safety** - Full TypeScript coverage with strict mode
-- 🧪 **Testing Ready** - Jest and Testing Library configured
-- 📊 **Data Fetching** - SWR integration with custom fetcher utility
-- 🎭 **Component Library** - shadcn/ui components with Radix UI primitives
-- 🔧 **Developer Experience** - Hot reload, linting, formatting, and git hooks
-- 📈 **Code Quality** - Advanced analysis tools for dead code, duplicates, and compliance
-- 🚀 **Production Ready** - Optimized builds and deployment configuration
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── api/               # API routes
-│   ├── globals.css        # Global styles and CSS variables
-│   ├── layout.tsx         # Root layout with providers
-│   └── page.tsx           # Homepage with live examples
-├── components/
-│   ├── ui/                # shadcn/ui and Radix UI components
-│   ├── examples/          # Live demonstration components
-│   ├── providers/         # Context providers (theme, etc.)
-│   └── ContactForm.tsx    # Example form implementation
-└── lib/                   # Utilities and configurations
-    ├── utils.ts           # Shared utility functions
-    ├── fetcher.ts         # SWR data fetching utility
-    └── seo.ts             # SEO and metadata helpers
-```
-
-## 🚀 Quick Start
+## 🚀 **5-Minute Start**
 
 ```bash
-# Install dependencies
-npm install
+# Install and setup
+npm install && npm run setup-ai
 
-# Setup AI guidance system (optional but recommended)
-npm run setup-ai
-
-# Start development server
+# Start development with live demo
 npm run dev
 
-# Open the demo at http://localhost:3000
-# See all features working live + onboarding experience
+# Visit http://localhost:3000 for interactive examples and onboarding
 ```
 
-**New to this template?** → [`docs/DEVELOPER_ONBOARDING.md`](docs/DEVELOPER_ONBOARDING.md) - Complete guided walkthrough
+## 🧠 **AI-Powered Development**
 
-## 🧠 AI-Powered Development Experience
-
-This template transforms how you build with **intelligent contextual assistance**:
-
-### **Contextual Guidance System**
+This template transforms your workflow with **intelligent contextual assistance**:
 
 - **📍 Smart file analysis** - AI understands what you're building and suggests relevant features
 - **🎯 Milestone prompts** - Get guidance after completing components, APIs, or pages
 - **✨ Feature discovery** - Learn template capabilities when you need them
 - **🎨 Workflow integration** - Non-intrusive suggestions that enhance your development flow
 
-### **Quick Start Examples**
+### **Quick AI Examples**
 
 ```bash
 # Ask AI about any file you're working on:
@@ -141,75 +32,75 @@ This template transforms how you build with **intelligent contextual assistance*
 "What optimization opportunities are available here?"
 ```
 
-### **How It Works**
+## 🎯 **What's Included**
 
-1. **Work naturally** - Build components, pages, APIs as usual
-2. **AI observes context** - Understands your file type, imports, patterns
-3. **Get targeted suggestions** - Testing, animations, security, performance
-4. **Discover features** - Learn about template capabilities when relevant
+**Core Stack**: Next.js 15 • React 19 • TypeScript 5 • Tailwind CSS 3.4  
+**UI System**: shadcn/ui components • Radix UI primitives • Lucide icons  
+**Animation**: Framer Motion • Embla Carousel • Lenis smooth scroll  
+**Data & Forms**: SWR • React Hook Form • Zod validation  
+**Quality**: Jest/Testing Library • ESLint/Prettier • Git hooks • AI guidance  
+**Production**: Security headers • Performance optimization • SEO utilities
 
-**Complete Guide**: [`docs/DEVELOPER_ONBOARDING.md`](docs/DEVELOPER_ONBOARDING.md)  
-**AI Technical Details**: [`docs/ai-agents/smart-guidance-implementation.md`](docs/ai-agents/smart-guidance-implementation.md)
+## 📚 **Documentation**
 
-## 📖 Documentation & Resources
+| Resource                                                    | Purpose                                 | Best For                            |
+| ----------------------------------------------------------- | --------------------------------------- | ----------------------------------- |
+| **[🎯 Developer Onboarding](docs/DEVELOPER_ONBOARDING.md)** | Complete guided walkthrough             | First-time users, learning workflow |
+| **[📖 Template Reference](docs/REFERENCE.md)**              | All components, code examples, patterns | Daily development reference         |
+| **[🤖 AI Prompting Guide](docs/AI_PROMPTING_EXAMPLES.md)**  | Effective AI assistance prompts         | Getting better AI suggestions       |
+| **[🧪 Testing Patterns](docs/testing-patterns.md)**         | Component and API testing examples      | Writing comprehensive tests         |
 
-- **[🎯 Template Cheat Sheet](./docs/CHEATSHEET.md)** - Quick reference for all technologies and code examples
-- **[🤖 AI Prompting Examples](./docs/AI_PROMPTING_EXAMPLES.md)** - Effective prompts for AI-assisted development
-- **[🧠 Smart AI Guidance](./docs/ai-agents/smart-guidance-implementation.md)** - Contextual development assistance
-- **[🏗️ Architecture Guide](./docs/architecture/folder-structure.md)** - Project structure and organization
-- **[📋 Template Capabilities](./docs/CAPABILITIES.md)** - Comprehensive feature overview
-- **[🎯 AI Agent Guidelines](./docs/ai-agents/)** - Context files for AI development
+## 🎯 **Use Cases**
 
-## 🎯 Use Cases
+**Perfect For:**
 
-### Perfect For
+- Modern web applications with rich interactions
+- Component libraries and design systems
+- Marketing websites with engaging animations
+- Dashboards and admin panels
+- E-commerce frontends with carousels
 
-- **Modern web applications** requiring rich interactions and animations
-- **Component libraries** and design systems
-- **Marketing websites** with engaging user experiences
-- **Dashboards and admin panels** with complex UI requirements
-- **E-commerce frontends** with carousels and interactive elements
-
-### T3 Stack Integration
-
-While this template focuses on frontend excellence, it pairs perfectly with T3 Stack backend services:
+**T3 Stack Integration:**
 
 ```bash
-# For full-stack T3 applications
-npx create-t3-app@latest my-t3-app
+# For full-stack applications with database/auth
+npx create-t3-app@latest my-app --tailwind --nextAuth --prisma
 
 # For frontend-focused projects (this template)
-git clone <this-repo> my-frontend-app
+git clone https://github.com/xavstack/Next-Tailwind-template.git
 ```
 
-## 🤝 Development Workflow
-
-1. **Start Development**: `npm run dev`
-2. **Create Components**: Use shadcn/ui CLI or build custom components
-3. **Add Animations**: Leverage Framer Motion examples in `src/components/examples/`
-4. **Style with Tailwind**: Use semantic color system and responsive utilities
-5. **Fetch Data**: Implement SWR hooks with the custom fetcher
-6. **Test Components**: Write tests using Jest and Testing Library
-7. **Quality Checks**: Run linting, formatting, and custom quality scripts
-
-## 📊 Quality & Performance
-
-Advanced code analysis tools included:
-
-- **Dead Code Detection** - Find unused exports and components
-- **Duplicate Code Analysis** - Identify copy-paste code patterns
-- **Framework Compliance** - Ensure adherence to best practices
-- **Bundle Size Analysis** - Monitor and optimize bundle size
-- **CI Quality Gates** - Automated quality scoring system
-
-Run quality checks:
+## ⚡ **Development Workflow**
 
 ```bash
-npm run find-dead-code
-npm run find-duplicates
-npm run check-compliance
-npm run check-bundle-size
+# 1. Start development
+npm run dev                    # Hot reload + type checking
+
+# 2. Build components (AI guides you)
+# - Ask AI: "What template features work for this component?"
+# - Use live examples: src/components/examples/
+# - Reference: docs/REFERENCE.md
+
+# 3. Quality checks (automatic on commit)
+npm test                       # Jest + Testing Library
+npm run lint                   # ESLint + auto-fix
+npm run format                 # Prettier formatting
+
+# 4. Advanced analysis
+./scripts/quality/ci-check.sh  # 100-point quality scoring
 ```
+
+## 🚀 **AI-First Development**
+
+This template is optimized for **Cursor AI** and similar tools:
+
+- ✅ **Predictable patterns** - Consistent file structure and naming
+- ✅ **Type-safe contracts** - Clear interfaces for AI understanding
+- ✅ **Live examples** - Working patterns for AI reference
+- ✅ **Quality automation** - Automatic error catching and formatting
+- ✅ **Contextual guidance** - Smart suggestions based on current work
+
+**How it works**: AI observes your file context → suggests relevant template features → guides implementation → quality tools ensure correctness.
 
 ## 🔧 Customization
 
