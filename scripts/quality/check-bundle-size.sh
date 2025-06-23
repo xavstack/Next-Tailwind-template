@@ -1,47 +1,84 @@
 #!/bin/bash
 
-# =============================================================================
-# Bundle Size Check Script
-# =============================================================================
-# Verifies that the Next.js bundle size stays within acceptable limits
-# Usage: ./scripts/quality/check-bundle-size.sh
+# Enhanced Bundle Size Check Script for Next.js Template
+# Checks bundle sizes and fails if they exceed reasonable limits
 
 set -e
 
-echo "🔍 Checking bundle size..."
+echo "🔍 Running bundle size analysis..."
 
-# Build the project
-npm run build > build-output.txt 2>&1
+# Build the project to get fresh bundle sizes
+echo "📦 Building project for bundle analysis..."
+npm run build > /dev/null 2>&1
 
-# Extract bundle size information
-FIRST_LOAD_JS=$(grep "First Load JS" build-output.txt | head -1 | grep -o '[0-9]* kB' | head -1 | sed 's/ kB//')
+# Define size limits (in kB)
+MAX_MAIN_BUNDLE_SIZE=250
+MAX_PAGE_BUNDLE_SIZE=150
+MAX_TOTAL_JS_SIZE=400
 
-if [ -z "$FIRST_LOAD_JS" ]; then
-    echo "❌ Could not extract bundle size from build output"
-    cat build-output.txt
-    rm build-output.txt
+# Extract bundle sizes from Next.js build output
+echo "📊 Analyzing bundle sizes..."
+
+# Run build again to capture output
+BUILD_OUTPUT=$(npm run build 2>&1)
+
+# Extract main bundle size (from the main route /)
+MAIN_BUNDLE_SIZE=$(echo "$BUILD_OUTPUT" | grep -E "┌ ○ /" | grep -oE "[0-9]+(\.[0-9]+)? kB" | head -1 | grep -oE "[0-9]+(\.[0-9]+)?")
+
+# Extract First Load JS size (from the main route /)
+FIRST_LOAD_SIZE=$(echo "$BUILD_OUTPUT" | grep -E "┌ ○ /" | grep -oE "[0-9]+(\.[0-9]+)? kB" | tail -1 | grep -oE "[0-9]+(\.[0-9]+)?")
+
+# Check if we got valid sizes
+if [ -z "$MAIN_BUNDLE_SIZE" ] || [ -z "$FIRST_LOAD_SIZE" ]; then
+    echo "❌ Could not extract bundle sizes from build output"
+    echo "Build output:"
+    echo "$BUILD_OUTPUT"
     exit 1
 fi
 
-echo "📦 Current bundle size: ${FIRST_LOAD_JS}kB"
+echo "📈 Bundle Size Analysis:"
+echo "  Main Bundle: ${MAIN_BUNDLE_SIZE} kB"
+echo "  First Load JS: ${FIRST_LOAD_SIZE} kB"
 
-# Define thresholds
-WARN_THRESHOLD=300
-ERROR_THRESHOLD=500
+# Convert to integers for comparison (remove decimal points)
+MAIN_SIZE_INT=$(echo "$MAIN_BUNDLE_SIZE" | cut -d. -f1)
+FIRST_LOAD_INT=$(echo "$FIRST_LOAD_SIZE" | cut -d. -f1)
 
-# Check against thresholds
-if [ "$FIRST_LOAD_JS" -gt "$ERROR_THRESHOLD" ]; then
-    echo "🚨 ERROR: Bundle size ${FIRST_LOAD_JS}kB exceeds ${ERROR_THRESHOLD}kB limit!"
-    echo "   Please optimize bundle size before proceeding."
-    rm build-output.txt
+# Check main bundle size
+if [ "$MAIN_SIZE_INT" -gt "$MAX_MAIN_BUNDLE_SIZE" ]; then
+    echo "❌ Main bundle size (${MAIN_BUNDLE_SIZE} kB) exceeds limit (${MAX_MAIN_BUNDLE_SIZE} kB)"
     exit 1
-elif [ "$FIRST_LOAD_JS" -gt "$WARN_THRESHOLD" ]; then
-    echo "⚠️  WARNING: Bundle size ${FIRST_LOAD_JS}kB exceeds ${WARN_THRESHOLD}kB recommended limit"
-    echo "   Consider optimizing for better performance."
-    rm build-output.txt
-    exit 0
-else
-    echo "✅ Bundle size ${FIRST_LOAD_JS}kB is within optimal range (<${WARN_THRESHOLD}kB)"
-    rm build-output.txt
-    exit 0
-fi 
+fi
+
+# Check first load JS size
+if [ "$FIRST_LOAD_INT" -gt "$MAX_TOTAL_JS_SIZE" ]; then
+    echo "❌ First Load JS size (${FIRST_LOAD_SIZE} kB) exceeds limit (${MAX_TOTAL_JS_SIZE} kB)"
+    exit 1
+fi
+
+echo "✅ Bundle sizes are within acceptable limits"
+
+# Check for suspicious large chunks
+echo "🔍 Checking for large chunks..."
+LARGE_CHUNKS=$(echo "$BUILD_OUTPUT" | grep -E "[0-9]+(\.[0-9]+)? kB" | grep -oE "[0-9]+(\.[0-9]+)? kB" | while read chunk; do
+    size=$(echo "$chunk" | grep -oE "[0-9]+(\.[0-9]+)?")
+    size_int=$(echo "$size" | cut -d. -f1)
+    if [ "$size_int" -gt 100 ]; then
+        echo "⚠️  Large chunk detected: ${chunk}"
+    fi
+done)
+
+if [ -n "$LARGE_CHUNKS" ]; then
+    echo "$LARGE_CHUNKS"
+    echo "💡 Consider code splitting for chunks over 100kB"
+fi
+
+# Generate bundle analysis report if requested
+if [ "$1" = "--analyze" ]; then
+    echo "📊 Generating detailed bundle analysis..."
+    npm run analyze > /dev/null 2>&1
+    echo "✅ Bundle analysis report generated"
+    echo "📂 Open .next/analyze/client.html to view detailed analysis"
+fi
+
+echo "🎯 Bundle size check completed successfully" 
