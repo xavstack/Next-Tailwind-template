@@ -12,7 +12,7 @@ const securityHeaders: Record<string, string> = {
     "style-src 'self' 'unsafe-inline'", // Tailwind requires unsafe-inline
     "img-src 'self' data: https:",
     "font-src 'self' data:",
-    "connect-src 'self'",
+    "connect-src 'self' https://jsonplaceholder.typicode.com https://api.github.com", // Allow demo APIs
     "frame-ancestors 'none'",
   ].join("; "),
   "X-Frame-Options": "DENY",
