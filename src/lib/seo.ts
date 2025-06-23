@@ -1,23 +1,40 @@
-import { NextSeoProps } from "next-seo";
+import { Metadata } from "next";
 
-// Base SEO configuration
-export const defaultSEOConfig: NextSeoProps = {
-  title: "Next.js Tailwind Template",
-  titleTemplate: "%s | Next.js Tailwind Template",
+// Base SEO configuration for Next.js App Router
+export const defaultMetadata: Metadata = {
+  title: {
+    default: "Next.js Tailwind Template",
+    template: "%s | Next.js Tailwind Template",
+  },
   description:
     "A modern, production-ready Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.",
-  canonical: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  keywords: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "TypeScript",
+    "shadcn/ui",
+    "Template",
+    "Framer Motion",
+    "SWR",
+  ],
+  authors: [{ name: "Next.js Tailwind Template" }],
+  creator: "Next.js Tailwind Template",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    url: "/",
     siteName: "Next.js Tailwind Template",
     title: "Next.js Tailwind Template",
     description:
       "A modern, production-ready Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/og-image.jpg`,
+        url: `/og-image.jpg`,
         width: 1200,
         height: 630,
         alt: "Next.js Tailwind Template",
@@ -26,63 +43,53 @@ export const defaultSEOConfig: NextSeoProps = {
     ],
   },
   twitter: {
-    handle: "@yourtwitterhandle",
+    card: "summary_large_image",
     site: "@yourtwitterhandle",
-    cardType: "summary_large_image",
+    creator: "@yourtwitterhandle",
+    title: "Next.js Tailwind Template",
+    description:
+      "A modern, production-ready Next.js template with Tailwind CSS, shadcn/ui components, TypeScript, and best practices built-in.",
   },
-  additionalMetaTags: [
-    {
-      name: "keywords",
-      content: "Next.js, React, Tailwind CSS, TypeScript, shadcn/ui, Template, Framer Motion, SWR",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
-    {
-      name: "author",
-      content: "Next.js Tailwind Template",
-    },
-    {
-      name: "viewport",
-      content: "width=device-width, initial-scale=1",
-    },
-    {
-      httpEquiv: "x-ua-compatible",
-      content: "IE=edge",
-    },
-  ],
-  additionalLinkTags: [
-    {
-      rel: "icon",
-      href: "/favicon.ico",
-    },
-    {
-      rel: "apple-touch-icon",
-      href: "/favicon.ico",
-      sizes: "76x76",
-    },
-    {
-      rel: "manifest",
-      href: "/manifest.json",
-    },
-  ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  other: {
+    "format-detection": "telephone=no, date=no, email=no, address=no",
+  },
 };
 
-// Page-specific SEO helpers
-export const createPageSEO = (overrides: Partial<NextSeoProps>): NextSeoProps => {
+// Page-specific SEO helpers for Next.js App Router
+export const createPageMetadata = (overrides: Metadata): Metadata => {
   return {
-    ...defaultSEOConfig,
+    ...defaultMetadata,
     ...overrides,
+    title: overrides.title || defaultMetadata.title,
     openGraph: {
-      ...defaultSEOConfig.openGraph,
+      ...defaultMetadata.openGraph,
       ...overrides.openGraph,
     },
     twitter: {
-      ...defaultSEOConfig.twitter,
+      ...defaultMetadata.twitter,
       ...overrides.twitter,
     },
   };
 };
 
-// Blog post SEO configuration
-export const createBlogPostSEO = ({
+// Blog post SEO configuration for Next.js App Router
+export const createBlogPostMetadata = ({
   title,
   description,
   slug,
@@ -98,25 +105,26 @@ export const createBlogPostSEO = ({
   author: string;
   tags: string[];
   image?: string;
-}): NextSeoProps => {
-  const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/blog/${slug}`;
-  const imageUrl =
-    image || `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/og-image.jpg`;
+}): Metadata => {
+  const url = `/blog/${slug}`;
+  const imageUrl = image || `/og-image.jpg`;
 
-  return createPageSEO({
+  return createPageMetadata({
     title,
     description,
-    canonical: url,
+    keywords: tags,
+    authors: [{ name: author }],
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       type: "article",
       url,
       title,
       description,
-      article: {
-        publishedTime: date,
-        authors: [author],
-        tags,
-      },
+      publishedTime: date,
+      authors: [author],
+      tags,
       images: [
         {
           url: imageUrl,
@@ -127,33 +135,22 @@ export const createBlogPostSEO = ({
         },
       ],
     },
-    additionalMetaTags: [
-      {
-        name: "keywords",
-        content: tags.join(", "),
-      },
-      {
-        name: "author",
-        content: author,
-      },
-      {
-        property: "article:author",
-        content: author,
-      },
-      {
-        property: "article:published_time",
-        content: date,
-      },
-      {
-        property: "article:tag",
-        content: tags.join(", "),
-      },
-    ],
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+    other: {
+      "article:author": author,
+      "article:published_time": date,
+      "article:tag": tags.join(", "),
+    },
   });
 };
 
-// Product page SEO configuration
-export const createProductSEO = ({
+// Product page SEO configuration for Next.js App Router
+export const createProductMetadata = ({
   title,
   description,
   slug,
@@ -171,15 +168,16 @@ export const createProductSEO = ({
   availability?: string;
   image?: string;
   brand?: string;
-}): NextSeoProps => {
-  const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/products/${slug}`;
-  const imageUrl =
-    image || `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/og-image.jpg`;
+}): Metadata => {
+  const url = `/products/${slug}`;
+  const imageUrl = image || `/og-image.jpg`;
 
-  return createPageSEO({
+  return createPageMetadata({
     title,
     description,
-    canonical: url,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       type: "website",
       url,
@@ -195,21 +193,18 @@ export const createProductSEO = ({
         },
       ],
     },
-    additionalMetaTags: [
-      {
-        property: "product:price:amount",
-        content: price.toString(),
-      },
-      {
-        property: "product:price:currency",
-        content: currency,
-      },
-      {
-        property: "product:availability",
-        content: availability,
-      },
-      ...(brand ? [{ property: "product:brand", content: brand }] : []),
-    ],
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+    other: {
+      "product:price:amount": price.toString(),
+      "product:price:currency": currency,
+      "product:availability": availability,
+      ...(brand ? { "product:brand": brand } : {}),
+    },
   });
 };
 
