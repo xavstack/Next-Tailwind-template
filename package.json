@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "jest",
+    "setup-ai": "./scripts/setup-ai-guidance.sh",
     "sitemap": "next-sitemap",
     "analyze": "ANALYZE=true npm run build",
     "bundle:analyze": "npm run analyze && echo 'Bundle analysis report generated at .next/analyze/'",

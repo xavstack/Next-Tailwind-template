@@ -865,6 +865,390 @@ export default function Home() {
               </Button>
             </div>
           </div>
+
+          {/* AI-Powered Development Experience */}
+          <div className="mb-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 p-8 rounded-xl">
+            <div className="text-center mb-8">
+              <Wand2 className="h-12 w-12 mx-auto mb-4 text-blue-600 dark:text-blue-400" />
+              <h2 className="text-3xl font-bold mb-2">AI-Powered Development Experience</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                This template includes a smart AI guidance system that transforms your development
+                workflow. Get contextual suggestions, workflow optimization, and feature discovery
+                as you build.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <Card className="border-blue-200 dark:border-blue-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    🧠 Smart Contextual Guidance
+                  </CardTitle>
+                  <CardDescription>
+                    AI analyzes your current work and provides targeted suggestions
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
+                    <div className="text-sm font-medium mb-1">💡 Try asking:</div>
+                    <div className="text-sm text-blue-700 dark:text-blue-300 font-mono">
+                      &quot;What template features should I consider for this component?&quot;
+                    </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    <strong>Auto-detects:</strong> Current file type, imports, patterns •
+                    <strong>Suggests:</strong> Testing, animations, accessibility, optimizations
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-purple-200 dark:border-purple-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    🎯 Milestone-Based Prompts
+                  </CardTitle>
+                  <CardDescription>
+                    Contextual guidance appears at natural development moments
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="bg-purple-50 dark:bg-purple-950/20 p-3 rounded-lg border border-purple-200 dark:border-purple-800">
+                    <div className="text-sm font-medium mb-1">🚀 After completing components:</div>
+                    <div className="text-sm text-purple-700 dark:text-purple-300">
+                      &quot;Consider adding Framer Motion animations&quot; • &quot;Don&apos;t forget
+                      tests in __tests__/&quot;
+                    </div>
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    <strong>Triggers:</strong> File saves, feature completion, git commits •
+                    <strong>Non-intrusive:</strong> Never interrupts active coding
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <div className="inline-flex items-center gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg border shadow-sm">
+                <div className="text-sm text-muted-foreground">
+                  <strong>Quick Start:</strong> Ask AI about any file you&apos;re working on
+                </div>
+                <Badge
+                  variant="secondary"
+                  className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                >
+                  ✨ Active in Cursor
+                </Badge>
+              </div>
+            </div>
+          </div>
+
+          {/* Developer Workflow Integration */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-2">Integrated Development Workflow</h2>
+            <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Everything works together seamlessly. Documentation, AI guidance, quality tools, and
+              examples are designed to support your natural development flow without getting in the
+              way.
+            </p>
+
+            <div className="grid lg:grid-cols-3 gap-6">
+              {/* Development Phase */}
+              <Card className="border-green-200 dark:border-green-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-300">
+                    <Code className="h-5 w-5" />
+                    1. Development
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                      AI suggests components & patterns
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                      Live examples for reference
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                      Cheat sheets for quick lookup
+                    </div>
+                  </div>
+                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded text-sm">
+                    <div className="font-mono mb-1">npm run dev</div>
+                    <div className="text-muted-foreground">Hot reload + type checking</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Quality Phase */}
+              <Card className="border-blue-200 dark:border-blue-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+                    <TestTube className="h-5 w-5" />
+                    2. Quality & Testing
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-blue-600" />
+                      AI suggests testing patterns
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-blue-600" />
+                      Automated quality scoring
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-blue-600" />
+                      Pre-commit quality gates
+                    </div>
+                  </div>
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded text-sm">
+                    <div className="font-mono mb-1">npm test</div>
+                    <div className="text-muted-foreground">Jest + Testing Library</div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Deployment Phase */}
+              <Card className="border-purple-200 dark:border-purple-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-purple-700 dark:text-purple-300">
+                    <Gauge className="h-5 w-5" />
+                    3. Production Ready
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-purple-600" />
+                      AI checks optimization opportunities
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-purple-600" />
+                      Security & performance audits
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="h-4 w-4 text-purple-600" />
+                      CI/CD pipeline ready
+                    </div>
+                  </div>
+                  <div className="bg-purple-50 dark:bg-purple-950/20 p-3 rounded text-sm">
+                    <div className="font-mono mb-1">npm run build</div>
+                    <div className="text-muted-foreground">Optimized production build</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Documentation & Resources Hub */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-2">Documentation & Resources Hub</h2>
+            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              All documentation is designed for quick reference during development. No need to
+              memorize - just ask AI or check the relevant guide.
+            </p>
+
+            <Tabs defaultValue="quick-ref" className="w-full">
+              <TabsList className="grid w-full grid-cols-4">
+                <TabsTrigger value="quick-ref">Quick Reference</TabsTrigger>
+                <TabsTrigger value="ai-guides">AI Guides</TabsTrigger>
+                <TabsTrigger value="patterns">Code Patterns</TabsTrigger>
+                <TabsTrigger value="workflows">Workflows</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="quick-ref" className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">🎯 Template Cheat Sheet</CardTitle>
+                      <CardDescription>
+                        All components, utilities, and code examples in one place
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>docs/CHEATSHEET.md</code> - Complete reference
+                        </div>
+                        <div>
+                          <code>components/examples/</code> - Live examples
+                        </div>
+                        <div>
+                          <code>lib/utils.ts</code> - Helper functions
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">📋 Template Capabilities</CardTitle>
+                      <CardDescription>
+                        Full feature overview and implementation status
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>docs/CAPABILITIES.md</code> - Feature matrix
+                        </div>
+                        <div>
+                          <code>scripts/quality/</code> - Quality tools
+                        </div>
+                        <div>
+                          <code>__tests__/</code> - Testing examples
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="ai-guides" className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">🤖 AI Prompting Examples</CardTitle>
+                      <CardDescription>
+                        Effective prompts for AI-assisted development
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>docs/AI_PROMPTING_EXAMPLES.md</code> - Proven prompts
+                        </div>
+                        <div>
+                          <code>docs/ai-agents/</code> - Advanced AI integration
+                        </div>
+                        <div>
+                          <code>.cursorrules</code> - Active AI guidance
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">🧠 Smart Guidance System</CardTitle>
+                      <CardDescription>Contextual AI assistance and decision trees</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>docs/ai-agents/smart-guidance-implementation.md</code>
+                        </div>
+                        <div>
+                          <code>docs/ai-agents/decision-trees.md</code> - When to use what
+                        </div>
+                        <div>
+                          <code>docs/ai-agents/contextual-guidance.md</code>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="patterns" className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">🧪 Testing Patterns</CardTitle>
+                      <CardDescription>
+                        Component testing, API testing, and accessibility testing
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>docs/testing-patterns.md</code> - Comprehensive guide
+                        </div>
+                        <div>
+                          <code>__tests__/</code> - Example implementations
+                        </div>
+                        <div>
+                          <code>jest.config.js</code> - Test configuration
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">🏗️ Architecture Guide</CardTitle>
+                      <CardDescription>Project structure and organization patterns</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>docs/architecture/folder-structure.md</code>
+                        </div>
+                        <div>
+                          <code>tsconfig.json</code> - Path aliases
+                        </div>
+                        <div>
+                          <code>components.json</code> - Component config
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="workflows" className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">⚡ Development Workflow</CardTitle>
+                      <CardDescription>
+                        Git workflow, commit conventions, and quality gates
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>.cursorrules</code> - Development guidelines
+                        </div>
+                        <div>
+                          <code>.husky/</code> - Git hooks and quality gates
+                        </div>
+                        <div>
+                          <code>.github/workflows/</code> - CI/CD pipeline
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg">🔧 Template Refinement</CardTitle>
+                      <CardDescription>
+                        Implementation phases and upgrade procedures
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 text-sm">
+                        <div>
+                          <code>TEMPLATE_REFINEMENT_WORKFLOW.md</code>
+                        </div>
+                        <div>
+                          <code>scripts/quality/ci-check.sh</code> - Quality scoring
+                        </div>
+                        <div>
+                          <code>package.json</code> - All available scripts
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
         </div>
       </main>
     </SmoothScrollProvider>

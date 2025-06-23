@@ -109,32 +109,47 @@ src/
 # Install dependencies
 npm install
 
+# Setup AI guidance system (optional but recommended)
+npm run setup-ai
+
 # Start development server
 npm run dev
 
-# Build for production
-npm run build
-
-# Run tests
-npm run test
-
-# Code quality checks
-npm run lint
-npm run format
+# Open the demo at http://localhost:3000
+# See all features working live + onboarding experience
 ```
 
-## 🧠 Smart AI Guidance
+**New to this template?** → [`docs/DEVELOPER_ONBOARDING.md`](docs/DEVELOPER_ONBOARDING.md) - Complete guided walkthrough
 
-This template includes **contextual AI assistance** that transforms your development experience:
+## 🧠 AI-Powered Development Experience
 
-- **📍 File-based suggestions** - Smart reminders based on what you're currently editing
-- **🎯 Milestone prompts** - Contextual guidance after completing features
-- **✨ Feature discovery** - Learn about template capabilities at the right moments
-- **🎨 Best practice reminders** - Non-intrusive tips for optimal code quality
+This template transforms how you build with **intelligent contextual assistance**:
 
-**Quick Start**: Simply ask _"What template features should I consider for this component?"_ or work naturally - the AI provides contextual guidance automatically.
+### **Contextual Guidance System**
 
-**Full Guide**: [`docs/ai-agents/smart-guidance-implementation.md`](docs/ai-agents/smart-guidance-implementation.md)
+- **📍 Smart file analysis** - AI understands what you're building and suggests relevant features
+- **🎯 Milestone prompts** - Get guidance after completing components, APIs, or pages
+- **✨ Feature discovery** - Learn template capabilities when you need them
+- **🎨 Workflow integration** - Non-intrusive suggestions that enhance your development flow
+
+### **Quick Start Examples**
+
+```bash
+# Ask AI about any file you're working on:
+"What template features should I consider for this component?"
+"Show me the testing patterns for this API route"
+"What optimization opportunities are available here?"
+```
+
+### **How It Works**
+
+1. **Work naturally** - Build components, pages, APIs as usual
+2. **AI observes context** - Understands your file type, imports, patterns
+3. **Get targeted suggestions** - Testing, animations, security, performance
+4. **Discover features** - Learn about template capabilities when relevant
+
+**Complete Guide**: [`docs/DEVELOPER_ONBOARDING.md`](docs/DEVELOPER_ONBOARDING.md)  
+**AI Technical Details**: [`docs/ai-agents/smart-guidance-implementation.md`](docs/ai-agents/smart-guidance-implementation.md)
 
 ## 📖 Documentation & Resources
 
