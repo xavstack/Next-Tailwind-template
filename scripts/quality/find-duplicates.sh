@@ -1,126 +1,106 @@
 #!/bin/bash
 
-# Duplicate Code Detection Script
-# Detects copy-paste code blocks and suggests refactoring opportunities
-
-set -e
+# Find duplicate code patterns in the codebase
+# This script helps identify:
+# 1. Similar function signatures
+# 2. Repeated React component patterns  
+# 3. Duplicate utility functions
+# 4. Similar JSX structures
 
 echo "🔍 Analyzing codebase for duplicate code patterns..."
+echo "📊 Duplicate Code Analysis Report"
+echo "=="
 
-# Function to analyze JavaScript/TypeScript files for duplicates
-analyze_duplicates() {
-  echo "📊 Duplicate Code Analysis Report"
-  echo "=" | tr '\n' ' ' | sed 's/./=/g' | head -c 50; echo ""
-  
-  # Find files to analyze
-  FILES=$(find src -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | grep -v node_modules | grep -v .next | grep -v __tests__)
-  
-  DUPLICATES_FOUND=false
-  
-  # Simple approach: Look for similar function patterns
-  echo "🔍 Checking for similar function signatures..."
-  
-  # Extract function declarations and their contexts
-  for file in $FILES; do
-    if [[ -f "$file" ]]; then
-      # Look for function patterns
-      FUNC_COUNT=$(grep -c "^[[:space:]]*\(function\|const.*=.*=>\|export.*function\)" "$file" 2>/dev/null || echo 0)
-      if [[ $FUNC_COUNT -gt 5 ]]; then
-        echo "ℹ️  $file has $FUNC_COUNT functions (consider splitting if too large)"
-      fi
+# Check for similar function signatures
+echo "🔍 Checking for similar function signatures..."
+find src -name "*.tsx" -o -name "*.ts" | xargs grep -n "^export\|^function\|^const.*=" | \
+  awk -F: '{print $3}' | sort | uniq -c | sort -nr | head -10 | \
+  while read count signature; do
+    if [[ $count -gt 5 && -n "$signature" ]]; then
+      echo "ℹ️  Found $count similar signatures: $signature"
+      echo "   💡 Consider extracting to shared utilities"
     fi
   done
-  
-  # Look for similar React component patterns
-  echo "🔍 Checking for similar React component patterns..."
-  
-  for file in $FILES; do
-    if [[ -f "$file" && "$file" == *.tsx ]]; then
-      # Check component complexity
-      PROPS_COUNT=$(grep -c "props\." "$file" 2>/dev/null || echo 0)
-      HOOKS_COUNT=$(grep -c "use[A-Z]" "$file" 2>/dev/null || echo 0)
-      JSX_ELEMENTS=$(grep -c "<[A-Za-z]" "$file" 2>/dev/null || echo 0)
-      
-      # Report complex components that might benefit from splitting
-      if [[ $PROPS_COUNT -gt 10 || $HOOKS_COUNT -gt 8 || $JSX_ELEMENTS -gt 20 ]]; then
-        echo "ℹ️  $file is complex: Props: $PROPS_COUNT, Hooks: $HOOKS_COUNT, JSX: $JSX_ELEMENTS"
-        echo "   💡 Consider breaking into smaller components"
-      fi
-    fi
-  done
-  
-  # Look for duplicate CSS patterns in global styles
-  echo "🔍 Checking for duplicate CSS patterns..."
-  
-  CSS_FILES=$(find src -name "*.css" | grep -v node_modules)
-  for css_file in $CSS_FILES; do
-    if [[ -f "$css_file" ]]; then
-      # Count custom CSS rules
-      CUSTOM_RULES=$(grep -c "^[^@/].*{" "$css_file" 2>/dev/null || echo 0)
-      if [[ $CUSTOM_RULES -gt 0 ]]; then
-        echo "📄 $css_file has $CUSTOM_RULES custom CSS rules"
-        echo "   💡 Consider using Tailwind utilities instead of custom CSS"
-      fi
-    fi
-  done
-  
-  # Look for similar import patterns that could be consolidated
-  echo "🔍 Checking for import consolidation opportunities..."
-  
-  # Find commonly imported modules
-  ALL_IMPORTS=$(grep -h "^import.*from" $FILES 2>/dev/null | sort | uniq -c | sort -nr | head -10)
-  if [[ -n "$ALL_IMPORTS" ]]; then
-    echo "📊 Most frequently imported modules:"
-    echo "$ALL_IMPORTS" | while read -r count import_line; do
-      if [[ $count -gt 3 ]]; then
-        echo "   🔄 $count times: $import_line"
-      fi
-    done
-    echo ""
+
+# Count functions per file to identify complex files
+find src -name "*.tsx" -o -name "*.ts" | while read file; do
+  func_count=$(grep -c "^export\|^function\|^const.*=" "$file" 2>/dev/null || echo "0")
+  if [[ $func_count -gt 5 ]]; then
+    echo "ℹ️  $file has $func_count functions (consider splitting if too large)"
   fi
+done
+
+echo "🔍 Checking for similar React component patterns..."
+
+# Analyze React component complexity
+find src -name "*.tsx" | while read file; do
+  # Count props, hooks, and JSX elements
+  props_count=$(grep -c "^.*:.*" "$file" 2>/dev/null || echo "0")
+  hooks_count=$(grep -c "use[A-Z]" "$file" 2>/dev/null || echo "0")  
+  jsx_count=$(grep -c "<[A-Za-z]" "$file" 2>/dev/null || echo "0")
   
-  # Look for long files that might contain duplicated logic
-  echo "🔍 Checking for large files..."
+  # Calculate complexity score  
+  complexity=$((props_count + hooks_count * 2 + jsx_count / 10))
   
-  for file in $FILES; do
-    if [[ -f "$file" ]]; then
-      LINE_COUNT=$(wc -l < "$file")
-      if [[ $LINE_COUNT -gt 300 ]]; then
-        echo "📄 $file: $LINE_COUNT lines (consider refactoring if too large)"
-      fi
+  if [[ $complexity -gt 15 ]]; then
+    echo "ℹ️  $file is complex: Props: $props_count, Hooks: $hooks_count, JSX: $jsx_count"
+    echo "   💡 Consider breaking into smaller components"
+  fi
+done
+
+echo "🔍 Checking for duplicate CSS patterns..."
+
+# Find repeated Tailwind classes
+if [ -f "src/app/globals.css" ]; then
+  css_rules=$(grep -c "@" src/app/globals.css 2>/dev/null || echo "0")
+  if [[ $css_rules -gt 3 ]]; then
+    echo "📄 src/app/globals.css has $css_rules custom CSS rules"
+    echo "   💡 Consider using Tailwind utilities instead of custom CSS"
+  fi
+fi
+
+echo "🔍 Checking for import consolidation opportunities..."
+
+# Find most imported modules
+echo "📊 Most frequently imported modules:"
+find src -name "*.tsx" -o -name "*.ts" | xargs grep "^import" | \
+  cut -d' ' -f2- | sort | uniq -c | sort -nr | head -10 | \
+  while read count import_line; do
+    if [[ $count -gt 3 ]]; then
+      echo "   🔄 $count times: import $import_line"
     fi
   done
-  
-  # Check for repeated string literals
-  echo "🔍 Checking for repeated string literals..."
-  
-  REPEATED_STRINGS=$(grep -h '"[^"]\{10,\}"' $FILES 2>/dev/null | sort | uniq -c | sort -nr | head -5)
-  if [[ -n "$REPEATED_STRINGS" ]]; then
-    echo "📊 Frequently used string literals:"
-    echo "$REPEATED_STRINGS" | while read -r count string; do
-      if [[ $count -gt 2 ]]; then
-        echo "   🔄 $count times: $string"
-        echo "      💡 Consider extracting to constants"
-      fi
-    done
-    echo ""
+
+echo ""
+echo "🔍 Checking for large files..."
+find src -name "*.tsx" -o -name "*.ts" | while read file; do
+  lines=$(wc -l < "$file" 2>/dev/null || echo "0")
+  if [[ $lines -gt 200 ]]; then
+    echo "📄 $file: $(printf "%8d" $lines) lines (consider refactoring if too large)"
   fi
-  
-  echo "✅ Duplicate code analysis complete!"
-  echo ""
-  echo "💡 General suggestions for maintaining clean code:"
-  echo "   - Continue using shared components in /components/ui/"
-  echo "   - Leverage custom hooks for repeated logic"
-  echo "   - Use Tailwind utilities over custom CSS"
-  echo "   - Consider utility functions in /lib/"
-  echo "   - Extract repeated string literals to constants"
-  echo "   - Break down large files and complex components"
-  
-  echo ""
-  echo "=" | tr '\n' ' ' | sed 's/./=/g' | head -c 50; echo ""
-}
+done
 
-# Run the analysis
-analyze_duplicates
+echo "🔍 Checking for repeated string literals..."
+echo "📊 Frequently used string literals:"
+find src -name "*.tsx" -o -name "*.ts" | xargs grep -ho '"[^"]\{10,\}"' | \
+  sort | uniq -c | sort -nr | head -5 | \
+  while read count literal; do
+    if [[ $count -gt 3 ]]; then
+      echo "   🔄 $count times: $literal"
+      echo "      💡 Consider extracting to constants"
+    fi
+  done
 
+echo ""
+echo "✅ Duplicate code analysis complete!"
+echo ""
+echo "💡 General suggestions for maintaining clean code:"
+echo "   - Continue using shared components in /components/ui/"
+echo "   - Leverage custom hooks for repeated logic"  
+echo "   - Use Tailwind utilities over custom CSS"
+echo "   - Consider utility functions in /lib/"
+echo "   - Extract repeated string literals to constants"
+echo "   - Break down large files and complex components"
+echo ""
+echo "=="
 echo "✨ Duplicate code analysis complete!" 
