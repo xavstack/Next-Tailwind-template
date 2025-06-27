@@ -24,34 +24,36 @@ import {
   Palette,
   Zap,
   Database,
-  Search,
   Settings,
   TestTube,
   Sparkles,
   Copy,
   ExternalLink,
-  Wand2,
   Shield,
   Gauge,
   Globe,
   Component,
+  Book,
+  FileText,
+  Layers,
+  ArrowRight,
 } from "lucide-react";
 
 // Demonstrate SEO utilities integration
 export const metadata: Metadata = createPageMetadata({
-  title: "Live Demonstrations & Template Showcase",
+  title: "Next.js Template - Production Ready Stack",
   description:
-    "Interactive showcase of Next.js template capabilities including animations, forms, security testing, and modern development tools. See real-time examples of Framer Motion, SWR data fetching, and comprehensive security features.",
+    "Complete Next.js 15 template with Radix UI, Framer Motion, SWR, security features, and 30+ integrated libraries. Production-ready with AI-optimized development workflow.",
   keywords: [
-    "Next.js template",
-    "React showcase",
-    "Tailwind CSS examples",
-    "TypeScript template",
-    "shadcn/ui components",
-    "Framer Motion animations",
-    "SWR data fetching",
-    "Security testing",
-    "Developer tools",
+    "Next.js 15 template",
+    "React 19",
+    "Tailwind CSS",
+    "TypeScript",
+    "shadcn/ui",
+    "Framer Motion",
+    "SWR",
+    "Security",
+    "Production ready",
   ],
   openGraph: {
     title: "Next.js Template - Live Demonstrations",
@@ -74,273 +76,54 @@ export default function Home() {
     { src: "🌅", alt: "Gallery Image 4", title: "Sunrise View" },
   ];
 
-  const capabilitiesData = [
+  const techStackData = [
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Next.js 15 + React 19",
-      description: "App Router, Server Components, Turbopack",
-      status: "Core Framework",
-      details:
-        "Latest framework features with optimal SSR/CSR performance, server actions, and React 19 features like useOptimistic.",
-      cheatSheet: "app/layout.tsx, app/page.tsx, server actions, async components",
-      techStack: ["next@^15.3.4", "react@^19.1.0", "react-dom@^19.1.0", "typescript@^5"],
+      category: "Core Framework",
+      icon: <Zap className="h-5 w-5" />,
+      primary: "Next.js 15 + React 19",
+      description: "App Router, Server Components, React 19 features",
+      packages: ["next@^15.3.4", "react@^19.1.0", "typescript@^5"],
+      features: ["App Router", "Server Components", "React 19 useOptimistic", "Turbopack"],
     },
     {
-      icon: <Palette className="h-6 w-6" />,
-      title: "Tailwind CSS Ecosystem",
-      description: "Utility-first + enhanced form styling",
-      status: "Styling System",
-      details:
-        "Complete styling ecosystem with Tailwind CSS 3.4, forms plugin, CSS variables for theming, and utility libraries.",
-      cheatSheet: "className='bg-primary text-white p-4 rounded-lg dark:bg-gray-800'",
-      techStack: [
-        "tailwindcss@^3.4.17",
-        "@tailwindcss/forms@^0.5.10",
-        "postcss@^8.4.49",
-        "autoprefixer@^10.4.20",
-      ],
-    },
-    {
-      icon: <Component className="h-6 w-6" />,
-      title: "Radix UI + shadcn/ui",
+      category: "UI System",
+      icon: <Component className="h-5 w-5" />,
+      primary: "Radix UI + shadcn/ui",
       description: "Accessible primitives + pre-built components",
-      status: "UI Components",
-      details:
-        "Complete UI system with Radix UI primitives (Dialog, DropdownMenu, Tooltip, Tabs, Label, Slot) and shadcn/ui components.",
-      cheatSheet: "<Dialog>, <DropdownMenu>, <Tooltip>, Button, Card, Badge, Input",
-      techStack: [
-        "@radix-ui/react-dialog@^1.1.14",
-        "@radix-ui/react-dropdown-menu@^2.1.15",
-        "@radix-ui/react-tooltip@^1.2.7",
-        "@radix-ui/react-tabs@^1.1.12",
-        "@radix-ui/react-label@^2.1.7",
-        "@radix-ui/react-slot@^1.2.3",
-        "lucide-react@^0.518.0",
-      ],
+      packages: ["@radix-ui/react-*", "lucide-react@^0.518.0"],
+      features: ["Dialog", "DropdownMenu", "Tooltip", "Tabs", "Form components"],
     },
     {
-      icon: <Sparkles className="h-6 w-6" />,
-      title: "Animation Trinity",
-      description: "Framer Motion + Embla + Lenis",
-      status: "Motion System",
-      details:
-        "Complete animation ecosystem: Framer Motion for component animations, Embla Carousel for touch-friendly carousels, Lenis for smooth scrolling.",
-      cheatSheet: "<motion.div>, useEmblaCarousel(), <ReactLenis>, scroll animations",
-      techStack: ["framer-motion@^12.18.1", "embla-carousel-react@^8.6.0", "lenis@^1.3.4"],
-    },
-    {
-      icon: <Database className="h-6 w-6" />,
-      title: "Data & Forms Stack",
-      description: "SWR + React Hook Form + Zod",
-      status: "Data Management",
-      details:
-        "Type-safe data fetching with SWR, performant forms with React Hook Form, and schema validation with Zod.",
-      cheatSheet: "useSWR(), useForm(), zodResolver, custom fetcher utility",
-      techStack: [
-        "swr@^2.3.3",
-        "react-hook-form@^7.58.1",
-        "zod@^3.25.67",
-        "@hookform/resolvers@^5.1.1",
-      ],
-    },
-    {
-      icon: <Wand2 className="h-6 w-6" />,
-      title: "Utility & Styling Tools",
-      description: "CVA + clsx + tailwind-merge + next-themes",
-      status: "Developer Tools",
-      details:
-        "Powerful utility library: Class Variance Authority for component variants, clsx for conditional classes, tailwind-merge for class optimization, next-themes for theming.",
-      cheatSheet: "cn(), cva(), useTheme(), ThemeToggle, CSS variables",
-      techStack: [
-        "class-variance-authority@^0.7.1",
-        "clsx@^2.1.1",
-        "tailwind-merge@^3.3.1",
-        "next-themes@^0.4.6",
-      ],
-    },
-    {
-      icon: <TestTube className="h-6 w-6" />,
-      title: "Testing & Quality Suite",
-      description: "Jest + Testing Library + Quality Tools",
-      status: "Quality Assurance",
-      details:
-        "Comprehensive testing with Jest and Testing Library, plus custom quality tools for dead code detection, duplicate analysis, and framework compliance.",
-      cheatSheet: "render(), screen.getByText(), npm run test, quality scripts",
-      techStack: [
-        "jest@^30.0.2",
-        "@testing-library/react@^16.3.0",
-        "@testing-library/jest-dom@^6.6.3",
-        "ts-morph@^26.0.0",
-      ],
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Security & Protection",
-      description: "CSP + Rate Limiting + Input Validation + Headers",
-      status: "Security System",
-      details:
-        "Comprehensive security implementation: Content Security Policy, API rate limiting, Zod input validation, security headers (HSTS, X-Frame-Options), and CSRF protection.",
-      cheatSheet: "Security middleware, rate limiting, input validation, CSP headers",
-      techStack: [
-        "next/server (middleware)",
-        "zod@^3.25.67",
-        "Content-Security-Policy",
-        "Rate limiting (in-memory)",
-      ],
-    },
-    {
-      icon: <Gauge className="h-6 w-6" />,
-      title: "Development & Build Tools",
-      description: "ESLint + Prettier + Husky + TypeScript",
-      status: "DevX & Quality",
-      details:
-        "Complete development toolchain: ESLint 9 with Next.js config, Prettier formatting, Husky git hooks, lint-staged, and TypeScript 5 with strict mode.",
-      cheatSheet: "npm run lint, npm run format, pre-commit hooks, strict TypeScript",
-      techStack: [
-        "eslint@^9",
-        "prettier@^3.5.3",
-        "husky@^9.1.7",
-        "lint-staged@^16.1.2",
-        "@types/node@^24.0.3",
-        "@types/react@^19.1.8",
-      ],
-    },
-  ];
-
-  const cheatSheetSections = [
-    {
-      title: "Styling Cheat Sheet",
+      category: "Styling",
       icon: <Palette className="h-5 w-5" />,
-      items: [
-        {
-          label: "Theme Variables",
-          code: "bg-background text-foreground border-border",
-          description: "Use semantic color variables for theme compatibility",
-        },
-        {
-          label: "Dark Mode Classes",
-          code: "dark:bg-gray-800 dark:text-white",
-          description: "Responsive dark mode styling with Tailwind modifiers",
-        },
-        {
-          label: "Form Styling",
-          code: "rounded-md border-gray-300 focus:border-primary focus:ring-primary",
-          description: "@tailwindcss/forms provides consistent input styling",
-        },
-        {
-          label: "Responsive Design",
-          code: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-          description: "Mobile-first responsive layouts with Tailwind breakpoints",
-        },
-      ],
+      primary: "Tailwind CSS 3.4",
+      description: "Utility-first + enhanced form styling",
+      packages: ["tailwindcss@^3.4.17", "@tailwindcss/forms@^0.5.10"],
+      features: ["CSS variables", "Dark mode", "Responsive design", "Form styling"],
     },
     {
-      title: "Animation Cheat Sheet",
+      category: "Animation",
       icon: <Sparkles className="h-5 w-5" />,
-      items: [
-        {
-          label: "Basic Motion",
-          code: "<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>",
-          description: "Simple fade-in animation with Framer Motion",
-        },
-        {
-          label: "Hover Effects",
-          code: "<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>",
-          description: "Interactive hover and tap animations",
-        },
-        {
-          label: "Stagger Children",
-          code: "variants={containerVariants} initial='hidden' animate='visible'",
-          description: "Animate children in sequence with stagger effects",
-        },
-        {
-          label: "Page Transitions",
-          code: "<motion.div exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>",
-          description: "Smooth page transitions between routes",
-        },
-      ],
+      primary: "Framer Motion + Embla + Lenis",
+      description: "Complete animation ecosystem",
+      packages: ["framer-motion@^12.18.1", "embla-carousel-react@^8.6.0", "lenis@^1.3.4"],
+      features: ["Component animations", "Carousels", "Smooth scrolling", "Gesture handling"],
     },
     {
-      title: "Data Fetching Cheat Sheet",
+      category: "Data & Forms",
       icon: <Database className="h-5 w-5" />,
-      items: [
-        {
-          label: "Basic SWR",
-          code: "const { data, error, isLoading } = useSWR('/api/users', fetcher)",
-          description: "Standard data fetching with loading and error states",
-        },
-        {
-          label: "Conditional Fetching",
-          code: "useSWR(shouldFetch ? '/api/data' : null, fetcher)",
-          description: "Fetch data conditionally based on state or props",
-        },
-        {
-          label: "Mutation & Revalidation",
-          code: "mutate('/api/users'); // Revalidate after changes",
-          description: "Update cache and trigger revalidation after mutations",
-        },
-        {
-          label: "Error Handling",
-          code: "if (error) return <div>Failed to load</div>",
-          description: "Handle error states gracefully with user feedback",
-        },
-      ],
+      primary: "SWR + React Hook Form + Zod",
+      description: "Type-safe data fetching and validation",
+      packages: ["swr@^2.3.3", "react-hook-form@^7.58.1", "zod@^3.25.67"],
+      features: ["Data fetching", "Form validation", "Schema validation", "Error handling"],
     },
     {
-      title: "SEO Cheat Sheet",
-      icon: <Search className="h-5 w-5" />,
-      items: [
-        {
-          label: "Page SEO",
-          code: "createPageSEO({ title: 'Page Title', description: 'Description' })",
-          description: "Generate SEO metadata for standard pages",
-        },
-        {
-          label: "Blog Post SEO",
-          code: "createBlogPostSEO({ title, slug, date, author, tags })",
-          description: "Complete SEO setup for blog posts with structured data",
-        },
-        {
-          label: "Product SEO",
-          code: "createProductSEO({ title, price, currency, availability })",
-          description: "E-commerce SEO with product-specific metadata",
-        },
-        {
-          label: "JSON-LD Schema",
-          code: "generateOrganizationSchema(), generateWebsiteSchema()",
-          description: "Structured data for search engines and rich snippets",
-        },
-      ],
-    },
-  ];
-
-  const aiPromptExamples = [
-    {
-      category: "Component Creation",
-      prompt:
-        "Create a hero section component with Framer Motion animations, using shadcn/ui Button and Card components, styled with Tailwind utilities only. Include TypeScript props interface and responsive design.",
-      explanation:
-        "Follows template constraints: Motion animations, shadcn/ui components, Tailwind-only styling, TypeScript",
-    },
-    {
-      category: "Data Integration",
-      prompt:
-        "Build a user dashboard that fetches data using SWR with the configured fetcher, includes loading states, error handling, and displays results in a responsive grid using shadcn/ui Cards.",
-      explanation:
-        "Uses SWR patterns, proper error handling, shadcn/ui components, responsive design",
-    },
-    {
-      category: "SEO Implementation",
-      prompt:
-        "Create a blog post page that uses the createBlogPostSEO utility for metadata, includes structured data, and renders content with proper semantic HTML and Tailwind styling.",
-      explanation: "Leverages SEO utilities, structured data, semantic HTML, Tailwind styling",
-    },
-    {
-      category: "Form Development",
-      prompt:
-        "Build a contact form using React Hook Form with Zod validation, shadcn/ui form components, @tailwindcss/forms styling, and proper error handling with loading states.",
-      explanation:
-        "Uses established form patterns, validation, UI components, enhanced form styling",
+      category: "Security",
+      icon: <Shield className="h-5 w-5" />,
+      primary: "CSP + Rate Limiting + Validation",
+      description: "Comprehensive security implementation",
+      packages: ["next/server", "zod@^3.25.67"],
+      features: ["Content Security Policy", "Rate limiting", "Input validation", "CSRF protection"],
     },
   ];
 
@@ -352,7 +135,7 @@ export default function Home() {
           <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
             <div className="flex items-center space-x-2">
               <h2 className="text-xl font-bold">Next.js Template</h2>
-              <Badge variant="secondary">Phase 4 Complete</Badge>
+              <Badge variant="secondary">Production Ready</Badge>
             </div>
             <div className="flex items-center space-x-2">
               <ThemeToggle />
@@ -366,276 +149,195 @@ export default function Home() {
 
         <div className="container mx-auto max-w-screen-2xl px-4 py-8">
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
-              Xav&apos;s Full Stack Template
-              <span className="text-primary"> & Quick Start</span>
+              Complete Full-Stack Template
+              <span className="text-primary"> Ready to Ship</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Complete full-stack template with Next.js 15, Radix UI, Framer Motion, SWR, and 34+
-              integrated libraries. Everything you need for production-ready applications with rich
-              animations, type safety, and quality tooling.
+              Next.js 15 + React 19 with 30+ integrated libraries, security features, animations,
+              and AI-optimized development workflow. Everything you need for production
+              applications.
             </p>
-            <div className="flex justify-center gap-4">
-              <Button size="lg">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                View GitHub
+            <div className="flex justify-center gap-4 mb-8">
+              <Button size="lg" asChild>
+                <a
+                  href="https://github.com/xavierstack/Next-Tailwind-Template"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View on GitHub
+                </a>
               </Button>
               <Button variant="outline" size="lg">
                 <Copy className="w-4 h-4 mr-2" />
-                Copy Template
+                Use This Template
               </Button>
             </div>
           </div>
 
-          {/* Tech Stack Overview */}
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-16">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-blue-600">Next.js 15</div>
-                <p className="text-sm text-muted-foreground">App Router + React 19</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-cyan-600">6</div>
-                <p className="text-sm text-muted-foreground">Radix UI Primitives</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-pink-600">3</div>
-                <p className="text-sm text-muted-foreground">Animation Libraries</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-green-600">34+</div>
-                <p className="text-sm text-muted-foreground">Total Dependencies</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-orange-600">100%</div>
-                <p className="text-sm text-muted-foreground">TypeScript Coverage</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="text-2xl font-bold text-purple-600">8</div>
-                <p className="text-sm text-muted-foreground">Tech Categories</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Complete Tech Stack */}
+          {/* Documentation & Resources Hub - MOVED UP */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Complete Tech Stack</h2>
+            <h2 className="text-3xl font-bold text-center mb-2">📚 Documentation & Resources</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Comprehensive overview of all 34+ libraries, frameworks, and tools included. Click any
-              card to see the complete dependency list and usage examples.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {capabilitiesData.map((capability, index) => (
-                <Dialog key={index}>
-                  <DialogTrigger asChild>
-                    <Card className="text-center hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02]">
-                      <CardHeader>
-                        <div className="mx-auto mb-2 p-3 bg-primary/10 rounded-full w-fit">
-                          {capability.icon}
-                        </div>
-                        <CardTitle className="text-lg">{capability.title}</CardTitle>
-                        <CardDescription>{capability.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Badge variant="secondary" className="mb-3">
-                          {capability.status}
-                        </Badge>
-                        <p className="text-sm text-muted-foreground mb-3">{capability.details}</p>
-                        <Button variant="outline" size="sm" className="w-full">
-                          View Details & Tech Stack
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-                    <DialogHeader>
-                      <DialogTitle className="flex items-center gap-2">
-                        {capability.icon}
-                        {capability.title}
-                      </DialogTitle>
-                      <DialogDescription>
-                        Complete technical details and dependency information
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold mb-2">Overview</h4>
-                        <p className="text-sm text-muted-foreground">{capability.details}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold mb-2">Dependencies & Versions</h4>
-                        <div className="space-y-2">
-                          {capability.techStack.map((tech, techIndex) => (
-                            <div
-                              key={techIndex}
-                              className="flex items-center justify-between p-2 bg-muted rounded"
-                            >
-                              <code className="text-sm font-mono">{tech}</code>
-                              <Badge variant="outline" className="text-xs">
-                                Installed
-                              </Badge>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold mb-2">Quick Start Example</h4>
-                        <div className="p-3 bg-muted rounded font-mono text-sm">
-                          {capability.cheatSheet}
-                        </div>
-                      </div>
-
-                      <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="flex-1">
-                          <Copy className="w-4 h-4 mr-2" />
-                          Copy Example
-                        </Button>
-                        <Button size="sm" variant="outline" className="flex-1">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Docs
-                        </Button>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
-          </div>
-
-          {/* Cheat Sheets */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Developer Cheat Sheets</h2>
-            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Quick reference guides for all template capabilities. Copy these patterns to build
+              Comprehensive guides, examples, and references. Everything you need to build
               efficiently.
             </p>
 
-            <Tabs defaultValue="styling" className="max-w-6xl mx-auto">
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="styling">Styling</TabsTrigger>
-                <TabsTrigger value="animation">Animation</TabsTrigger>
-                <TabsTrigger value="data">Data</TabsTrigger>
-                <TabsTrigger value="seo">SEO</TabsTrigger>
-              </TabsList>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              <Card className="hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <Book className="h-8 w-8 mb-3 text-blue-600" />
+                  <h3 className="font-semibold mb-2">Complete Reference</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    All components, utilities, and patterns
+                  </p>
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a
+                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/REFERENCE.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FileText className="w-4 h-4 mr-2" />
+                      View Reference
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
 
-              {cheatSheetSections.map((section, sectionIndex) => (
-                <TabsContent
-                  key={sectionIndex}
-                  value={section.title.toLowerCase().split(" ")[0]}
-                  className="space-y-6"
+              <Card className="hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <Code className="h-8 w-8 mb-3 text-purple-600" />
+                  <h3 className="font-semibold mb-2">AI Prompting Guide</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Effective prompts for AI development
+                  </p>
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a
+                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/AI_PROMPTING_EXAMPLES.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Code className="w-4 h-4 mr-2" />
+                      View Examples
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <TestTube className="h-8 w-8 mb-3 text-green-600" />
+                  <h3 className="font-semibold mb-2">Testing Patterns</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Component and API testing guides
+                  </p>
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a
+                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/testing-patterns.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <TestTube className="w-4 h-4 mr-2" />
+                      View Patterns
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <Layers className="h-8 w-8 mb-3 text-orange-600" />
+                  <h3 className="font-semibold mb-2">Architecture</h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Project structure and patterns
+                  </p>
+                  <Button variant="outline" size="sm" asChild className="w-full">
+                    <a
+                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/architecture/folder-structure.md"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Layers className="w-4 h-4 mr-2" />
+                      View Architecture
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Button variant="outline" asChild>
+                <a
+                  href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/DEVELOPER_ONBOARDING.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Card>
-                    <CardHeader>
-                      <div className="flex items-center gap-2">
-                        {section.icon}
-                        <CardTitle>{section.title}</CardTitle>
-                      </div>
-                      <CardDescription>
-                        Essential patterns and code snippets for {section.title.toLowerCase()}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {section.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="border rounded-lg p-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <h4 className="font-semibold">{item.label}</h4>
-                            <Button variant="ghost" size="sm">
-                              <Copy className="w-4 h-4" />
-                            </Button>
-                          </div>
-                          <div className="bg-muted p-3 rounded text-sm font-mono mb-2 overflow-x-auto">
-                            {item.code}
-                          </div>
-                          <p className="text-sm text-muted-foreground">{item.description}</p>
-                        </div>
-                      ))}
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              ))}
-            </Tabs>
+                  <ArrowRight className="w-4 h-4 mr-2" />
+                  Complete Developer Guide
+                </a>
+              </Button>
+            </div>
           </div>
 
-          {/* AI Prompt Examples */}
+          {/* Compact Tech Stack */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">AI Prompting Guide</h2>
+            <h2 className="text-3xl font-bold text-center mb-2">⚡ Technology Stack</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Effective prompts for AI assistants to build features correctly within template
-              constraints. Click to expand detailed examples and explanations.
+              Modern, production-ready stack with comprehensive tooling and security features.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-              {aiPromptExamples.map((example, index) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {techStackData.map((tech, index) => (
                 <Dialog key={index}>
-                  <DialogTrigger asChild>
-                    <Card className="relative cursor-pointer hover:shadow-lg transition-all hover:scale-[1.02]">
-                      <CardHeader>
-                        <div className="flex items-center justify-between">
-                          <CardTitle className="text-lg">{example.category}</CardTitle>
-                          <Badge variant="outline">{example.category.split(" ")[0]}</Badge>
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="pt-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        {tech.icon}
+                        <div>
+                          <h3 className="font-semibold">{tech.primary}</h3>
+                          <p className="text-sm text-muted-foreground">{tech.category}</p>
                         </div>
-                        <CardDescription className="line-clamp-2">
-                          {example.prompt.substring(0, 100)}...
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4">{tech.description}</p>
+                      <DialogTrigger asChild>
                         <Button variant="outline" size="sm" className="w-full">
-                          View Full Prompt & Explanation
+                          <Code className="w-4 h-4 mr-2" />
+                          View Details
                         </Button>
-                      </CardContent>
-                    </Card>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+                      </DialogTrigger>
+                    </CardContent>
+                  </Card>
+                  <DialogContent className="max-w-2xl">
                     <DialogHeader>
                       <DialogTitle className="flex items-center gap-2">
-                        <Code className="h-5 w-5" />
-                        {example.category}
+                        {tech.icon}
+                        {tech.primary}
                       </DialogTitle>
-                      <DialogDescription>
-                        Complete prompt example with explanation and best practices
-                      </DialogDescription>
+                      <DialogDescription>{tech.description}</DialogDescription>
                     </DialogHeader>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold mb-2">Complete AI Prompt:</h4>
-                        <div className="bg-muted p-4 rounded-lg border">
-                          <p className="text-sm font-mono whitespace-pre-wrap">
-                            &ldquo;{example.prompt}&rdquo;
-                          </p>
+                        <h4 className="font-semibold mb-2">Key Features:</h4>
+                        <ul className="grid grid-cols-2 gap-2 text-sm">
+                          {tech.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-600" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Key Packages:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {tech.packages.map((pkg, idx) => (
+                            <Badge key={idx} variant="secondary" className="text-xs">
+                              {pkg}
+                            </Badge>
+                          ))}
                         </div>
-                      </div>
-
-                      <div className="bg-green-50 dark:bg-green-950/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
-                        <h4 className="font-semibold mb-2 text-green-800 dark:text-green-200">
-                          Why This Prompt Works:
-                        </h4>
-                        <p className="text-sm text-green-700 dark:text-green-300">
-                          {example.explanation}
-                        </p>
-                      </div>
-
-                      <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="flex-1">
-                          <Copy className="w-4 h-4 mr-2" />
-                          Copy Prompt
-                        </Button>
-                        <Button size="sm" variant="outline" className="flex-1">
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          More Examples
-                        </Button>
                       </div>
                     </div>
                   </DialogContent>
@@ -646,15 +348,14 @@ export default function Home() {
 
           {/* Live Demonstrations */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Live Feature Demonstrations</h2>
+            <h2 className="text-3xl font-bold text-center mb-2">🚀 Live Demonstrations</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Interactive examples of all template capabilities in action. Study these patterns for
-              your own implementations.
+              Interactive examples of template capabilities. Study the implementation patterns.
             </p>
 
             <Tabs defaultValue="swr" className="max-w-6xl mx-auto">
               <TabsList className="grid w-full grid-cols-5">
-                <TabsTrigger value="swr">SWR Data</TabsTrigger>
+                <TabsTrigger value="swr">Data Fetching</TabsTrigger>
                 <TabsTrigger value="animations">Animations</TabsTrigger>
                 <TabsTrigger value="carousel">Carousel</TabsTrigger>
                 <TabsTrigger value="forms">Forms</TabsTrigger>
@@ -666,11 +367,13 @@ export default function Home() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Database className="h-5 w-5" />
-                      SWR Data Fetching Demo
+                      SWR Data Fetching
                     </CardTitle>
                     <CardDescription>
-                      Complete SWR implementation with loading states, error handling, and
-                      revalidation patterns. Study the code in components/examples/SWRExample.tsx
+                      Complete implementation with loading states, error handling, and revalidation.
+                      <code className="ml-2 text-xs bg-muted px-2 py-1 rounded">
+                        components/examples/SWRExample.tsx
+                      </code>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -687,8 +390,10 @@ export default function Home() {
                       Framer Motion Animations
                     </CardTitle>
                     <CardDescription>
-                      Stagger animations, hover effects, and spring physics. Code available in
-                      components/examples/AnimatedCard.tsx
+                      Stagger animations, hover effects, and spring physics.
+                      <code className="ml-2 text-xs bg-muted px-2 py-1 rounded">
+                        components/examples/AnimatedCard.tsx
+                      </code>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -721,11 +426,13 @@ export default function Home() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Globe className="h-5 w-5" />
-                      Embla Carousel Component
+                      Embla Carousel
                     </CardTitle>
                     <CardDescription>
-                      Touch-friendly carousel with navigation controls and responsive design.
-                      Implementation in components/examples/ImageCarousel.tsx
+                      Touch-friendly carousel with navigation controls.
+                      <code className="ml-2 text-xs bg-muted px-2 py-1 rounded">
+                        components/examples/ImageCarousel.tsx
+                      </code>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -744,8 +451,10 @@ export default function Home() {
                       Enhanced Form with Validation
                     </CardTitle>
                     <CardDescription>
-                      React Hook Form + Zod validation with @tailwindcss/forms styling. Complete
-                      implementation in components/ContactForm.tsx
+                      React Hook Form + Zod validation with enhanced styling.
+                      <code className="ml-2 text-xs bg-muted px-2 py-1 rounded">
+                        components/ContactForm.tsx
+                      </code>
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -759,25 +468,24 @@ export default function Home() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Shield className="h-5 w-5" />
-                      Security Testing Dashboard
+                      Security Testing Suite
                     </CardTitle>
                     <CardDescription>
-                      Test rate limiting, CSP policies, input validation, and other security
-                      features. Comprehensive security testing suite for development and auditing.
+                      Comprehensive security testing including rate limiting, CSP, and input
+                      validation.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="text-center py-8">
                       <Shield className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                      <h3 className="text-lg font-semibold mb-2">Security Testing Suite</h3>
+                      <h3 className="text-lg font-semibold mb-2">Security Testing Dashboard</h3>
                       <p className="text-muted-foreground mb-4">
-                        Test your application&apos;s security features including rate limiting, CSP
-                        bypass attempts, input validation edge cases, and more.
+                        Test rate limiting, CSP policies, input validation, and security headers.
                       </p>
                       <Button asChild>
                         <a href="/security-test">
                           <Shield className="w-4 h-4 mr-2" />
-                          Open Security Dashboard
+                          Open Security Tests
                         </a>
                       </Button>
                     </div>
@@ -787,15 +495,14 @@ export default function Home() {
             </Tabs>
           </div>
 
-          {/* Quality & Development Tools */}
+          {/* Development Tools */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Quality & Development Tools</h2>
+            <h2 className="text-3xl font-bold text-center mb-2">🔧 Development Tools</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Built-in quality automation, testing, and development tools. All commands run
-              automatically on commit.
+              Built-in quality automation and development tools. All run automatically on commit.
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
@@ -803,12 +510,12 @@ export default function Home() {
                     Quality Gates
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
+                <CardContent className="space-y-3">
                   <div className="bg-muted p-3 rounded text-sm font-mono">
-                    npm run lint && npm run format && npm test
+                    npm run lint && npm run test
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Runs automatically on git commit via Husky + lint-staged
+                    Auto-runs on commit via Husky hooks
                   </p>
                 </CardContent>
               </Card>
@@ -820,13 +527,11 @@ export default function Home() {
                     Quality Analysis
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
+                <CardContent className="space-y-3">
                   <div className="bg-muted p-3 rounded text-sm font-mono">
                     ./scripts/quality/ci-check.sh
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Comprehensive quality analysis with 100-point scoring system
-                  </p>
+                  <p className="text-sm text-muted-foreground">100-point quality scoring system</p>
                 </CardContent>
               </Card>
 
@@ -837,417 +542,35 @@ export default function Home() {
                     Testing Suite
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
+                <CardContent className="space-y-3">
                   <div className="bg-muted p-3 rounded text-sm font-mono">npm test -- --watch</div>
-                  <p className="text-sm text-muted-foreground">
-                    Jest + React Testing Library with component testing patterns
-                  </p>
+                  <p className="text-sm text-muted-foreground">Jest + React Testing Library</p>
                 </CardContent>
               </Card>
             </div>
           </div>
 
-          {/* Getting Started */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Build?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              You now have everything needed to build production-ready websites with this template.
-              Use the cheat sheets, follow the AI prompts, and study the live examples.
-            </p>
+          {/* Footer */}
+          <div className="text-center py-8 border-t">
+            <p className="text-muted-foreground mb-4">Built with ❤️ for modern web development</p>
             <div className="flex justify-center gap-4">
-              <Button size="lg">
-                <Code className="w-4 h-4 mr-2" />
-                Start Building
-              </Button>
-              <Button variant="outline" size="lg">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                View Documentation
-              </Button>
-            </div>
-          </div>
-
-          {/* AI-Powered Development Experience */}
-          <div className="mb-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 p-8 rounded-xl">
-            <div className="text-center mb-8">
-              <Wand2 className="h-12 w-12 mx-auto mb-4 text-blue-600 dark:text-blue-400" />
-              <h2 className="text-3xl font-bold mb-2">AI-Powered Development Experience</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                This template includes a smart AI guidance system that transforms your development
-                workflow. Get contextual suggestions, workflow optimization, and feature discovery
-                as you build.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <Card className="border-blue-200 dark:border-blue-800">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    🧠 Smart Contextual Guidance
-                  </CardTitle>
-                  <CardDescription>
-                    AI analyzes your current work and provides targeted suggestions
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
-                    <div className="text-sm font-medium mb-1">💡 Try asking:</div>
-                    <div className="text-sm text-blue-700 dark:text-blue-300 font-mono">
-                      &quot;What template features should I consider for this component?&quot;
-                    </div>
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    <strong>Auto-detects:</strong> Current file type, imports, patterns •
-                    <strong>Suggests:</strong> Testing, animations, accessibility, optimizations
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-purple-200 dark:border-purple-800">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    🎯 Milestone-Based Prompts
-                  </CardTitle>
-                  <CardDescription>
-                    Contextual guidance appears at natural development moments
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="bg-purple-50 dark:bg-purple-950/20 p-3 rounded-lg border border-purple-200 dark:border-purple-800">
-                    <div className="text-sm font-medium mb-1">🚀 After completing components:</div>
-                    <div className="text-sm text-purple-700 dark:text-purple-300">
-                      &quot;Consider adding Framer Motion animations&quot; • &quot;Don&apos;t forget
-                      tests in __tests__/&quot;
-                    </div>
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    <strong>Triggers:</strong> File saves, feature completion, git commits •
-                    <strong>Non-intrusive:</strong> Never interrupts active coding
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center gap-4 bg-white dark:bg-gray-900 p-4 rounded-lg border shadow-sm">
-                <div className="text-sm text-muted-foreground">
-                  <strong>Quick Start:</strong> Ask AI about any file you&apos;re working on
-                </div>
-                <Badge
-                  variant="secondary"
-                  className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+              <Button variant="outline" size="sm" asChild>
+                <a
+                  href="https://github.com/xavierstack/Next-Tailwind-Template"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  ✨ Active in Cursor
-                </Badge>
-              </div>
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  GitHub
+                </a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/security-test">
+                  <Shield className="w-4 h-4 mr-2" />
+                  Security Tests
+                </a>
+              </Button>
             </div>
-          </div>
-
-          {/* Developer Workflow Integration */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Integrated Development Workflow</h2>
-            <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Everything works together seamlessly. Documentation, AI guidance, quality tools, and
-              examples are designed to support your natural development flow without getting in the
-              way.
-            </p>
-
-            <div className="grid lg:grid-cols-3 gap-6">
-              {/* Development Phase */}
-              <Card className="border-green-200 dark:border-green-800">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-green-700 dark:text-green-300">
-                    <Code className="h-5 w-5" />
-                    1. Development
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      AI suggests components & patterns
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      Live examples for reference
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                      Cheat sheets for quick lookup
-                    </div>
-                  </div>
-                  <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded text-sm">
-                    <div className="font-mono mb-1">npm run dev</div>
-                    <div className="text-muted-foreground">Hot reload + type checking</div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Quality Phase */}
-              <Card className="border-blue-200 dark:border-blue-800">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
-                    <TestTube className="h-5 w-5" />
-                    2. Quality & Testing
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-blue-600" />
-                      AI suggests testing patterns
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-blue-600" />
-                      Automated quality scoring
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-blue-600" />
-                      Pre-commit quality gates
-                    </div>
-                  </div>
-                  <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded text-sm">
-                    <div className="font-mono mb-1">npm test</div>
-                    <div className="text-muted-foreground">Jest + Testing Library</div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Deployment Phase */}
-              <Card className="border-purple-200 dark:border-purple-800">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-purple-700 dark:text-purple-300">
-                    <Gauge className="h-5 w-5" />
-                    3. Production Ready
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-purple-600" />
-                      AI checks optimization opportunities
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-purple-600" />
-                      Security & performance audits
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-purple-600" />
-                      CI/CD pipeline ready
-                    </div>
-                  </div>
-                  <div className="bg-purple-50 dark:bg-purple-950/20 p-3 rounded text-sm">
-                    <div className="font-mono mb-1">npm run build</div>
-                    <div className="text-muted-foreground">Optimized production build</div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Documentation & Resources Hub */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">Documentation & Resources Hub</h2>
-            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              All documentation is designed for quick reference during development. No need to
-              memorize - just ask AI or check the relevant guide.
-            </p>
-
-            <Tabs defaultValue="quick-ref" className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="quick-ref">Quick Reference</TabsTrigger>
-                <TabsTrigger value="ai-guides">AI Guides</TabsTrigger>
-                <TabsTrigger value="patterns">Code Patterns</TabsTrigger>
-                <TabsTrigger value="workflows">Workflows</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="quick-ref" className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">🎯 Template Cheat Sheet</CardTitle>
-                      <CardDescription>
-                        All components, utilities, and code examples in one place
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>docs/REFERENCE.md</code> - Complete reference
-                        </div>
-                        <div>
-                          <code>components/examples/</code> - Live examples
-                        </div>
-                        <div>
-                          <code>lib/utils.ts</code> - Helper functions
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">📋 Template Capabilities</CardTitle>
-                      <CardDescription>
-                        Full feature overview and implementation status
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>docs/REFERENCE.md</code> - Feature matrix included
-                        </div>
-                        <div>
-                          <code>scripts/quality/</code> - Quality tools
-                        </div>
-                        <div>
-                          <code>__tests__/</code> - Testing examples
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="ai-guides" className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">🤖 AI Prompting Examples</CardTitle>
-                      <CardDescription>
-                        Effective prompts for AI-assisted development
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>docs/AI_PROMPTING_EXAMPLES.md</code> - Proven prompts
-                        </div>
-                        <div>
-                          <code>docs/ai-agents/</code> - Advanced AI integration
-                        </div>
-                        <div>
-                          <code>.cursorrules</code> - Active AI guidance
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">🧠 Smart Guidance System</CardTitle>
-                      <CardDescription>Contextual AI assistance and decision trees</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>docs/ai-agents/smart-guidance-implementation.md</code>
-                        </div>
-                        <div>
-                          <code>docs/ai-agents/decision-trees.md</code> - When to use what
-                        </div>
-                        <div>
-                          <code>docs/ai-agents/contextual-guidance.md</code>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="patterns" className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">🧪 Testing Patterns</CardTitle>
-                      <CardDescription>
-                        Component testing, API testing, and accessibility testing
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>docs/testing-patterns.md</code> - Comprehensive guide
-                        </div>
-                        <div>
-                          <code>__tests__/</code> - Example implementations
-                        </div>
-                        <div>
-                          <code>jest.config.js</code> - Test configuration
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">🏗️ Architecture Guide</CardTitle>
-                      <CardDescription>Project structure and organization patterns</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>docs/architecture/folder-structure.md</code>
-                        </div>
-                        <div>
-                          <code>tsconfig.json</code> - Path aliases
-                        </div>
-                        <div>
-                          <code>components.json</code> - Component config
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="workflows" className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">⚡ Development Workflow</CardTitle>
-                      <CardDescription>
-                        Git workflow, commit conventions, and quality gates
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>.cursorrules</code> - Development guidelines
-                        </div>
-                        <div>
-                          <code>.husky/</code> - Git hooks and quality gates
-                        </div>
-                        <div>
-                          <code>.github/workflows/</code> - CI/CD pipeline
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">🔧 Template Refinement</CardTitle>
-                      <CardDescription>
-                        Implementation phases and upgrade procedures
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2 text-sm">
-                        <div>
-                          <code>TEMPLATE_REFINEMENT_WORKFLOW.md</code>
-                        </div>
-                        <div>
-                          <code>scripts/quality/ci-check.sh</code> - Quality scoring
-                        </div>
-                        <div>
-                          <code>package.json</code> - All available scripts
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-            </Tabs>
           </div>
         </div>
       </main>
