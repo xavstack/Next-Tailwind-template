@@ -303,8 +303,8 @@ function DocumentationModal({
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
-        <DialogHeader>
+      <DialogContent className="max-w-4xl max-h-[85vh] overflow-hidden flex flex-col">
+        <DialogHeader className="flex-shrink-0">
           <DialogTitle className="flex items-center gap-2">
             <Book className="h-5 w-5" />
             {title}
@@ -313,9 +313,9 @@ function DocumentationModal({
             Complete documentation and examples for this section
           </DialogDescription>
         </DialogHeader>
-        <div className="flex-1 overflow-y-auto pr-4">
-          <div className="prose prose-sm max-w-none dark:prose-invert">
-            <pre className="whitespace-pre-wrap text-sm leading-relaxed bg-muted p-4 rounded-lg border">
+        <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-muted-foreground/20 scrollbar-track-transparent">
+          <div className="prose prose-sm max-w-none dark:prose-invert pr-4">
+            <pre className="whitespace-pre-wrap text-sm leading-relaxed bg-muted p-4 rounded-lg border overflow-x-auto">
               {content}
             </pre>
           </div>
@@ -328,19 +328,19 @@ function DocumentationModal({
 export default function Home() {
   const carouselImages = [
     {
-      src: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2125&q=80",
+      src: "https://www.aesdes.org/wp-content/uploads/2025/01/post-image-4-e1738111951741.jpg",
       alt: "Retro Futuristic Cityscape",
       title: "Neon Cityscape",
     },
     {
-      src: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+      src: "https://www.aesdes.org/wp-content/uploads/2025/01/post-image-2.jpg",
       alt: "Futuristic Nature Scene",
       title: "Digital Nature",
     },
     {
-      src: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      alt: "Spaceships in Operation",
-      title: "Space Operations",
+      src: "/retrofuture.gif",
+      alt: "Retro Future Animation",
+      title: "Retro Future",
     },
   ];
 
@@ -425,8 +425,8 @@ export default function Home() {
           {/* Hero Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
-              Xav&apos;s Full Stack Template
-              <span className="text-primary"> Ready to Ship</span>
+              Xav&apos;s full stack template
+              <span className="text-primary"></span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Next.js 15 + React 19 with 30+ integrated libraries, security features, animations,
