@@ -27,7 +27,6 @@ import {
   Settings,
   TestTube,
   Sparkles,
-  Copy,
   ExternalLink,
   Shield,
   Gauge,
@@ -41,7 +40,7 @@ import {
 
 // Demonstrate SEO utilities integration
 export const metadata: Metadata = createPageMetadata({
-  title: "Next.js Template - Production Ready Stack",
+  title: "Xav's Full Stack Template - Production Ready Stack",
   description:
     "Complete Next.js 15 template with Radix UI, Framer Motion, SWR, security features, and 30+ integrated libraries. Production-ready with AI-optimized development workflow.",
   keywords: [
@@ -56,13 +55,13 @@ export const metadata: Metadata = createPageMetadata({
     "Production ready",
   ],
   openGraph: {
-    title: "Next.js Template - Live Demonstrations",
+    title: "Xav's Full Stack Template - Live Demonstrations",
     description:
       "Interactive showcase of modern web development tools and capabilities. Explore animations, security features, and best practices in action.",
     type: "website",
   },
   twitter: {
-    title: "Next.js Template - Live Demonstrations",
+    title: "Xav's Full Stack Template - Live Demonstrations",
     description:
       "Interactive showcase with real-time examples of modern web development capabilities.",
   },
@@ -196,8 +195,8 @@ test('generates correct page metadata', () => {
     description: 'Test description'
   });
   
-  expect(metadata.title).toBe('Test Page | Next.js Template');
-  expect(metadata.description).toBe('Test description');
+  expect(metadata.title).toBe(&apos;Test Page | Next.js Template&apos;);
+  expect(metadata.description).toBe(&apos;Test description&apos;);
 });
 \`\`\`
 
@@ -328,10 +327,21 @@ function DocumentationModal({
 
 export default function Home() {
   const carouselImages = [
-    { src: "🖼️", alt: "Gallery Image 1", title: "Beautiful Landscape" },
-    { src: "🎨", alt: "Gallery Image 2", title: "Abstract Art" },
-    { src: "📸", alt: "Gallery Image 3", title: "Street Photography" },
-    { src: "🌅", alt: "Gallery Image 4", title: "Sunrise View" },
+    {
+      src: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2125&q=80",
+      alt: "Retro Futuristic Cityscape",
+      title: "Neon Cityscape",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+      alt: "Futuristic Nature Scene",
+      title: "Digital Nature",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      alt: "Spaceships in Operation",
+      title: "Space Operations",
+    },
   ];
 
   const techStackData = [
@@ -398,7 +408,7 @@ export default function Home() {
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4">
             <div className="flex items-center space-x-2">
-              <h2 className="text-xl font-bold">Next.js Template</h2>
+              <h2 className="text-xl font-bold">Xav&apos;s Full Stack Template</h2>
               <Badge variant="secondary">Production Ready</Badge>
             </div>
             <div className="flex items-center space-x-2">
@@ -415,7 +425,7 @@ export default function Home() {
           {/* Hero Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
-              Complete Full-Stack Template
+              Xav&apos;s Full Stack Template
               <span className="text-primary"> Ready to Ship</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -426,7 +436,7 @@ export default function Home() {
             <div className="flex justify-center gap-4 mb-8">
               <Button size="lg" asChild>
                 <a
-                  href="https://github.com/xavierstack/Next-Tailwind-Template"
+                  href="https://github.com/xavstack/Next-Tailwind-template"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -434,10 +444,73 @@ export default function Home() {
                   View on GitHub
                 </a>
               </Button>
-              <Button variant="outline" size="lg">
-                <Copy className="w-4 h-4 mr-2" />
-                Use This Template
-              </Button>
+            </div>
+          </div>
+
+          {/* Compact Tech Stack - WITH CENTERED TITLES AND COLORS */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-center mb-2">⚡ Technology Stack</h2>
+            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Modern, production-ready stack with comprehensive tooling and security features.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {techStackData.map((tech, index) => (
+                <Dialog key={index}>
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="pt-6">
+                      <div className="text-center mb-4">
+                        <div className="flex justify-center items-center gap-3 mb-3">
+                          <div className={tech.color}>{tech.icon}</div>
+                        </div>
+                        <h3 className={`font-semibold ${tech.color}`}>{tech.primary}</h3>
+                        <p className="text-sm text-muted-foreground">{tech.category}</p>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4 text-center">
+                        {tech.description}
+                      </p>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" size="sm" className="w-full">
+                          <Code className="w-4 h-4 mr-2" />
+                          View Details
+                        </Button>
+                      </DialogTrigger>
+                    </CardContent>
+                  </Card>
+                  <DialogContent className="max-w-2xl">
+                    <DialogHeader>
+                      <DialogTitle className="flex items-center gap-2">
+                        <div className={tech.color}>{tech.icon}</div>
+                        {tech.primary}
+                      </DialogTitle>
+                      <DialogDescription>{tech.description}</DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-semibold mb-2">Key Features:</h4>
+                        <ul className="grid grid-cols-2 gap-2 text-sm">
+                          {tech.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-center gap-2">
+                              <CheckCircle className="h-4 w-4 text-green-600" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Key Packages:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {tech.packages.map((pkg, idx) => (
+                            <Badge key={idx} variant="secondary" className="text-xs">
+                              {pkg}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ))}
             </div>
           </div>
 
@@ -534,7 +607,7 @@ export default function Home() {
             <div className="text-center">
               <Button variant="outline" asChild>
                 <a
-                  href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/DEVELOPER_ONBOARDING.md"
+                  href="https://github.com/xavstack/Next-Tailwind-template?tab=readme-ov-file#nextjs--tailwind-template"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -542,73 +615,6 @@ export default function Home() {
                   Complete Developer Guide
                 </a>
               </Button>
-            </div>
-          </div>
-
-          {/* Compact Tech Stack - WITH CENTERED TITLES AND COLORS */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-2">⚡ Technology Stack</h2>
-            <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Modern, production-ready stack with comprehensive tooling and security features.
-            </p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {techStackData.map((tech, index) => (
-                <Dialog key={index}>
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="pt-6">
-                      <div className="text-center mb-4">
-                        <div className="flex justify-center items-center gap-3 mb-3">
-                          <div className={tech.color}>{tech.icon}</div>
-                        </div>
-                        <h3 className={`font-semibold ${tech.color}`}>{tech.primary}</h3>
-                        <p className="text-sm text-muted-foreground">{tech.category}</p>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-4 text-center">
-                        {tech.description}
-                      </p>
-                      <DialogTrigger asChild>
-                        <Button variant="outline" size="sm" className="w-full">
-                          <Code className="w-4 h-4 mr-2" />
-                          View Details
-                        </Button>
-                      </DialogTrigger>
-                    </CardContent>
-                  </Card>
-                  <DialogContent className="max-w-2xl">
-                    <DialogHeader>
-                      <DialogTitle className="flex items-center gap-2">
-                        <div className={tech.color}>{tech.icon}</div>
-                        {tech.primary}
-                      </DialogTitle>
-                      <DialogDescription>{tech.description}</DialogDescription>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold mb-2">Key Features:</h4>
-                        <ul className="grid grid-cols-2 gap-2 text-sm">
-                          {tech.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center gap-2">
-                              <CheckCircle className="h-4 w-4 text-green-600" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-2">Key Packages:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {tech.packages.map((pkg, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
-                              {pkg}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              ))}
             </div>
           </div>
 
@@ -822,7 +828,7 @@ export default function Home() {
             <div className="flex justify-center gap-4">
               <Button variant="outline" size="sm" asChild>
                 <a
-                  href="https://github.com/xavierstack/Next-Tailwind-Template"
+                  href="https://github.com/xavstack/Next-Tailwind-template"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -2,6 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -30,12 +31,22 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
         <div className="flex">
           {images.map((image, index) => (
             <div key={index} className="flex-[0_0_100%] min-w-0">
-              <div className="relative aspect-video bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-4xl mb-2">{image.src}</div>
-                  <p className="text-sm text-muted-foreground">{image.alt}</p>
-                  {image.title && <p className="text-lg font-semibold mt-2">{image.title}</p>}
-                </div>
+              <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
+                {image.src.startsWith("http") ? (
+                  <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                ) : (
+                  <div className="flex items-center justify-center h-full">
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">{image.src}</div>
+                      <p className="text-sm text-muted-foreground">{image.alt}</p>
+                    </div>
+                  </div>
+                )}
+                {image.title && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-2">
+                    <p className="text-sm font-semibold">{image.title}</p>
+                  </div>
+                )}
               </div>
             </div>
           ))}
