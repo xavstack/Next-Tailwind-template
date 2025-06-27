@@ -1072,7 +1072,7 @@ export default function Home() {
                     <CardContent>
                       <div className="space-y-2 text-sm">
                         <div>
-                          <code>docs/CHEATSHEET.md</code> - Complete reference
+                          <code>docs/REFERENCE.md</code> - Complete reference
                         </div>
                         <div>
                           <code>components/examples/</code> - Live examples
@@ -1094,7 +1094,7 @@ export default function Home() {
                     <CardContent>
                       <div className="space-y-2 text-sm">
                         <div>
-                          <code>docs/CAPABILITIES.md</code> - Feature matrix
+                          <code>docs/REFERENCE.md</code> - Feature matrix included
                         </div>
                         <div>
                           <code>scripts/quality/</code> - Quality tools

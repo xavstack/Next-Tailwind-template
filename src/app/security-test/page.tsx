@@ -428,8 +428,8 @@ export default function SecurityTestPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="text-sm font-medium">Test Contact Form</label>
-                <div className="space-y-2 mt-2">
+                <div className="text-sm font-medium mb-2">Test Contact Form</div>
+                <div className="space-y-2">
                   <Input placeholder="Name (try XSS: <script>alert('xss')</script>)" />
                   <Input placeholder="Email (try SQL: '; DROP TABLE users; --)" />
                   <Textarea placeholder="Message (try long input or special characters)" />
@@ -438,8 +438,8 @@ export default function SecurityTestPage() {
               </div>
 
               <div>
-                <label className="text-sm font-medium">Test External Connections</label>
-                <div className="space-y-2 mt-2">
+                <div className="text-sm font-medium mb-2">Test External Connections</div>
+                <div className="space-y-2">
                   <Input placeholder="URL to test (e.g., https://evil-site.com/api)" />
                   <Button variant="outline">Test Connection</Button>
                 </div>

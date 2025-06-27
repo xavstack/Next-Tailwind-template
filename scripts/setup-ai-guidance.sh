@@ -45,7 +45,7 @@ echo "🔍 Verifying template setup..."
 
 checks=(
     "docs/DEVELOPER_ONBOARDING.md:Developer onboarding guide"
-    "docs/CHEATSHEET.md:Quick reference cheat sheet"
+    "docs/REFERENCE.md:Complete reference guide"
     "docs/AI_PROMPTING_EXAMPLES.md:AI prompting examples"
     "docs/ai-agents/smart-guidance-implementation.md:Smart guidance system"
     "src/components/examples:Live component examples"
@@ -76,7 +76,7 @@ echo "4. Try asking AI: 'What template features should I consider for this compo
 echo ""
 echo "📚 Resources:"
 echo "• Complete guide: docs/DEVELOPER_ONBOARDING.md"
-echo "• Quick reference: docs/CHEATSHEET.md"
+echo "• Complete reference: docs/REFERENCE.md"
 echo "• AI examples: docs/AI_PROMPTING_EXAMPLES.md"
 echo ""
 echo "💡 Pro tip: Ask AI about any file you're working on for contextual suggestions!"

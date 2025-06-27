@@ -182,8 +182,7 @@ npm test        # Jest tests
 
 | Resource                        | What it contains                         | When to use                        |
 | ------------------------------- | ---------------------------------------- | ---------------------------------- |
-| `docs/CHEATSHEET.md`            | All code examples, components, utilities | Daily reference while coding       |
-| `docs/CAPABILITIES.md`          | Complete feature matrix                  | Planning new features              |
+| `docs/REFERENCE.md`             | All code examples, components, utilities, complete feature matrix | Daily reference while coding and planning |
 | `docs/AI_PROMPTING_EXAMPLES.md` | Proven AI prompts                        | When you need better AI assistance |
 | `docs/testing-patterns.md`      | Testing examples                         | Writing tests for any component    |
 

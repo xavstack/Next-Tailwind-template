@@ -43,6 +43,8 @@
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/eslintrc": "^3",
     "@lhci/cli": "^0.15.0",
     "@next/bundle-analyzer": "^15.3.4",

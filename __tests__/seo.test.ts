@@ -59,8 +59,10 @@ describe("SEO utilities", () => {
         description: "Test description",
       });
 
+      // @ts-expect-error - openGraph.type exists but may not be in current type definition
       expect(result.openGraph?.type).toBe("website");
       expect(result.openGraph?.locale).toBe("en_US");
+      // @ts-expect-error - twitter.card exists but type definition may not include it
       expect(result.twitter?.card).toBe("summary_large_image");
     });
   });
