@@ -303,8 +303,8 @@ function DocumentationModal({
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[85vh] overflow-hidden flex flex-col">
-        <DialogHeader className="flex-shrink-0">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
+        <DialogHeader className="flex-shrink-0 pb-4 border-b">
           <DialogTitle className="flex items-center gap-2">
             <Book className="h-5 w-5" />
             {title}
@@ -313,11 +313,13 @@ function DocumentationModal({
             Complete documentation and examples for this section
           </DialogDescription>
         </DialogHeader>
-        <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-muted-foreground/20 scrollbar-track-transparent">
-          <div className="prose prose-sm max-w-none dark:prose-invert pr-4">
-            <pre className="whitespace-pre-wrap text-sm leading-relaxed bg-muted p-4 rounded-lg border overflow-x-auto">
-              {content}
-            </pre>
+        <div className="flex-1 min-h-0 py-4">
+          <div className="h-full overflow-y-auto overscroll-contain">
+            <div className="prose prose-sm max-w-none dark:prose-invert">
+              <pre className="whitespace-pre-wrap text-sm leading-relaxed bg-muted p-4 rounded-lg border overflow-x-auto">
+                {content}
+              </pre>
+            </div>
           </div>
         </div>
       </DialogContent>
@@ -328,12 +330,12 @@ function DocumentationModal({
 export default function Home() {
   const carouselImages = [
     {
-      src: "https://www.aesdes.org/wp-content/uploads/2025/01/post-image-4-e1738111951741.jpg",
+      src: "/retro-scape.jpg",
       alt: "Retro Futuristic Cityscape",
       title: "Neon Cityscape",
     },
     {
-      src: "https://www.aesdes.org/wp-content/uploads/2025/01/post-image-2.jpg",
+      src: "/retro-scape.jpg",
       alt: "Futuristic Nature Scene",
       title: "Digital Nature",
     },
