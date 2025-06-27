@@ -68,6 +68,264 @@ export const metadata: Metadata = createPageMetadata({
   },
 });
 
+// Documentation content for modals
+const documentationContent = {
+  reference: {
+    title: "Complete Reference Guide",
+    content: `# Next.js Template Reference
+
+## 🎯 Quick Start
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
+
+## 📦 Component Library
+- **UI Components**: \`src/components/ui/\` (shadcn/ui)
+- **Examples**: \`src/components/examples/\` (implementation patterns)
+- **Custom**: \`src/components/\` (project-specific components)
+
+## 🛠️ Utilities
+- **SEO**: \`createPageMetadata()\`, \`createBlogPostSEO()\`
+- **Styling**: \`cn()\` class merging utility
+- **Data**: \`fetcher()\` for SWR integration
+- **Validation**: Zod schemas for forms and APIs
+
+## 🎨 Styling Guide
+- Use Tailwind utilities first
+- CSS variables for theming in \`globals.css\`
+- shadcn/ui components for consistency
+- \`@tailwindcss/forms\` for enhanced form styling
+
+## 🔧 Development Commands
+- \`npm run dev\` - Development server
+- \`npm run build\` - Production build
+- \`npm run lint\` - ESLint check
+- \`npm run format\` - Prettier formatting
+- \`npm test\` - Run tests
+- \`./scripts/quality/ci-check.sh\` - Quality analysis
+
+## 📊 Quality Tools
+- Jest + React Testing Library for testing
+- ESLint 9 with Next.js configuration
+- Prettier with project-specific rules
+- Husky pre-commit hooks
+- Quality scoring system (100-point scale)
+
+## 🚀 Deployment
+Ready for Vercel, Netlify, or any Node.js hosting platform.
+Environment variables in \`.env.example\`.`,
+  },
+  prompting: {
+    title: "AI Prompting Examples",
+    content: `# AI Prompting Guide
+
+## 🎯 Component Creation
+**Prompt**: "Create a hero section component with Framer Motion animations, using shadcn/ui Button and Card components, styled with Tailwind utilities only. Include TypeScript props interface and responsive design."
+
+**Why it works**: Follows template constraints (Motion animations, shadcn/ui components, Tailwind-only styling, TypeScript)
+
+## 📊 Data Integration
+**Prompt**: "Build a user dashboard that fetches data using SWR with the configured fetcher, includes loading states, error handling, and displays results in a responsive grid using shadcn/ui Cards."
+
+**Why it works**: Uses SWR patterns, proper error handling, shadcn/ui components, responsive design
+
+## 🔍 SEO Implementation
+**Prompt**: "Create a blog post page that uses the createBlogPostSEO utility for metadata, includes structured data, and renders content with proper semantic HTML and Tailwind styling."
+
+**Why it works**: Leverages SEO utilities, structured data, semantic HTML, Tailwind styling
+
+## 📝 Form Development
+**Prompt**: "Build a contact form using React Hook Form with Zod validation, shadcn/ui form components, @tailwindcss/forms styling, and proper error handling with loading states."
+
+**Why it works**: Uses established form patterns, validation, UI components, enhanced form styling
+
+## 🎨 Animation Patterns
+**Prompt**: "Add stagger animations to a list of cards using Framer Motion variants, with spring physics and hover interactions. Use the existing AnimatedCard pattern as reference."
+
+**Why it works**: References existing patterns, specifies animation library, mentions physics
+
+## 🛡️ Security Implementation
+**Prompt**: "Add rate limiting to the contact API route using in-memory storage, include Zod validation for all inputs, and implement proper error sanitization for production."
+
+**Why it works**: Specifies security measures, validation patterns, production considerations`,
+  },
+  testing: {
+    title: "Testing Patterns & Guide",
+    content: `# Testing Patterns
+
+## 🧪 Component Testing
+\`\`\`typescript
+import { render, screen } from '@testing-library/react';
+import { ContactForm } from '@/components/ContactForm';
+
+test('renders contact form with validation', () => {
+  render(<ContactForm />);
+  expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
+});
+\`\`\`
+
+## 🔗 API Testing
+\`\`\`typescript
+import { POST } from '@/app/api/contact/route';
+
+test('validates contact form submission', async () => {
+  const request = new Request('http://localhost', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: 'Test User',
+      email: 'test@example.com',
+      message: 'Test message that is long enough to pass validation'
+    })
+  });
+  
+  const response = await POST(request);
+  expect(response.status).toBe(200);
+});
+\`\`\`
+
+## 🎯 SEO Testing
+\`\`\`typescript
+import { createPageMetadata } from '@/lib/seo';
+
+test('generates correct page metadata', () => {
+  const metadata = createPageMetadata({
+    title: 'Test Page',
+    description: 'Test description'
+  });
+  
+  expect(metadata.title).toBe('Test Page | Next.js Template');
+  expect(metadata.description).toBe('Test description');
+});
+\`\`\`
+
+## 🎨 Animation Testing
+\`\`\`typescript
+import { render } from '@testing-library/react';
+import { AnimatedCard } from '@/components/examples/AnimatedCard';
+
+test('renders animated card with motion props', () => {
+  render(
+    <AnimatedCard 
+      title="Test" 
+      description="Test description" 
+      icon="🎯" 
+      delay={0} 
+    />
+  );
+  // Test implementation here
+});
+\`\`\`
+
+## 📊 Coverage Requirements
+- Minimum 75% coverage on all metrics
+- Focus on critical user journeys
+- Test error states and edge cases
+- Mock external dependencies
+
+## 🚀 Running Tests
+- \`npm test\` - Run all tests
+- \`npm test -- --watch\` - Watch mode
+- \`npm test -- --coverage\` - With coverage report
+- \`npm test -- --verbose\` - Detailed output`,
+  },
+  architecture: {
+    title: "Architecture & Project Structure",
+    content: `# Project Architecture
+
+## 📁 Folder Structure
+\`\`\`
+src/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── examples/         # Implementation examples
+│   └── providers/        # Context providers
+├── lib/                   # Utility functions
+│   ├── seo.ts            # SEO utilities
+│   ├── utils.ts          # General utilities
+│   ├── fetcher.ts        # SWR data fetching
+│   └── env.ts            # Environment validation
+└── middleware.ts          # Next.js middleware
+\`\`\`
+
+## 🎯 Design Principles
+- **Separation of Concerns**: Clear boundaries between UI, logic, and data
+- **Component Composition**: Build complex UIs from simple, reusable components
+- **Type Safety**: Strict TypeScript with proper interfaces
+- **Performance First**: Optimize for Core Web Vitals
+- **Accessibility**: WCAG compliance with semantic HTML
+
+## 🔧 Key Patterns
+- **App Router**: Use app directory for routing and layouts
+- **Server Components**: Default to server components, use 'use client' sparingly
+- **Data Fetching**: SWR for client-side, native fetch for server-side
+- **State Management**: React hooks + SWR for server state
+- **Styling**: Tailwind utilities + CSS variables for theming
+
+## 🛡️ Security Architecture
+- **Input Validation**: Zod schemas for all user inputs
+- **API Security**: Rate limiting + CSRF protection
+- **Content Security Policy**: Strict CSP headers
+- **Environment Variables**: Proper secrets management
+
+## 📦 Dependencies Strategy
+- **Core**: Next.js 15 + React 19 + TypeScript
+- **UI**: Radix UI primitives + shadcn/ui components
+- **Styling**: Tailwind CSS + @tailwindcss/forms
+- **Animation**: Framer Motion + Embla Carousel + Lenis
+- **Data**: SWR + React Hook Form + Zod
+- **Quality**: ESLint + Prettier + Jest + Husky
+
+## 🚀 Deployment
+- **Build Output**: Static + server-rendered pages
+- **Environment**: Node.js 18+ required
+- **CDN**: Optimized for edge deployment
+- **Monitoring**: Built-in performance tracking`,
+  },
+};
+
+// Documentation Modal Component
+function DocumentationModal({
+  title,
+  content,
+  trigger,
+}: {
+  title: string;
+  content: string;
+  trigger: React.ReactNode;
+}) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogContent className="max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <Book className="h-5 w-5" />
+            {title}
+          </DialogTitle>
+          <DialogDescription>
+            Complete documentation and examples for this section
+          </DialogDescription>
+        </DialogHeader>
+        <div className="flex-1 overflow-y-auto pr-4">
+          <div className="prose prose-sm max-w-none dark:prose-invert">
+            <pre className="whitespace-pre-wrap text-sm leading-relaxed bg-muted p-4 rounded-lg border">
+              {content}
+            </pre>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export default function Home() {
   const carouselImages = [
     { src: "🖼️", alt: "Gallery Image 1", title: "Beautiful Landscape" },
@@ -84,6 +342,7 @@ export default function Home() {
       description: "App Router, Server Components, React 19 features",
       packages: ["next@^15.3.4", "react@^19.1.0", "typescript@^5"],
       features: ["App Router", "Server Components", "React 19 useOptimistic", "Turbopack"],
+      color: "text-blue-600",
     },
     {
       category: "UI System",
@@ -92,6 +351,7 @@ export default function Home() {
       description: "Accessible primitives + pre-built components",
       packages: ["@radix-ui/react-*", "lucide-react@^0.518.0"],
       features: ["Dialog", "DropdownMenu", "Tooltip", "Tabs", "Form components"],
+      color: "text-purple-600",
     },
     {
       category: "Styling",
@@ -100,6 +360,7 @@ export default function Home() {
       description: "Utility-first + enhanced form styling",
       packages: ["tailwindcss@^3.4.17", "@tailwindcss/forms@^0.5.10"],
       features: ["CSS variables", "Dark mode", "Responsive design", "Form styling"],
+      color: "text-teal-600",
     },
     {
       category: "Animation",
@@ -108,6 +369,7 @@ export default function Home() {
       description: "Complete animation ecosystem",
       packages: ["framer-motion@^12.18.1", "embla-carousel-react@^8.6.0", "lenis@^1.3.4"],
       features: ["Component animations", "Carousels", "Smooth scrolling", "Gesture handling"],
+      color: "text-pink-600",
     },
     {
       category: "Data & Forms",
@@ -116,6 +378,7 @@ export default function Home() {
       description: "Type-safe data fetching and validation",
       packages: ["swr@^2.3.3", "react-hook-form@^7.58.1", "zod@^3.25.67"],
       features: ["Data fetching", "Form validation", "Schema validation", "Error handling"],
+      color: "text-green-600",
     },
     {
       category: "Security",
@@ -124,6 +387,7 @@ export default function Home() {
       description: "Comprehensive security implementation",
       packages: ["next/server", "zod@^3.25.67"],
       features: ["Content Security Policy", "Rate limiting", "Input validation", "CSRF protection"],
+      color: "text-red-600",
     },
   ];
 
@@ -177,7 +441,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Documentation & Resources Hub - MOVED UP */}
+          {/* Documentation & Resources Hub - WITH MODALS */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-2">📚 Documentation & Resources</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -193,16 +457,16 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-3">
                     All components, utilities, and patterns
                   </p>
-                  <Button variant="outline" size="sm" asChild className="w-full">
-                    <a
-                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/REFERENCE.md"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FileText className="w-4 h-4 mr-2" />
-                      View Reference
-                    </a>
-                  </Button>
+                  <DocumentationModal
+                    title={documentationContent.reference.title}
+                    content={documentationContent.reference.content}
+                    trigger={
+                      <Button variant="outline" size="sm" className="w-full">
+                        <FileText className="w-4 h-4 mr-2" />
+                        View Reference
+                      </Button>
+                    }
+                  />
                 </CardContent>
               </Card>
 
@@ -213,16 +477,16 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-3">
                     Effective prompts for AI development
                   </p>
-                  <Button variant="outline" size="sm" asChild className="w-full">
-                    <a
-                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/AI_PROMPTING_EXAMPLES.md"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Code className="w-4 h-4 mr-2" />
-                      View Examples
-                    </a>
-                  </Button>
+                  <DocumentationModal
+                    title={documentationContent.prompting.title}
+                    content={documentationContent.prompting.content}
+                    trigger={
+                      <Button variant="outline" size="sm" className="w-full">
+                        <Code className="w-4 h-4 mr-2" />
+                        View Examples
+                      </Button>
+                    }
+                  />
                 </CardContent>
               </Card>
 
@@ -233,16 +497,16 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-3">
                     Component and API testing guides
                   </p>
-                  <Button variant="outline" size="sm" asChild className="w-full">
-                    <a
-                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/testing-patterns.md"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <TestTube className="w-4 h-4 mr-2" />
-                      View Patterns
-                    </a>
-                  </Button>
+                  <DocumentationModal
+                    title={documentationContent.testing.title}
+                    content={documentationContent.testing.content}
+                    trigger={
+                      <Button variant="outline" size="sm" className="w-full">
+                        <TestTube className="w-4 h-4 mr-2" />
+                        View Patterns
+                      </Button>
+                    }
+                  />
                 </CardContent>
               </Card>
 
@@ -253,16 +517,16 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground mb-3">
                     Project structure and patterns
                   </p>
-                  <Button variant="outline" size="sm" asChild className="w-full">
-                    <a
-                      href="https://github.com/xavierstack/Next-Tailwind-Template/blob/main/docs/architecture/folder-structure.md"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Layers className="w-4 h-4 mr-2" />
-                      View Architecture
-                    </a>
-                  </Button>
+                  <DocumentationModal
+                    title={documentationContent.architecture.title}
+                    content={documentationContent.architecture.content}
+                    trigger={
+                      <Button variant="outline" size="sm" className="w-full">
+                        <Layers className="w-4 h-4 mr-2" />
+                        View Architecture
+                      </Button>
+                    }
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -281,7 +545,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Compact Tech Stack */}
+          {/* Compact Tech Stack - WITH CENTERED TITLES AND COLORS */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-2">⚡ Technology Stack</h2>
             <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -293,14 +557,16 @@ export default function Home() {
                 <Dialog key={index}>
                   <Card className="hover:shadow-md transition-shadow">
                     <CardContent className="pt-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        {tech.icon}
-                        <div>
-                          <h3 className="font-semibold">{tech.primary}</h3>
-                          <p className="text-sm text-muted-foreground">{tech.category}</p>
+                      <div className="text-center mb-4">
+                        <div className="flex justify-center items-center gap-3 mb-3">
+                          <div className={tech.color}>{tech.icon}</div>
                         </div>
+                        <h3 className={`font-semibold ${tech.color}`}>{tech.primary}</h3>
+                        <p className="text-sm text-muted-foreground">{tech.category}</p>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-4">{tech.description}</p>
+                      <p className="text-sm text-muted-foreground mb-4 text-center">
+                        {tech.description}
+                      </p>
                       <DialogTrigger asChild>
                         <Button variant="outline" size="sm" className="w-full">
                           <Code className="w-4 h-4 mr-2" />
@@ -312,7 +578,7 @@ export default function Home() {
                   <DialogContent className="max-w-2xl">
                     <DialogHeader>
                       <DialogTitle className="flex items-center gap-2">
-                        {tech.icon}
+                        <div className={tech.color}>{tech.icon}</div>
                         {tech.primary}
                       </DialogTitle>
                       <DialogDescription>{tech.description}</DialogDescription>
