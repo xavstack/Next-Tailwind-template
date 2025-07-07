@@ -1,0 +1,10 @@
+---
+description: When writing new code files, debugging or making deep edits
+globs: 
+alwaysApply: false
+---
+- Avoid sludge when attempting feature fixes or debugs, using branches if things are getting messy in the codebase. 
+- DOn't blindly agree with the user. Think and analyse prompts that don't 100% make sense. 
+- Follow the comprehensive .cursorrules file for all development
+- Always test with npm run dev after major changes
+- Commit frequently with conventional commit messages

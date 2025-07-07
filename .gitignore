@@ -50,8 +50,9 @@ next-env.d.ts
 # Turbo
 .turbo
 
-# Cursor (keep .cursorrules for AI agent guidance)
-.cursor*
+# Cursor (keep .cursorrules and .cursor/rules/ for AI agent guidance)  
+.cursor/*
+!.cursor/rules/
 !.cursorrules
 
 # IDE and Editor files
