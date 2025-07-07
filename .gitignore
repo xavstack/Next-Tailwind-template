@@ -85,3 +85,7 @@ pids
 # Performance testing reports
 lighthouse-reports/
 .next/analyze/
+
+# Template archive (exclude from version control)
+Template_archive/
+Template_archive.zip
